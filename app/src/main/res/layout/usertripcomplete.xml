@@ -22,13 +22,16 @@
             android:paddingBottom="8dp">
 
             <LinearLayout
+                android:id="@+id/btnBack"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
                 <View
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:background="@android:color/transparent"/>
+                    android:background="@drawable/arrow"/>
             </LinearLayout>
 
             <TextView
@@ -64,7 +67,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:background="@drawable/bg_rounded_border"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -86,7 +92,8 @@
                     android:layout_height="wrap_content"
                     android:text="2.5 km"
                     android:textSize="14sp"
-                    android:textColor="#121417"/>
+                    android:textColor="#121417"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
@@ -109,7 +116,8 @@
                     android:layout_height="wrap_content"
                     android:text="15 min"
                     android:textSize="14sp"
-                    android:textColor="#121417"/>
+                    android:textColor="#121417"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -120,9 +128,10 @@
             android:paddingBottom="12dp">
 
             <TextView
+                android:id="@+id/btnRatePay"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="#0A73D9"
+                android:background="@drawable/bg_pill_blue"
                 android:text="Rate Driver &amp; Pay"
                 android:textColor="#FFFFFF"
                 android:gravity="center"
@@ -145,5 +154,7 @@
             android:background="#F0F2F5"/>
 
     </LinearLayout>
+
+    <include layout="@layout/usernavbar" />
 
 </LinearLayout>

@@ -15,19 +15,22 @@
         android:paddingBottom="8dp">
 
         <LinearLayout
+            android:id="@+id/btnBack"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
             <View
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@android:color/transparent"/>
+                android:background="@drawable/arrow"/>
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="payment method"
+            android:text="Payment Method"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#121417"
@@ -37,7 +40,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="choose payment:"
+        android:text="Choose payment:"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#121417"
@@ -54,30 +57,16 @@
         <LinearLayout
             android:layout_width="116dp"
             android:layout_height="116dp"
-            android:background="#807F3B45"
-            android:gravity="center"
-            android:layout_marginEnd="16dp">
-        </LinearLayout>
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/gcash"
+            android:gravity="center"></LinearLayout>
 
         <LinearLayout
             android:layout_width="118dp"
             android:layout_height="118dp"
-            android:background="#807F3B45"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:background="#0A73D9"
-                android:text="maya"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:textSize="14sp"/>
-        </LinearLayout>
+            android:background="@drawable/maya"
+            android:gravity="center|fill"
+            android:orientation="vertical" />
 
     </LinearLayout>
 
@@ -89,8 +78,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:background="#F0F2F5"
-            android:hint="gcash/paymaya number"
+            android:background="@drawable/bg_rounded_light_grey"
+            android:hint="Gcash/Paymaya number"
             android:textColorHint="#61768A"
             android:textColor="#121417"
             android:textSize="16sp"
@@ -109,8 +98,8 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="56dp"
-            android:background="#F0F2F5"
-            android:hint="code"
+            android:background="@drawable/bg_rounded_light_grey"
+            android:hint="Code"
             android:textColorHint="#61768A"
             android:textColor="#121417"
             android:textSize="16sp"
@@ -122,8 +111,8 @@
         <TextView
             android:layout_width="103dp"
             android:layout_height="56dp"
-            android:background="#0A73D9"
-            android:text="resend"
+            android:background="@drawable/bg_pill_blue"
+            android:text="Resend"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:gravity="center"
@@ -147,8 +136,8 @@
         <TextView
             android:layout_width="211dp"
             android:layout_height="56dp"
-            android:background="#0A73D9"
-            android:text="done"
+            android:background="@drawable/bg_pill_blue"
+            android:text="Done"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:gravity="center"

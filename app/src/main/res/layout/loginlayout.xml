@@ -13,7 +13,6 @@
         android:paddingTop="16dp"
         android:paddingBottom="8dp"
         android:gravity="center_vertical">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,15 +27,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome back"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#121417"
-        android:fontFamily="sans-serif"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Welcome back"
+        android:textColor="#121417"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="#F0F2F5"
@@ -46,11 +47,12 @@
         android:textSize="16sp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:maxLines="1"
         android:layout_marginBottom="16dp"/>
 
     <EditText
+        android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="#F0F2F5"
@@ -73,9 +75,10 @@
         android:layout_marginBottom="24dp"/>
 
     <TextView
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="#0A73D9"
+        android:background="@drawable/bg_pill_blue"
         android:text="Login"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
@@ -104,7 +107,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="40dp"
-            android:background="#F0F2F5"
+            android:background="@drawable/bg_pill_grey"
             android:text="Google"
             android:textColor="#121417"
             android:textSize="14sp"
@@ -121,7 +124,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="40dp"
-            android:background="#F0F2F5"
+            android:background="@drawable/bg_pill_grey"
             android:text="Facebook"
             android:textColor="#121417"
             android:textSize="14sp"
@@ -133,12 +136,16 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tvSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Don't have an account? Sign up"
         android:gravity="center"
         android:textSize="14sp"
-        android:textColor="#61768A"/>
+        android:textColor="#61768A"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="12dp"/>
 
     <View
         android:layout_width="match_parent"

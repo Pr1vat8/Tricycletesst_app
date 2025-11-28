@@ -22,13 +22,17 @@
             android:paddingEnd="16dp">
 
             <LinearLayout
+                android:id="@+id/btnBack"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
                 <View
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:background="@android:color/transparent"/>
+                    android:background="@drawable/arrow" />
             </LinearLayout>
 
             <TextView
@@ -51,8 +55,8 @@
             <View
                 android:layout_width="108dp"
                 android:layout_height="108dp"
-                android:background="#807F3B45"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/person" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -83,7 +87,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="201dp"
-                android:background="#807F3B45"/>
+                android:background="@drawable/map" />
         </LinearLayout>
 
         <TextView
@@ -106,9 +110,10 @@
             android:paddingBottom="12dp">
 
             <TextView
+                android:id="@+id/btnMeetDriver"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="#0A73D9"
+                android:background="@drawable/bg_pill_blue"
                 android:text="Meet Driver"
                 android:textColor="#FFFFFF"
                 android:gravity="center"

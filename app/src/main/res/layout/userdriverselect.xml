@@ -15,13 +15,16 @@
         android:paddingBottom="8dp">
 
         <LinearLayout
+            android:id="@+id/btnBack"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
             <View
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@android:color/transparent"/>
+                android:background="@drawable/arrow"/>
         </LinearLayout>
 
         <TextView
@@ -41,12 +44,16 @@
         android:gravity="center_vertical"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:minHeight="72dp">
+        android:minHeight="72dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
 
         <View
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:background="#807F3B45"/>
+            android:background="@drawable/person" />
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -85,12 +92,15 @@
         android:gravity="center_vertical"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:minHeight="72dp">
+        android:minHeight="72dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
 
         <View
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:background="#807F3B45"/>
+            android:background="@drawable/person" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -130,12 +140,15 @@
         android:gravity="center_vertical"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:minHeight="72dp">
+        android:minHeight="72dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
 
         <View
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:background="#807F3B45"/>
+            android:background="@drawable/person" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -180,9 +193,10 @@
         android:paddingBottom="12dp">
 
         <TextView
+            android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="#0A73D9"
+            android:background="@drawable/bg_pill_blue"
             android:text="Confirm"
             android:textColor="#FFFFFF"
             android:gravity="center"

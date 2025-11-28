@@ -28,9 +28,12 @@
                 android:paddingEnd="16dp">
 
                 <LinearLayout
+                    android:id="@+id/btnBack"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
 
                     <View
                         android:layout_width="24dp"
@@ -61,13 +64,13 @@
                     android:layout_height="48dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:background="#E8EDF5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:paddingStart="16dp">
 
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/magni" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -92,7 +95,7 @@
                     android:layout_height="32dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:background="#E8EDF5"
+                    android:background="@drawable/bg_pill_grey"
                     android:paddingStart="16dp"
                     android:paddingEnd="8dp"
                     android:layout_marginEnd="12dp">
@@ -113,7 +116,7 @@
                     android:layout_height="32dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:background="#E8EDF5"
+                    android:background="@drawable/bg_pill_grey"
                     android:paddingStart="16dp"
                     android:paddingEnd="8dp"
                     android:layout_marginEnd="12dp">
@@ -134,7 +137,7 @@
                     android:layout_height="32dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:background="#E8EDF5"
+                    android:background="@drawable/bg_pill_grey"
                     android:paddingStart="16dp"
                     android:paddingEnd="8dp">
                     <TextView
@@ -183,8 +186,10 @@
                 <LinearLayout
                     android:layout_width="84dp"
                     android:layout_height="32dp"
-                    android:background="#E8EDF5"
-                    android:gravity="center">
+                    android:background="@drawable/bg_pill_grey"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -228,8 +233,10 @@
                 <LinearLayout
                     android:layout_width="84dp"
                     android:layout_height="32dp"
-                    android:background="#E8EDF5"
-                    android:gravity="center">
+                    android:background="@drawable/bg_pill_grey"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -273,8 +280,10 @@
                 <LinearLayout
                     android:layout_width="84dp"
                     android:layout_height="32dp"
-                    android:background="#E8EDF5"
-                    android:gravity="center">
+                    android:background="@drawable/bg_pill_grey"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -318,8 +327,10 @@
                 <LinearLayout
                     android:layout_width="84dp"
                     android:layout_height="32dp"
-                    android:background="#E8EDF5"
-                    android:gravity="center">
+                    android:background="@drawable/bg_pill_grey"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -363,8 +374,10 @@
                 <LinearLayout
                     android:layout_width="84dp"
                     android:layout_height="32dp"
-                    android:background="#E8EDF5"
-                    android:gravity="center">
+                    android:background="@drawable/bg_pill_grey"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -408,8 +421,10 @@
                 <LinearLayout
                     android:layout_width="84dp"
                     android:layout_height="32dp"
-                    android:background="#E8EDF5"
-                    android:gravity="center">
+                    android:background="@drawable/bg_pill_grey"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -453,8 +468,10 @@
                 <LinearLayout
                     android:layout_width="84dp"
                     android:layout_height="32dp"
-                    android:background="#E8EDF5"
-                    android:gravity="center">
+                    android:background="@drawable/bg_pill_grey"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

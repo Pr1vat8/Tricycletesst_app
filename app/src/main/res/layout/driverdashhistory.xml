@@ -28,9 +28,12 @@
                 android:paddingEnd="16dp">
 
                 <LinearLayout
+                    android:id="@+id/btnBack"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
 
                     <View
                         android:layout_width="24dp"
@@ -60,12 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:background="#DBE0E6"
-                    android:padding="1dp"> <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="#FFFFFF">
+                    android:background="@drawable/bg_rounded_border">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -112,19 +110,19 @@
                             android:layout_height="2dp"
                             android:background="#121417"/>
                     </LinearLayout>
-
-                </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="72dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:layout_marginTop="8dp">
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounded_border"
+                android:padding="16dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -151,17 +149,20 @@
                     android:layout_height="wrap_content"
                     android:text="$12.50"
                     android:textSize="16sp"
-                    android:textColor="#121417"/>
+                    android:textColor="#121417"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="72dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:layout_marginTop="8dp">
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounded_border"
+                android:padding="16dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -188,17 +189,20 @@
                     android:layout_height="wrap_content"
                     android:text="$15.00"
                     android:textSize="16sp"
-                    android:textColor="#121417"/>
+                    android:textColor="#121417"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="72dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:layout_marginTop="8dp">
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounded_border"
+                android:padding="16dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -225,17 +229,20 @@
                     android:layout_height="wrap_content"
                     android:text="$10.75"
                     android:textSize="16sp"
-                    android:textColor="#121417"/>
+                    android:textColor="#121417"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="72dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:layout_marginTop="8dp">
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounded_border"
+                android:padding="16dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -262,7 +269,8 @@
                     android:layout_height="wrap_content"
                     android:text="$18.20"
                     android:textSize="16sp"
-                    android:textColor="#121417"/>
+                    android:textColor="#121417"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -281,6 +289,5 @@
     </LinearLayout>
 
     <include layout="@layout/drivernav" />
-
 
 </LinearLayout>

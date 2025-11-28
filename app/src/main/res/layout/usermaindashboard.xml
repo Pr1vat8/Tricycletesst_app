@@ -13,13 +13,18 @@
         android:padding="16dp">
 
         <LinearLayout
+            android:id="@+id/btnBack"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
             <View
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="#DDDDDD"/> </LinearLayout>
+                android:background="@drawable/arrow"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,36 +39,39 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@drawable/map"
         android:orientation="vertical"
-        android:background="#80803B45"
         android:padding="16dp">
 
         <LinearLayout
+            android:id="@+id/btnSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded_border"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="#FFFFFF"
-            android:padding="8dp"
-            android:gravity="center_vertical">
+            android:padding="12dp">
 
             <View
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="#EEEEEE"
-                android:layout_marginEnd="8dp"/>
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/magni" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Where to?"
                 android:textColor="#61768A"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,24 +82,30 @@
             <LinearLayout
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="#FFFFFF"
-                android:gravity="center"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_rounded_border"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center">
+
                 <View
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:background="#CCCCCC"/>
+                    android:background="@drawable/plus" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="#FFFFFF"
+                android:background="@drawable/bg_rounded_border"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center">
+
                 <View
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:background="#CCCCCC"/>
+                    android:background="@drawable/minus" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -103,17 +117,20 @@
         android:padding="20dp">
 
         <LinearLayout
+            android:id="@+id/btnRequestRide"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:background="#0A73D9"
+            android:background="@drawable/bg_pill_blue"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:focusable="true">
 
             <View
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="#80FFFFFF"
-                android:layout_marginEnd="16dp"/>
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/whitecar" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -124,5 +141,7 @@
                 android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>
+
+    <include layout="@layout/usernavbar" />
 
 </LinearLayout>

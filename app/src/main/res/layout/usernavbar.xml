@@ -29,7 +29,7 @@
             <View
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@android:color/transparent"/>
+                android:background="@drawable/home" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             <View
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@android:color/transparent"/>
+                android:background="@drawable/clock" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -69,15 +69,15 @@
             <View
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@android:color/transparent"/>
+                android:background="@drawable/profile" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Profile"
+                android:textColor="#61768A"
                 android:textSize="12sp"
-                android:textStyle="bold"
-                android:textColor="#121417"/>
+                android:textStyle="normal" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,7 +90,7 @@
             <View
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@android:color/transparent"/>
+                android:background="@drawable/help" />
 
             <TextView
                 android:layout_width="wrap_content"

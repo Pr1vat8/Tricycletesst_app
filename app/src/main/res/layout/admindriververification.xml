@@ -28,10 +28,12 @@
                 android:paddingEnd="16dp">
 
                 <LinearLayout
+                    android:id="@+id/btnBack"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:gravity="center">
-
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
@@ -58,8 +60,9 @@
                 <View
                     android:layout_width="128dp"
                     android:layout_height="128dp"
-                    android:background="#807F3B45"
-                    android:layout_marginBottom="16dp"/>
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/person" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,36 +89,34 @@
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/btnApprove"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="40dp"
-                    android:background="#0A73D9"
+                    android:background="@drawable/bg_pill_blue"
                     android:gravity="center"
-                    android:layout_marginEnd="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Approve Driver"
-                        android:textColor="#F7F9FD"
-                        android:textStyle="bold"
-                        android:textSize="14sp"/>
-                </LinearLayout>
+                    android:text="Approve Driver"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="12dp"/>
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/btnSuspend"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="40dp"
-                    android:background="#E8EDF5"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Suspend Application"
-                        android:textColor="#0D141C"
-                        android:textStyle="bold"
-                        android:textSize="14sp"/>
-                </LinearLayout>
+                    android:background="@drawable/bg_pill_grey"
+                    android:gravity="center"
+                    android:text="Suspend Application"
+                    android:textColor="#0D141C"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:clickable="true"
+                    android:focusable="true"/>
             </LinearLayout>
 
             <TextView
@@ -131,28 +132,28 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="298dp"
                 android:orientation="vertical"
                 android:padding="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="12dp">
+                    android:layout_marginBottom="12dp"
+                    android:orientation="horizontal">
 
                     <View
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="#807F3B45"
-                        android:layout_marginEnd="12dp"/>
+                        android:layout_marginEnd="12dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/passport" />
 
                     <View
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="#807F3B45"/>
+                        android:layout_weight="1"
+                        android:background="@drawable/doc" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -162,16 +163,16 @@
 
                     <View
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="#807F3B45"
-                        android:layout_marginEnd="12dp"/>
+                        android:layout_marginEnd="12dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/doc" />
 
                     <View
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="#807F3B45"/>
+                        android:layout_weight="1"
+                        android:background="@drawable/doc" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -199,7 +200,6 @@
                     android:orientation="vertical"
                     android:paddingTop="12dp"
                     android:paddingBottom="12dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -212,20 +212,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#CFDBE8"
-                        android:padding="1dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        android:background="@drawable/bg_rounded_border"
+                        android:padding="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="#F7F9FD"
-                            android:padding="15dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Ricardo Santos"
-                                android:textSize="14sp"
-                                android:textColor="#0D141C"/>
-                        </LinearLayout>
+                            android:text="Ricardo Santos"
+                            android:textSize="14sp"
+                            android:textColor="#0D141C"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -235,7 +229,6 @@
                     android:orientation="vertical"
                     android:paddingTop="12dp"
                     android:paddingBottom="12dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -248,20 +241,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#CFDBE8"
-                        android:padding="1dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        android:background="@drawable/bg_rounded_border"
+                        android:padding="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="#F7F9FD"
-                            android:padding="15dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="097878432888"
-                                android:textSize="14sp"
-                                android:textColor="#000000"/>
-                        </LinearLayout>
+                            android:text="097878432888"
+                            android:textSize="14sp"
+                            android:textColor="#000000"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -271,7 +258,6 @@
                     android:orientation="vertical"
                     android:paddingTop="12dp"
                     android:paddingBottom="12dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -284,20 +270,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#CFDBE8"
-                        android:padding="1dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        android:background="@drawable/bg_rounded_border"
+                        android:padding="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="#F7F9FD"
-                            android:padding="15dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="RicardoSantos@gmail.com"
-                                android:textSize="14sp"
-                                android:textColor="#0D141C"/>
-                        </LinearLayout>
+                            android:text="RicardoSantos@gmail.com"
+                            android:textSize="14sp"
+                            android:textColor="#0D141C"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -307,7 +287,6 @@
                     android:orientation="vertical"
                     android:paddingTop="12dp"
                     android:paddingBottom="12dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -320,20 +299,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#CFDBE8"
-                        android:padding="1dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        android:background="@drawable/bg_rounded_border"
+                        android:padding="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="#F7F9FD"
-                            android:padding="15dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Valencia Bukidnon"
-                                android:textSize="14sp"
-                                android:textColor="#0D141C"/>
-                        </LinearLayout>
+                            android:text="Valencia Bukidnon"
+                            android:textSize="14sp"
+                            android:textColor="#0D141C"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -343,7 +316,6 @@
                     android:orientation="vertical"
                     android:paddingTop="12dp"
                     android:paddingBottom="12dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -356,20 +328,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#CFDBE8"
-                        android:padding="1dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        android:background="@drawable/bg_rounded_border"
+                        android:padding="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="#F7F9FD"
-                            android:padding="15dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="654256"
-                                android:textSize="14sp"
-                                android:textColor="#000000"/>
-                        </LinearLayout>
+                            android:text="654256"
+                            android:textSize="14sp"
+                            android:textColor="#000000"/>
                     </LinearLayout>
                 </LinearLayout>
 

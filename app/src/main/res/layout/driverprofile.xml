@@ -28,14 +28,16 @@
                 android:paddingEnd="16dp">
 
                 <LinearLayout
+                    android:id="@+id/btnBack"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:gravity="center">
-
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@drawable/arrow" />
+                        android:background="@drawable/arrow"/>
                 </LinearLayout>
 
                 <TextView
@@ -57,7 +59,7 @@
                 <View
                     android:layout_width="126dp"
                     android:layout_height="126dp"
-                    android:background="#807F3B45"/>
+                    android:background="@drawable/person" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -108,12 +110,13 @@
                 <LinearLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="#F0F2F5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
+
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/phone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -150,12 +153,13 @@
                 <LinearLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="#F0F2F5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
+
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/email" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -192,12 +196,13 @@
                 <LinearLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="#F0F2F5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
+
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/profile" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -245,12 +250,13 @@
                 <LinearLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="#F0F2F5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
+
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/ride" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -287,12 +293,13 @@
                 <LinearLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="#F0F2F5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
+
                     <View
                         android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@android:color/transparent"/>
+                        android:layout_height="22dp"
+                        android:background="@drawable/plate" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -353,11 +360,35 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:layout_marginTop="8dp">
-                        <View android:layout_width="18dp" android:layout_height="18dp" android:background="#F0F2F5" android:layout_marginEnd="2dp"/>
-                        <View android:layout_width="18dp" android:layout_height="18dp" android:background="#F0F2F5" android:layout_marginEnd="2dp"/>
-                        <View android:layout_width="18dp" android:layout_height="18dp" android:background="#F0F2F5" android:layout_marginEnd="2dp"/>
-                        <View android:layout_width="18dp" android:layout_height="18dp" android:background="#F0F2F5" android:layout_marginEnd="2dp"/>
-                        <View android:layout_width="18dp" android:layout_height="18dp" android:background="#F0F2F5"/>
+
+                        <View
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginEnd="2dp"
+                            android:background="@drawable/bstar" />
+
+                        <View
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginEnd="2dp"
+                            android:background="@drawable/bstar" />
+
+                        <View
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginEnd="2dp"
+                            android:background="@drawable/bstar" />
+
+                        <View
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginEnd="2dp"
+                            android:background="@drawable/bstar" />
+
+                        <View
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:background="@drawable/wstar" />
                     </LinearLayout>
 
                     <TextView

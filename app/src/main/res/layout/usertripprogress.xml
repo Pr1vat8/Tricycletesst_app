@@ -16,13 +16,16 @@
         android:paddingEnd="16dp">
 
         <LinearLayout
+            android:id="@+id/btnBack"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
             <View
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@android:color/transparent"/>
+                android:background="@drawable/arrow"/>
         </LinearLayout>
 
         <TextView
@@ -39,32 +42,33 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#807F3B45"
+        android:background="@drawable/map"
         android:orientation="vertical"
         android:padding="16dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_rounded_border"
             android:orientation="horizontal"
-            android:background="#FFFFFF"
-            android:padding="8dp"
-            android:layout_marginBottom="16dp">
+            android:padding="8dp">
 
             <View
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@android:color/transparent"/>
+                android:background="@drawable/magni" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,36 +79,39 @@
             <LinearLayout
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="#FFFFFF"
-                android:gravity="center"
-                android:layout_marginBottom="12dp">
-                <View
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@android:color/transparent"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="#FFFFFF"
-                android:gravity="center"
-                android:layout_marginBottom="12dp">
-                <View
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@android:color/transparent"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="#FFFFFF"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_rounded_border"
                 android:gravity="center">
+
                 <View
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:background="@android:color/transparent"/>
+                    android:background="@drawable/magni" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_rounded_border"
+                android:gravity="center">
+
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/plus" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_rounded_border"
+                android:gravity="center">
+
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/minus" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -124,7 +131,7 @@
             <View
                 android:layout_width="36dp"
                 android:layout_height="4dp"
-                android:background="#DBE0E6"/>
+                android:background="@drawable/bg_pill_grey"/>
         </LinearLayout>
 
         <LinearLayout
@@ -141,12 +148,13 @@
             <LinearLayout
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:background="#F0F2F5"
+                android:background="@drawable/bg_rounded_light_grey"
                 android:gravity="center">
+
                 <View
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:background="@android:color/transparent"/>
+                    android:background="@drawable/betterpin" />
             </LinearLayout>
 
             <LinearLayout
@@ -187,12 +195,13 @@
             <LinearLayout
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:background="#F0F2F5"
+                android:background="@drawable/bg_rounded_light_grey"
                 android:gravity="center">
+
                 <View
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:background="@android:color/transparent"/>
+                    android:background="@drawable/betterpin" />
             </LinearLayout>
 
             <LinearLayout
@@ -230,12 +239,13 @@
             <LinearLayout
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="#F0F2F5"
+                android:background="@drawable/bg_rounded_light_grey"
                 android:gravity="center">
+
                 <View
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:background="@android:color/transparent"/>
+                    android:background="@drawable/betterpin" />
             </LinearLayout>
 
             <TextView
@@ -254,11 +264,14 @@
             android:padding="16dp">
 
             <LinearLayout
+                android:id="@+id/btnShareTrip"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:background="#F0F2F5"
+                android:background="@drawable/bg_pill_grey"
                 android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_marginEnd="6dp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -270,11 +283,14 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnContactSupport"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:background="#F0F2F5"
+                android:background="@drawable/bg_pill_grey"
                 android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_marginStart="6dp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -299,5 +315,7 @@
             android:background="#F0F2F5"/>
 
     </LinearLayout>
+
+    <include layout="@layout/usernavbar" />
 
 </LinearLayout>

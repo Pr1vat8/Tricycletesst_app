@@ -28,13 +28,16 @@
                 android:paddingEnd="16dp">
 
                 <LinearLayout
+                    android:id="@+id/btnBack"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/arrow"/>
                 </LinearLayout>
 
                 <TextView
@@ -70,12 +73,13 @@
                 <LinearLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="#F0F2F5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
+
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/betterpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -112,12 +116,13 @@
                 <LinearLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="#F0F2F5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
+
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/betterpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -165,12 +170,13 @@
                 <LinearLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="#F0F2F5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
+
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/betterpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -207,12 +213,13 @@
                 <LinearLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="#F0F2F5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
+
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/betterpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -251,5 +258,7 @@
             android:background="#F0F2F5"/>
 
     </LinearLayout>
+
+    <include layout="@layout/usernavbar" />
 
 </LinearLayout>

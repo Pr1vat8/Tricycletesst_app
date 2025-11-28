@@ -28,9 +28,12 @@
                 android:paddingBottom="8dp">
 
                 <LinearLayout
+                    android:id="@+id/btnBack"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
 
                     <View
                         android:layout_width="24dp"
@@ -39,7 +42,8 @@
                 </LinearLayout>
 
                 <TextView
-                    android:layout_width="329dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingEnd="48dp"
@@ -60,7 +64,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="201dp"
-                    android:background="#807F3B45" />
+                    android:background="@drawable/map" />
             </LinearLayout>
 
             <TextView
@@ -86,13 +90,13 @@
                 <LinearLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="#F0F2F5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
 
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent" />
+                        android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -142,13 +146,13 @@
                 <LinearLayout
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="#F0F2F5"
+                    android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
 
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:background="@android:color/transparent" />
+                        android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -247,7 +251,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
-                        android:background="#F0F2F5"
+                        android:background="@drawable/bg_rounded_light_grey"
                         android:gravity="center_vertical"
                         android:paddingStart="12dp">
 
@@ -279,7 +283,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
-                        android:background="#F0F2F5"
+                        android:background="@drawable/bg_rounded_light_grey"
                         android:gravity="center_vertical"
                         android:paddingStart="12dp">
 
@@ -319,8 +323,10 @@
             android:layout_height="48dp"
             android:layout_marginEnd="6dp"
             android:layout_weight="1"
-            android:background="#F0F2F5"
-            android:gravity="center">
+            android:background="@drawable/bg_pill_grey"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -336,8 +342,10 @@
             android:layout_height="48dp"
             android:layout_marginStart="6dp"
             android:layout_weight="1"
-            android:background="#0A73D9"
-            android:gravity="center">
+            android:background="@drawable/bg_pill_blue"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="wrap_content"
