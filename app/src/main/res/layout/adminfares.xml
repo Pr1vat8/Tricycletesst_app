@@ -34,7 +34,8 @@
                     android:layout_height="48dp"
                     android:gravity="center"
                     android:clickable="true"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
 
                     <View
                         android:layout_width="24dp"
@@ -53,6 +54,9 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnCentamina"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -67,11 +71,7 @@
                     android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/locationpin" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -80,23 +80,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Centamina"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="123 Main St"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Centamina" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="123 Main St" android:textSize="14sp" android:textColor="#61768A"/>
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnBusTerminal"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -111,11 +103,7 @@
                     android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/locationpin" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -124,23 +112,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bus terminal"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="456 Oak Ave"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bus terminal" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="456 Oak Ave" android:textSize="14sp" android:textColor="#61768A"/>
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnMerkado"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -155,11 +135,7 @@
                     android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/locationpin" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -168,23 +144,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Merkado"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="789 Pine Ln"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Merkado" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="789 Pine Ln" android:textSize="14sp" android:textColor="#61768A"/>
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnPurok1"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -199,11 +167,7 @@
                     android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/locationpin" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -212,23 +176,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="purok 1"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Zone 1"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Purok 1" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Zone 1" android:textSize="14sp" android:textColor="#61768A"/>
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnLumbo"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -243,11 +199,7 @@
                     android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/locationpin" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -256,23 +208,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lumbo"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Zone 2"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lumbo" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Zone 2" android:textSize="14sp" android:textColor="#61768A"/>
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnHangkol"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -287,11 +231,7 @@
                     android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/locationpin" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -300,23 +240,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hangkol"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Zone 3"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hangkol" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Zone 3" android:textSize="14sp" android:textColor="#61768A"/>
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnPlaza"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -331,11 +263,7 @@
                     android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/locationpin" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -344,23 +272,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Plaza"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Near the park"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Plaza" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Near the park" android:textSize="14sp" android:textColor="#61768A"/>
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnCentralSchool"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -375,11 +295,7 @@
                     android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/locationpin" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -388,23 +304,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Central school"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Near the mall"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Central school" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Near the mall" android:textSize="14sp" android:textColor="#61768A"/>
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnOldTerminal"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -419,11 +327,7 @@
                     android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/locationpin" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -432,19 +336,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Old terminal"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Near the hospital"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Old terminal" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Near the hospital" android:textSize="14sp" android:textColor="#61768A"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -455,12 +348,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#E8EDF5"/>
-
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E8EDF5"/>
     </LinearLayout>
 
     <include layout="@layout/adminnavbar" />

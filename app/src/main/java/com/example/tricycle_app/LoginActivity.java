@@ -1,4 +1,4 @@
-package com.example.tricycle_app;  // <--- THIS LINE IS CRITICAL
+package com.example.tricycle_app;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText etUsername, etPassword;
     private TextView btnLogin;
+    private TextView tvSignUp; // 1. Declare the TextView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,9 @@ public class LoginActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        tvSignUp = findViewById(R.id.tvSignUp); // 2. Find the view by ID
 
+        // Logic for Login Button
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +46,16 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        // 3. Logic for Sign Up Click
+        tvSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // This loads the SignupActivity, which holds the signup.xml
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
             }
         });
     }

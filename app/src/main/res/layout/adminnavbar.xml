@@ -20,11 +20,14 @@
         android:paddingEnd="16dp">
 
         <LinearLayout
+            android:id="@+id/nav_dashboard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
             <View
                 android:layout_width="24dp"
@@ -41,11 +44,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/nav_drivers"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
             <View
                 android:layout_width="24dp"
@@ -62,11 +68,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/nav_rides"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
             <View
                 android:layout_width="24dp"
@@ -83,11 +92,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/nav_fares"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
             <View
                 android:layout_width="24dp"
@@ -104,11 +116,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/nav_payouts"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
             <View
                 android:layout_width="24dp"

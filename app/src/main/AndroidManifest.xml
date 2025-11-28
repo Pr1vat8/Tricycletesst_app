@@ -25,6 +25,13 @@
         <activity android:name=".UserMainDashboardActivity" />
         <activity android:name=".DriverDashboardActivity" />
         <activity android:name=".AdminReportActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".SignDriverActivity" />
+        <activity android:name=".AdminUserActivity" />
+        <activity android:name=".AdminRidesHistoryActivity" />
+        <activity android:name=".AdminFaresActivity" />
+        <activity android:name=".AdminPayoutActivity" />
+        <activity android:name=".AdminFareSetActivity" />
     </application>
 
 </manifest>

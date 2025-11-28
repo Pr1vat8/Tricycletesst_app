@@ -193,11 +193,6 @@
         android:paddingTop="4dp"
         android:paddingBottom="12dp"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-
     <TextView
         android:id="@+id/tvDriverSignUp"
         android:layout_width="match_parent"

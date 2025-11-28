@@ -4,41 +4,51 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView; // Imported TextView
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView; // Import CardView
 
 public class AdminDashboardActivity extends AppCompatActivity {
 
     private LinearLayout btnBack;
-    private CardView btnViewChart; // Changed from TextView to CardView
+    private TextView btnViewChart; // Changed to TextView to match the XML
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admindashboard);
 
-        // 1. Find the views
+        // -----------------------------------------------------------
+        // 1. SETUP BOTTOM NAVIGATION (Crucial for the buttons to work)
+        // -----------------------------------------------------------
+        AdminNavbar.setup(this);
+
+        // 2. Find the views
+        // Note: You must add android:id="@+id/btnBack" to your header icon in XML if you want this to work.
         btnBack = findViewById(R.id.btnBack);
 
-        // This ID is attached to a CardView in your XML, so we cast it to CardView here
+        // Note: You must add android:id="@+id/btnViewChart" to the "View Chart" text in XML.
         btnViewChart = findViewById(R.id.btnViewChart);
 
-        // 2. Back Button Logic
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        // 3. Back Button Logic (Optional for Dashboard)
+        if (btnBack != null) {
+            btnBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed(); // Better than finish() for navigation handling
+                }
+            });
+        }
 
-        // 3. View Chart Logic
-        btnViewChart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Ensure AdminReportActivity is created and registered in Manifest
-                Intent intent = new Intent(AdminDashboardActivity.this, AdminReportActivity.class);
-                startActivity(intent);
-            }
-        });
+        // 4. View Chart Logic
+        if (btnViewChart != null) {
+            btnViewChart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Navigate to the Reports/Chart screen
+                    Intent intent = new Intent(AdminDashboardActivity.this, AdminReportActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 }
