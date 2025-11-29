@@ -43,7 +43,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Driver Verification"
+                    android:text="Driver Information"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#0D141C"
@@ -75,7 +75,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pending Verification"
+                    android:text=""
                     android:textSize="16sp"
                     android:textColor="#4A739C"/>
             </LinearLayout>
@@ -96,7 +96,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/bg_pill_blue"
                     android:gravity="center"
-                    android:text="Approve Driver"
+                    android:text="Edit"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     android:textSize="14sp"
@@ -111,7 +111,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/bg_pill_grey"
                     android:gravity="center"
-                    android:text="Suspend Application"
+                    android:text="Suspend Driver"
                     android:textColor="#0D141C"
                     android:textStyle="bold"
                     android:textSize="14sp"

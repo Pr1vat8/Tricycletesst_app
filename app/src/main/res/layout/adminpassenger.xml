@@ -144,7 +144,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="+1 (555) 123-4567"
+                        android:text="09785348737"
                         android:textSize="14sp"
                         android:textColor="#4A739C"/>
                 </LinearLayout>
@@ -185,7 +185,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="+1 (555) 987-6543"
+                        android:text="09785348737"
                         android:textSize="14sp"
                         android:textColor="#4A739C"/>
                 </LinearLayout>
@@ -226,7 +226,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="+1 (555) 246-8013"
+                        android:text="09678547432"
                         android:textSize="14sp"
                         android:textColor="#4A739C"/>
                 </LinearLayout>
@@ -267,7 +267,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="+1 (555) 369-1470"
+                        android:text="0957438967"
                         android:textSize="14sp"
                         android:textColor="#4A739C"/>
                 </LinearLayout>
@@ -308,7 +308,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="+1 (555) 789-0123"
+                        android:text="09473824738"
                         android:textSize="14sp"
                         android:textColor="#4A739C"/>
                 </LinearLayout>
@@ -349,7 +349,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="+1 (555) 456-7890"
+                        android:text="09437824643"
                         android:textSize="14sp"
                         android:textColor="#4A739C"/>
                 </LinearLayout>
@@ -390,7 +390,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="+1 (555) 654-3210"
+                        android:text="0994823094"
                         android:textSize="14sp"
                         android:textColor="#4A739C"/>
                 </LinearLayout>
