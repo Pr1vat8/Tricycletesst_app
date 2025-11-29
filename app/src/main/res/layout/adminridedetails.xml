@@ -49,11 +49,6 @@
                     android:paddingEnd="48dp"/>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="#F7F9FD"/>
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

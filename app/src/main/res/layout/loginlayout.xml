@@ -8,21 +8,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingTop="16dp"
-        android:paddingBottom="8dp"
-        android:gravity="center_vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="Login"
-            android:textColor="#121417"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:paddingBottom="8dp" />
 
     <TextView
         android:layout_width="match_parent"
