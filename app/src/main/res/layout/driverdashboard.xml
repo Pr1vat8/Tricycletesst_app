@@ -70,7 +70,9 @@
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="#121417"/>
+
                     <TextView
+                        android:id="@+id/tvStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Online"
@@ -78,22 +80,13 @@
                         android:textColor="#61768A"/>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="51dp"
-                    android:layout_height="31dp"
-                    android:background="@drawable/bg_rounded_light_grey"
-                    android:padding="2dp"
-                    android:gravity="end|center_vertical">
-
-                    <Switch
-                        android:id="@+id/switch1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:backgroundTint="@android:color/transparent"
-                        android:buttonTint="#FFFFFF"
-                        android:text="Switch" />
-                </LinearLayout>
+                <Switch
+                    android:id="@+id/switchStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:thumbTint="#FFFFFF"
+                    android:trackTint="#0A73D9"/>
             </LinearLayout>
 
             <TextView
@@ -115,11 +108,14 @@
                 android:paddingEnd="16dp">
 
                 <LinearLayout
+                    android:id="@+id/btnRideRequest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:background="@drawable/bg_rounded_light_grey"
-                    android:padding="12dp">
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:focusable="true">
 
                     <View
                         android:layout_width="48dp"

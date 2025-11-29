@@ -227,8 +227,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="201dp"
-                    android:background="#807F3B45"
-                    android:layout_marginBottom="16dp"/>
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/map" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -309,7 +309,7 @@
                 <View
                     android:layout_width="80dp"
                     android:layout_height="93dp"
-                    android:background="#807F3B45"/>
+                    android:background="@drawable/doc" />
             </LinearLayout>
 
             <LinearLayout
@@ -355,7 +355,7 @@
                 <View
                     android:layout_width="80dp"
                     android:layout_height="93dp"
-                    android:background="#807F3B45"/>
+                    android:background="@drawable/doc" />
             </LinearLayout>
 
             <LinearLayout
@@ -367,8 +367,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="201dp"
-                    android:background="#807F3B45"
-                    android:layout_marginBottom="16dp"/>
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/graph" />
 
                 <TextView
                     android:layout_width="wrap_content"

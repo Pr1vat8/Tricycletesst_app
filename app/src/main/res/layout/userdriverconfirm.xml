@@ -261,4 +261,6 @@
 
     </LinearLayout>
 
+    <include layout="@layout/usernavbar" />
+
 </LinearLayout>

@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFFFFF"
-    android:padding="16dp">
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +13,7 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:paddingTop="16dp"
-        android:paddingBottom="8dp">
+        android:paddingBottom="5dp">
 
         <LinearLayout
             android:id="@+id/btnBack"
@@ -183,8 +184,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="536dp"
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -205,10 +206,6 @@
             android:clickable="true"
             android:focusable="true"/>
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#FFFFFF"/>
+    <include layout="@layout/usernavbar" />
 
 </LinearLayout>

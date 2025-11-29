@@ -176,6 +176,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/driver_1"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -183,7 +184,9 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:layout_marginTop="8dp"
-                android:background="#F7F9FD">
+                android:background="#F7F9FD"
+                android:clickable="true"
+                android:focusable="true">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -219,6 +222,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/driver_2"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -226,7 +230,9 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:layout_marginTop="8dp"
-                android:background="#F7F9FD">
+                android:background="#F7F9FD"
+                android:clickable="true"
+                android:focusable="true">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -262,6 +268,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/driver_3"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -269,7 +276,9 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:layout_marginTop="8dp"
-                android:background="#F7F9FD">
+                android:background="#F7F9FD"
+                android:clickable="true"
+                android:focusable="true">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -305,6 +314,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/driver_4"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -312,7 +322,9 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:layout_marginTop="8dp"
-                android:background="#F7F9FD">
+                android:background="#F7F9FD"
+                android:clickable="true"
+                android:focusable="true">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -348,6 +360,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/driver_5"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:orientation="horizontal"
@@ -355,7 +368,9 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:layout_marginTop="8dp"
-                android:background="#F7F9FD">
+                android:background="#F7F9FD"
+                android:clickable="true"
+                android:focusable="true">
 
                 <LinearLayout
                     android:layout_width="0dp"

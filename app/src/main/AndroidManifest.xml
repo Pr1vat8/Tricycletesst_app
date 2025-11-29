@@ -32,6 +32,24 @@
         <activity android:name=".AdminFaresActivity" />
         <activity android:name=".AdminPayoutActivity" />
         <activity android:name=".AdminFareSetActivity" />
+        <activity android:name=".UserRideHistoryActivity" />
+        <activity android:name=".UserClientProfileActivity" />
+        <activity android:name=".UserDriverSelectActivity" />
+        <activity android:name=".UserPaymentSelectActivity" />
+        <activity android:name=".UserSetLocationActivity" />
+        <activity android:name=".UserDriverConfirmActivity" />
+        <activity android:name=".UserDriverWaitingActivity" />
+        <activity android:name=".UserArrivedActivity" />
+        <activity android:name=".UserTripProgressActivity" />
+        <activity android:name=".UserTripCompleteActivity" />
+        <activity android:name=".AdminDriverVerificationActivity" />
+        <activity android:name=".AdminPassengerActivity" />
+        <activity android:name=".AdminRideDetailsActivity" />
+        <activity android:name=".DriverRequestActivity" />
+        <activity android:name=".DriverDashHistoryActivity" />
+        <activity android:name=".DriverEarningActivity" />
+        <activity android:name=".DriverProfileActivity" />
+
     </application>
 
 </manifest>
