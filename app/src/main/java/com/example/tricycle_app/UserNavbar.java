@@ -4,17 +4,30 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class UserNavbar {
 
     public static void setup(final Activity currentActivity) {
+        // 1. Handle Window Insets (Dynamic Bottom Padding)
+        LinearLayout navbarContainer = currentActivity.findViewById(R.id.navbar_container);
+        if (navbarContainer != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(navbarContainer, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                // Apply the bottom inset as padding
+                v.setPadding(0, 0, 0, insets.bottom);
+                return windowInsets;
+            });
+        }
 
+        // 2. Setup Buttons
         LinearLayout navHome = currentActivity.findViewById(R.id.nav_home);
         LinearLayout navActivity = currentActivity.findViewById(R.id.nav_activity);
         LinearLayout navProfile = currentActivity.findViewById(R.id.nav_profile);
         LinearLayout navHelp = currentActivity.findViewById(R.id.nav_help);
 
-        // Home -> UserMainDashboardActivity
         if (navHome != null) {
             navHome.setOnClickListener(v -> {
                 if (!(currentActivity instanceof UserMainDashboardActivity)) {
@@ -23,7 +36,6 @@ public class UserNavbar {
             });
         }
 
-        // Activity -> UserRideHistoryActivity
         if (navActivity != null) {
             navActivity.setOnClickListener(v -> {
                 if (!(currentActivity instanceof UserRideHistoryActivity)) {
@@ -32,7 +44,6 @@ public class UserNavbar {
             });
         }
 
-        // Profile -> UserClientProfileActivity
         if (navProfile != null) {
             navProfile.setOnClickListener(v -> {
                 if (!(currentActivity instanceof UserClientProfileActivity)) {
@@ -41,10 +52,9 @@ public class UserNavbar {
             });
         }
 
-        // Help -> (Optional, add logic if you have a help screen)
         if (navHelp != null) {
             navHelp.setOnClickListener(v -> {
-                // Add help intent here later
+                // Help logic
             });
         }
     }
@@ -53,7 +63,7 @@ public class UserNavbar {
         Intent intent = new Intent(current, target);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         current.startActivity(intent);
-        current.overridePendingTransition(0, 0); // Disable animation for tab feel
+        current.overridePendingTransition(0, 0);
         current.finish();
     }
 }

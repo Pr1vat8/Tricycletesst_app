@@ -4,84 +4,77 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class AdminNavbar {
 
     public static void setup(final Activity currentActivity) {
 
-        // 1. Find the buttons from the included layout
+        // 1. Handle Insets
+        LinearLayout navbarContainer = currentActivity.findViewById(R.id.navbar_container);
+        if (navbarContainer != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(navbarContainer, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(0, 0, 0, insets.bottom);
+                return windowInsets;
+            });
+        }
+
+        // 2. Buttons
         LinearLayout navDashboard = currentActivity.findViewById(R.id.nav_dashboard);
         LinearLayout navDrivers = currentActivity.findViewById(R.id.nav_drivers);
         LinearLayout navRides = currentActivity.findViewById(R.id.nav_rides);
         LinearLayout navFares = currentActivity.findViewById(R.id.nav_fares);
         LinearLayout navPayouts = currentActivity.findViewById(R.id.nav_payouts);
 
-        // 2. Set Click Listeners
-
-        // DASHBOARD BUTTON
-        navDashboard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if (navDashboard != null) {
+            navDashboard.setOnClickListener(v -> {
                 if (!(currentActivity instanceof AdminDashboardActivity)) {
-                    Intent intent = new Intent(currentActivity, AdminDashboardActivity.class);
-                    // Clear back stack to prevent "Back" button loops
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    currentActivity.startActivity(intent);
-                    currentActivity.overridePendingTransition(0, 0); // No animation
+                    startActivity(currentActivity, AdminDashboardActivity.class);
                 }
-            }
-        });
+            });
+        }
 
-        // DRIVERS BUTTON
-        navDrivers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if (navDrivers != null) {
+            navDrivers.setOnClickListener(v -> {
                 if (!(currentActivity instanceof AdminUserActivity)) {
-                    Intent intent = new Intent(currentActivity, AdminUserActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    currentActivity.startActivity(intent);
-                    currentActivity.overridePendingTransition(0, 0);
+                    startActivity(currentActivity, AdminUserActivity.class);
                 }
-            }
-        });
+            });
+        }
 
-        // RIDES BUTTON
-        navRides.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if (navRides != null) {
+            navRides.setOnClickListener(v -> {
                 if (!(currentActivity instanceof AdminRidesHistoryActivity)) {
-                    Intent intent = new Intent(currentActivity, AdminRidesHistoryActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    currentActivity.startActivity(intent);
-                    currentActivity.overridePendingTransition(0, 0);
+                    startActivity(currentActivity, AdminRidesHistoryActivity.class);
                 }
-            }
-        });
+            });
+        }
 
-        // FARES BUTTON
-        navFares.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if (navFares != null) {
+            navFares.setOnClickListener(v -> {
                 if (!(currentActivity instanceof AdminFaresActivity)) {
-                    Intent intent = new Intent(currentActivity, AdminFaresActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    currentActivity.startActivity(intent);
-                    currentActivity.overridePendingTransition(0, 0);
+                    startActivity(currentActivity, AdminFaresActivity.class);
                 }
-            }
-        });
+            });
+        }
 
-        // PAYOUTS BUTTON
-        navPayouts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if (navPayouts != null) {
+            navPayouts.setOnClickListener(v -> {
                 if (!(currentActivity instanceof AdminPayoutActivity)) {
-                    Intent intent = new Intent(currentActivity, AdminPayoutActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    currentActivity.startActivity(intent);
-                    currentActivity.overridePendingTransition(0, 0);
+                    startActivity(currentActivity, AdminPayoutActivity.class);
                 }
-            }
-        });
+            });
+        }
+    }
+
+    private static void startActivity(Activity current, Class<?> target) {
+        Intent intent = new Intent(current, target);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        current.startActivity(intent);
+        current.overridePendingTransition(0, 0);
+        current.finish();
     }
 }

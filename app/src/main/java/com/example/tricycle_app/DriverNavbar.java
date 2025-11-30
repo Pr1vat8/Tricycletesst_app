@@ -4,18 +4,30 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class DriverNavbar {
 
     public static void setup(final Activity currentActivity) {
 
-        // Find buttons
+        // 1. Handle Insets
+        LinearLayout navbarContainer = currentActivity.findViewById(R.id.navbar_container);
+        if (navbarContainer != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(navbarContainer, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(0, 0, 0, insets.bottom);
+                return windowInsets;
+            });
+        }
+
+        // 2. Buttons
         LinearLayout navDashboard = currentActivity.findViewById(R.id.nav_dashboard);
-        LinearLayout navActivity = currentActivity.findViewById(R.id.nav_activity); // "My Rides"
+        LinearLayout navActivity = currentActivity.findViewById(R.id.nav_activity);
         LinearLayout navEarnings = currentActivity.findViewById(R.id.nav_earnings);
         LinearLayout navProfile = currentActivity.findViewById(R.id.nav_profile);
 
-        // 1. Dashboard -> DriverDashboardActivity
         if (navDashboard != null) {
             navDashboard.setOnClickListener(v -> {
                 if (!(currentActivity instanceof DriverDashboardActivity)) {
@@ -24,7 +36,6 @@ public class DriverNavbar {
             });
         }
 
-        // 2. Activity (My Rides) -> DriverDashHistoryActivity
         if (navActivity != null) {
             navActivity.setOnClickListener(v -> {
                 if (!(currentActivity instanceof DriverDashHistoryActivity)) {
@@ -33,7 +44,6 @@ public class DriverNavbar {
             });
         }
 
-        // 3. Earnings -> DriverEarningActivity
         if (navEarnings != null) {
             navEarnings.setOnClickListener(v -> {
                 if (!(currentActivity instanceof DriverEarningActivity)) {
@@ -42,7 +52,6 @@ public class DriverNavbar {
             });
         }
 
-        // 4. Profile -> DriverProfileActivity
         if (navProfile != null) {
             navProfile.setOnClickListener(v -> {
                 if (!(currentActivity instanceof DriverProfileActivity)) {

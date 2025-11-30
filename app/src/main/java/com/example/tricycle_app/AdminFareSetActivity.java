@@ -10,5 +10,7 @@ public class AdminFareSetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // This line simply loads your XML design
         setContentView(R.layout.adminfareset);
+
+        AdminNavbar.setup(this);
     }
 }

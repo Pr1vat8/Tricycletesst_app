@@ -8,8 +8,7 @@ public class DriverRequestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.driverequest); // Ensure this XML exists
-
-        // Setup nav if needed
+        setContentView(R.layout.driverequest);
+        DriverNavbar.setup(this);
     }
 }

@@ -7,6 +7,8 @@ public class AdminReportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.adminreports); // Ensure you have created adminreports.xml
+        setContentView(R.layout.adminreports);// Ensure you have created adminreports.xml
+
+        AdminNavbar.setup(this);
     }
 }
