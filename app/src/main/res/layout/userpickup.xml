@@ -120,12 +120,6 @@
                 android:textStyle="bold"
                 android:textColor="#121417"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="123 Main Street"
-                android:textSize="14sp"
-                android:textColor="#61768A"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -163,12 +157,6 @@
                 android:textStyle="bold"
                 android:textColor="#121417"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="456 Oak Avenue"
-                android:textSize="14sp"
-                android:textColor="#61768A"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -216,12 +204,6 @@
                 android:textStyle="bold"
                 android:textColor="#121417"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="789 Pine Lane"
-                android:textSize="14sp"
-                android:textColor="#61768A"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -259,12 +241,6 @@
                 android:textStyle="bold"
                 android:textColor="#121417"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="101 Elm Road"
-                android:textSize="14sp"
-                android:textColor="#61768A"/>
         </LinearLayout>
     </LinearLayout>
 

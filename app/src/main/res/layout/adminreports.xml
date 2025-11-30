@@ -163,7 +163,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$5,678"
+                    android:text="₱50,678"
                     android:textSize="32sp"
                     android:textStyle="bold"
                     android:textColor="#121417"
