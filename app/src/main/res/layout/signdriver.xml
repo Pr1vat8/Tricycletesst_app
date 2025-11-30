@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF"
-    android:padding="8dp">
+    android:background="#FFFFFF">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,8 +24,8 @@
                 android:gravity="center_vertical"
                 android:paddingTop="16dp"
                 android:paddingBottom="8dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <LinearLayout
                     android:id="@+id/btnBack"
