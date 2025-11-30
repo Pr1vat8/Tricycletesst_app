@@ -1,14 +1,21 @@
 package com.example.tricycle_app;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AdminDriverVerificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Make sure you have created admindriververification.xml in layout folder
         setContentView(R.layout.admindriververification);
+
+        // Basic logic for back/approve/suspend...
+        LinearLayout btnBack = findViewById(R.id.btnBack);
+        if(btnBack != null) btnBack.setOnClickListener(v -> finish());
 
         AdminNavbar.setup(this);
     }

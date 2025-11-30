@@ -246,10 +246,13 @@
                     android:paddingBottom="8dp"/>
 
                 <LinearLayout
+                    android:id="@+id/btnChoosePayment"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingStart="16dp">
 
                     <TextView

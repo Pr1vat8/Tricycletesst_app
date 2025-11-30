@@ -49,7 +49,9 @@
         <activity android:name=".DriverDashHistoryActivity" />
         <activity android:name=".DriverEarningActivity" />
         <activity android:name=".DriverProfileActivity" />
-
+        <activity android:name=".PaymentMethodRegistrationActivity" />
+        <activity android:name=".AdmindriverdetailActivity" />
+        <activity android:name=".AdminPassengerDetailsActivity" />
     </application>
 
 </manifest>

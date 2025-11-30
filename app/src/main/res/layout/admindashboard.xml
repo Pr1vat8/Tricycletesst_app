@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -19,24 +20,35 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="79dp"
-                android:background="#F7F9FD"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="16dp"
+                android:gravity="center_vertical"
                 android:paddingTop="16dp"
+                android:paddingBottom="8dp"
+                android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:paddingBottom="8dp">
+                android:background="#F7F9FD">
 
                 <TextView
-                    android:layout_width="411dp"
-                    android:layout_height="40dp"
-                    android:gravity="center"
-                    android:paddingEnd="48dp"
-                    android:text="     Dashboard"
-                    android:textColor="#0D141C"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Dashboard"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="#0D141C"
+                    android:paddingStart="48dp"
+                    android:gravity="center_horizontal"/>
+
+                <LinearLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:gravity="center">
+                    <View
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@android:color/transparent"/>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -57,34 +69,35 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:background="#CFDBE8"
-                        android:padding="1dp"> <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="#FFFFFF"
-                        android:padding="24dp">
-                        <TextView
-                            android:layout_width="wrap_content"
+                        android:padding="1dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Drivers Online"
-                            android:textSize="16sp"
-                            android:textColor="#0D141C"
-                            android:layout_marginBottom="8dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="23"
-                            android:textSize="24sp"
-                            android:textStyle="bold"
-                            android:textColor="#0D141C"
-                            android:layout_marginBottom="8dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+10%"
-                            android:textSize="16sp"
-                            android:textColor="#088738"/>
-                    </LinearLayout>
+                            android:orientation="vertical"
+                            android:background="#FFFFFF"
+                            android:padding="24dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Drivers Online"
+                                android:textSize="16sp"
+                                android:textColor="#0D141C"
+                                android:layout_marginBottom="8dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="23"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:textColor="#0D141C"
+                                android:layout_marginBottom="8dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+10%"
+                                android:textSize="16sp"
+                                android:textColor="#088738"/>
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -153,7 +166,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="₱45054"
+                                android:text="₱45,054"
                                 android:textSize="24sp"
                                 android:textStyle="bold"
                                 android:textColor="#0D141C"
@@ -244,13 +257,13 @@
 
                     <TextView
                         android:layout_width="84dp"
-                        android:layout_height="32dp"
-                        android:background="#0A73D9"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_blue"
+                        android:gravity="center"
                         android:text="View Map"
                         android:textColor="#FFFFFF"
                         android:textSize="14sp"
-                        android:gravity="center"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -285,13 +298,16 @@
                         android:layout_marginBottom="16dp"/>
 
                     <TextView
+                        android:id="@+id/btnViewVerifications"
                         android:layout_width="84dp"
                         android:layout_height="32dp"
                         android:background="#E8EDF5"
                         android:text="View"
                         android:textColor="#0D141C"
                         android:gravity="center"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp"
+                        android:clickable="true"
+                        android:focusable="true"/>
                 </LinearLayout>
 
                 <View
@@ -386,7 +402,7 @@
                         android:id="@+id/btnViewChart"
                         android:layout_width="100dp"
                         android:layout_height="32dp"
-                        android:background="#0A73D9"
+                        android:background="@drawable/bg_pill_blue"
                         android:text="View Chart"
                         android:textColor="#FFFFFF"
                         android:textSize="14sp"

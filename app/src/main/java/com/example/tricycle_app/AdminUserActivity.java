@@ -34,7 +34,7 @@ public class AdminUserActivity extends AppCompatActivity {
         View.OnClickListener driverClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminUserActivity.this, AdminDriverVerificationActivity.class);
+                Intent intent = new Intent(AdminUserActivity.this, AdmindriverdetailActivity.class);
                 startActivity(intent);
             }
         };

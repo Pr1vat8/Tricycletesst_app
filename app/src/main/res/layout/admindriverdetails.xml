@@ -115,13 +115,14 @@
                     android:gravity="center"
                     android:clickable="true"
                     android:focusable="true">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Suspend"
                         android:textColor="#F7F9FD"
-                        android:textStyle="bold"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 

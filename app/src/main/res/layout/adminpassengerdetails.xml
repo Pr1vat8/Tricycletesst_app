@@ -44,7 +44,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Driver Verification"
+                    android:text="Passenger Details"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#0D141C"
@@ -67,7 +67,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ricardo Santos"
+                    android:text="Dodong customer"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="#0D141C"
@@ -76,7 +76,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pending Verification"
+                    android:text="Passenger ID: 987654"
                     android:textSize="16sp"
                     android:textColor="#4A739C"/>
             </LinearLayout>
@@ -90,90 +90,119 @@
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp">
 
-                <TextView
-                    android:id="@+id/btnApprove"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_pill_blue"
-                    android:gravity="center"
-                    android:text="Approve Driver"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_marginEnd="12dp"/>
-
-                <TextView
-                    android:id="@+id/btnSuspend"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_pill_grey"
                     android:gravity="center"
-                    android:text="Suspend Application"
-                    android:textColor="#0D141C"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
-                    android:clickable="true"
-                    android:focusable="true"/>
-            </LinearLayout>
+                    android:layout_marginEnd="12dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edit"
+                        android:textColor="#0D141C"
+                        android:textStyle="bold"
+                        android:textSize="14sp"/>
+                </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Documents"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#0D141C"
-                android:paddingStart="16dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="8dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_pill_blue"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Suspend"
+                        android:textColor="#F7F9FD"
+                        android:textStyle="bold"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="12dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginBottom="12dp"
-                    android:orientation="horizontal">
+                    android:layout_width="0dp"
+                    android:layout_height="49dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="#E6E8EB"
+                    android:padding="1dp">
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="12dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/doc" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:background="#F7F9FD"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="16dp">
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/passport" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Overview"
+                            android:textColor="#0D141C"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:orientation="horizontal">
+                    android:layout_width="0dp"
+                    android:layout_height="49dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="#E6E8EB"
+                    android:padding="1dp">
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="12dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/doc" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="#F7F9FD"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="16dp">
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/doc" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ride History"
+                            android:textColor="#4A739C"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#E6E8EB"
+                    android:padding="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:background="#F7F9FD"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wallet"
+                            android:textColor="#4A739C"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -214,14 +243,18 @@
                         android:layout_height="wrap_content"
                         android:background="#CFDBE8"
                         android:padding="1dp">
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#FFFFFF"
-                            android:padding="16dp"
-                            android:text="Ricardo Santos"
-                            android:textSize="14sp"
-                            android:textColor="#0D141C"/>
+                            android:background="#F7F9FD"
+                            android:padding="15dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dodong customer"
+                                android:textSize="14sp"
+                                android:textColor="#0D141C"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -244,14 +277,18 @@
                         android:layout_height="wrap_content"
                         android:background="#CFDBE8"
                         android:padding="1dp">
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#FFFFFF"
-                            android:padding="16dp"
-                            android:text="097878432888"
-                            android:textSize="14sp"
-                            android:textColor="#0D141C"/>
+                            android:background="#F7F9FD"
+                            android:padding="15dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="09123456789"
+                                android:textSize="14sp"
+                                android:textColor="#000000"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -274,14 +311,18 @@
                         android:layout_height="wrap_content"
                         android:background="#CFDBE8"
                         android:padding="1dp">
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#FFFFFF"
-                            android:padding="16dp"
-                            android:text="RicardoSantos@gmail.com"
-                            android:textSize="14sp"
-                            android:textColor="#0D141C"/>
+                            android:background="#F7F9FD"
+                            android:padding="15dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dodong.customer@gmail.com"
+                                android:textSize="14sp"
+                                android:textColor="#0D141C"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -304,49 +345,22 @@
                         android:layout_height="wrap_content"
                         android:background="#CFDBE8"
                         android:padding="1dp">
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#FFFFFF"
-                            android:padding="16dp"
-                            android:text="Valencia Bukidnon"
-                            android:textSize="14sp"
-                            android:textColor="#0D141C"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tricycle Plate Number"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#0D141C"
-                        android:paddingBottom="8dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#CFDBE8"
-                        android:padding="1dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#FFFFFF"
-                            android:padding="16dp"
-                            android:text="654256"
-                            android:textSize="14sp"
-                            android:textColor="#0D141C"/>
+                            android:background="#F7F9FD"
+                            android:padding="15dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Valencia City, Bukidnon"
+                                android:textSize="14sp"
+                                android:textColor="#0D141C"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 

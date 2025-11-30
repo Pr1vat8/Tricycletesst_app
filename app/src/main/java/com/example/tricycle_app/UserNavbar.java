@@ -26,7 +26,6 @@ public class UserNavbar {
         LinearLayout navHome = currentActivity.findViewById(R.id.nav_home);
         LinearLayout navActivity = currentActivity.findViewById(R.id.nav_activity);
         LinearLayout navProfile = currentActivity.findViewById(R.id.nav_profile);
-        LinearLayout navHelp = currentActivity.findViewById(R.id.nav_help);
 
         if (navHome != null) {
             navHome.setOnClickListener(v -> {
@@ -49,12 +48,6 @@ public class UserNavbar {
                 if (!(currentActivity instanceof UserClientProfileActivity)) {
                     startActivity(currentActivity, UserClientProfileActivity.class);
                 }
-            });
-        }
-
-        if (navHelp != null) {
-            navHelp.setOnClickListener(v -> {
-                // Help logic
             });
         }
     }
