@@ -34,7 +34,6 @@
                     android:gravity="center"
                     android:clickable="true"
                     android:focusable="true">
-
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
@@ -65,20 +64,32 @@
                     android:background="@drawable/person" />
 
                 <TextView
+                    android:id="@+id/tvHeaderName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dodong customer"
+                    android:text="Sophia Mitchell"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="#0D141C"
                     android:layout_marginBottom="4dp"/>
 
                 <TextView
+                    android:id="@+id/tvHeaderId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Passenger ID: 987654"
                     android:textSize="16sp"
                     android:textColor="#4A739C"/>
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Active"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#088738"
+                    android:paddingTop="4dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -90,120 +101,34 @@
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/btnLeft"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_pill_grey"
                     android:gravity="center"
-                    android:layout_marginEnd="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Edit"
-                        android:textColor="#0D141C"
-                        android:textStyle="bold"
-                        android:textSize="14sp"/>
-                </LinearLayout>
+                    android:text="Edit"
+                    android:textColor="#0D141C"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="12dp"/>
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/btnRight"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_pill_blue"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Suspend"
-                        android:textColor="#F7F9FD"
-                        android:textStyle="bold"
-                        android:textSize="14sp"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="12dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="49dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:background="#E6E8EB"
-                    android:padding="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="46dp"
-                        android:background="#F7F9FD"
-                        android:gravity="center_horizontal"
-                        android:paddingTop="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Overview"
-                            android:textColor="#0D141C"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="49dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:background="#E6E8EB"
-                    android:padding="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:background="#F7F9FD"
-                        android:gravity="center_horizontal"
-                        android:paddingTop="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ride History"
-                            android:textColor="#4A739C"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#E6E8EB"
-                    android:padding="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="46dp"
-                        android:background="#F7F9FD"
-                        android:gravity="center_horizontal"
-                        android:paddingTop="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Wallet"
-                            android:textColor="#4A739C"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
+                    android:gravity="center"
+                    android:text="Suspend"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:clickable="true"
+                    android:focusable="true"/>
             </LinearLayout>
 
             <TextView
@@ -224,139 +149,31 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#0D141C"
-                        android:paddingBottom="8dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#CFDBE8"
-                        android:padding="1dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#F7F9FD"
-                            android:padding="15dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Dodong customer"
-                                android:textSize="14sp"
-                                android:textColor="#0D141C"/>
-                        </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="12dp" android:paddingBottom="12dp">
+                    <TextView android:text="Name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:textStyle="bold" android:textColor="#0D141C" android:paddingBottom="8dp"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_rounded_border" android:padding="1dp">
+                        <EditText android:id="@+id/etName" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@android:color/transparent" android:padding="16dp" android:enabled="false" android:textColor="#0D141C"/>
                     </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Phone Number"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#0D141C"
-                        android:paddingBottom="8dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#CFDBE8"
-                        android:padding="1dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#F7F9FD"
-                            android:padding="15dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="09123456789"
-                                android:textSize="14sp"
-                                android:textColor="#000000"/>
-                        </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="12dp" android:paddingBottom="12dp">
+                    <TextView android:text="Phone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:textStyle="bold" android:textColor="#0D141C" android:paddingBottom="8dp"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_rounded_border" android:padding="1dp">
+                        <EditText android:id="@+id/etPhone" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@android:color/transparent" android:padding="16dp" android:enabled="false" android:textColor="#0D141C"/>
                     </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Email"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#0D141C"
-                        android:paddingBottom="8dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#CFDBE8"
-                        android:padding="1dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#F7F9FD"
-                            android:padding="15dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Dodong.customer@gmail.com"
-                                android:textSize="14sp"
-                                android:textColor="#0D141C"/>
-                        </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="12dp" android:paddingBottom="12dp">
+                    <TextView android:text="Email" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:textStyle="bold" android:textColor="#0D141C" android:paddingBottom="8dp"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_rounded_border" android:padding="1dp">
+                        <EditText android:id="@+id/etEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@android:color/transparent" android:padding="16dp" android:enabled="false" android:textColor="#0D141C"/>
                     </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Address"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#0D141C"
-                        android:paddingBottom="8dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#CFDBE8"
-                        android:padding="1dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#F7F9FD"
-                            android:padding="15dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Valencia City, Bukidnon"
-                                android:textSize="14sp"
-                                android:textColor="#0D141C"/>
-                        </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="12dp" android:paddingBottom="12dp">
+                    <TextView android:text="Address" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:textStyle="bold" android:textColor="#0D141C" android:paddingBottom="8dp"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_rounded_border" android:padding="1dp">
+                        <EditText android:id="@+id/etAddress" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@android:color/transparent" android:padding="16dp" android:enabled="false" android:textColor="#0D141C"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -365,5 +182,4 @@
     </ScrollView>
 
     <include layout="@layout/adminnavbar" />
-
 </LinearLayout>

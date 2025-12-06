@@ -8,53 +8,69 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="16dp"
-        android:paddingBottom="8dp" />
+        android:paddingBottom="8dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#121417"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="24dp"
-        android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="Welcome back"
         android:textColor="#121417"
         android:textSize="28sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/etUsername"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#F0F2F5"
-        android:hint="Email or Phone"
-        android:textColorHint="#61768A"
-        android:textColor="#121417"
-        android:textSize="16sp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:inputType="text"
-        android:maxLines="1"
-        android:layout_marginBottom="16dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#F0F2F5"
+            android:hint="Email or Phone"
+            android:textColorHint="#61768A"
+            android:textColor="#121417"
+            android:textSize="16sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:inputType="text"
+            android:maxLines="1"/>
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/etPassword"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#F0F2F5"
-        android:hint="Password"
-        android:textColorHint="#61768A"
-        android:textColor="#121417"
-        android:textSize="16sp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:layout_marginBottom="4dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp">
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#F0F2F5"
+            android:hint="Password"
+            android:textColorHint="#61768A"
+            android:textColor="#121417"
+            android:textSize="16sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:inputType="textPassword"
+            android:maxLines="1"/>
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -64,19 +80,24 @@
         android:textColor="#61768A"
         android:layout_marginBottom="24dp"/>
 
-    <TextView
-        android:id="@+id/btnLogin"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@drawable/bg_pill_blue"
-        android:text="Login"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_marginBottom="16dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_pill_blue"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="Login"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -94,34 +115,36 @@
         android:layout_marginBottom="24dp">
 
         <TextView
+            android:id="@+id/btnGoogle"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="40dp"
+            android:layout_weight="1"
             android:background="@drawable/bg_pill_grey"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
             android:text="Google"
             android:textColor="#121417"
             android:textSize="14sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"/>
+            android:textStyle="bold" />
 
         <View
             android:layout_width="12dp"
             android:layout_height="match_parent"/>
 
         <TextView
+            android:id="@+id/btnFacebook"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="40dp"
+            android:layout_weight="1"
             android:background="@drawable/bg_pill_grey"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
             android:text="Facebook"
             android:textColor="#121417"
             android:textSize="14sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 

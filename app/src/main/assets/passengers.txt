@@ -1,0 +1,5 @@
+987654,Liam Carter,09547372322,liam@gmail.com,Zone 1 Market
+123456,Olivia Bennett,09123456789,olivia@gmail.com,Purok 4 Poblacion
+112233,Noah Thompson,09987654321,noah@gmail.com,Barangay 2 Proper
+445566,Ava Harper,09112233445,ava.harper@yahoo.com,Purok 6 Valencia
+778899,Ethan Parker,09556677889,ethan.p@gmail.com,Lumbo Valencia
