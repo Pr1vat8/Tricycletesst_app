@@ -1,0 +1,4 @@
+101,Ethan Parker,09123456789,d1@gmail.com,Loc1,ABC-123,Verified,false
+102,Driver Two,09123456788,d2@gmail.com,Loc2,XYZ-789,Pending,false
+103,Driver Three,09123456777,d3@gmail.com,Loc3,DEF-456,Verified,true
+104,Driver Four,09123456666,d4@gmail.com,Loc4,GHI-000,Pending,false

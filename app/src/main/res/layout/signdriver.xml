@@ -320,6 +320,7 @@
                     android:textColor="#121417"/>
 
                 <TextView
+                    android:id="@+id/btnUploadLicense"
                     android:layout_width="84dp"
                     android:layout_height="32dp"
                     android:background="@drawable/bg_rounded_light_grey"
@@ -327,7 +328,9 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:textColor="#121417"/>
+                    android:textColor="#121417"
+                    android:clickable="true"
+                    android:focusable="true"/>
             </LinearLayout>
 
             <LinearLayout
@@ -347,6 +350,7 @@
                     android:textColor="#121417"/>
 
                 <TextView
+                    android:id="@+id/btnUploadRegistration"
                     android:layout_width="84dp"
                     android:layout_height="32dp"
                     android:background="@drawable/bg_rounded_light_grey"
@@ -354,7 +358,9 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:textColor="#121417"/>
+                    android:textColor="#121417"
+                    android:clickable="true"
+                    android:focusable="true"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -370,6 +376,7 @@
         android:paddingBottom="12dp">
 
         <TextView
+            android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/bg_pill_blue"

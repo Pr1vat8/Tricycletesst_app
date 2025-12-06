@@ -2,43 +2,77 @@ package com.example.tricycle_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
 
 public class AdminPassengerActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private PassengerAdapter adapter;
+    private EditText etSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.adminpassenger); // Connects to the XML above
+        setContentView(R.layout.adminpassenger);
 
-        // 1. Setup Navigation
         AdminNavbar.setup(this);
+        PassengerRepository.init(this);
 
-        // 2. Setup Back Button
         LinearLayout btnBack = findViewById(R.id.btnBack);
-        if (btnBack != null) {
-            btnBack.setOnClickListener(v -> finish());
-        }
+        if (btnBack != null) btnBack.setOnClickListener(v -> finish());
 
-        // 3. Create Listener for Passengers
-        View.OnClickListener passengerClickListener = new View.OnClickListener() {
+        recyclerView = findViewById(R.id.recyclerViewPassengers);
+        etSearch = findViewById(R.id.etSearchPassenger);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Load initial data
+        adapter = new PassengerAdapter(this, PassengerRepository.getAllPassengers());
+
+        adapter.setOnItemClickListener(position -> {
+            // Note: Position here refers to the FILTERED list index.
+            // For a robust app, you should pass IDs. For this demo, we assume list order is static.
+            Intent intent = new Intent(AdminPassengerActivity.this, AdminPassengerDetailsActivity.class);
+            intent.putExtra("PASSENGER_INDEX", position);
+            startActivity(intent);
+        });
+
+        recyclerView.setAdapter(adapter);
+
+        // --- SEARCH LOGIC ---
+        etSearch.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                // Load the Passenger Details Screen
-                Intent intent = new Intent(AdminPassengerActivity.this, AdminPassengerDetailsActivity.class);
-                startActivity(intent);
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                List<Passenger> filtered = PassengerRepository.searchPassengers(s.toString());
+                adapter.updateList(filtered);
             }
-        };
 
-        // 4. Find Views and Set Listeners
-        LinearLayout btnPassenger1 = findViewById(R.id.btnPassenger1);
-        LinearLayout btnPassenger2 = findViewById(R.id.btnPassenger2);
-        LinearLayout btnPassenger3 = findViewById(R.id.btnPassenger3);
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
 
-        if (btnPassenger1 != null) btnPassenger1.setOnClickListener(passengerClickListener);
-        if (btnPassenger2 != null) btnPassenger2.setOnClickListener(passengerClickListener);
-        if (btnPassenger3 != null) btnPassenger3.setOnClickListener(passengerClickListener);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (adapter != null) {
+            // Refresh list, respecting current search query
+            String query = etSearch.getText().toString();
+            if (query.isEmpty()) {
+                adapter.updateList(PassengerRepository.getAllPassengers());
+            } else {
+                adapter.updateList(PassengerRepository.searchPassengers(query));
+            }
+        }
     }
 }

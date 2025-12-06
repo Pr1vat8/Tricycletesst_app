@@ -52,6 +52,9 @@
         <activity android:name=".PaymentMethodRegistrationActivity" />
         <activity android:name=".AdmindriverdetailActivity" />
         <activity android:name=".AdminPassengerDetailsActivity" />
+        <activity android:name=".FakeBrowserActivity" />
+        <activity android:name=".FakeFacebookActivity" />
+        <activity android:name=".SignupConfirmationActivity" />
     </application>
 
 </manifest>
