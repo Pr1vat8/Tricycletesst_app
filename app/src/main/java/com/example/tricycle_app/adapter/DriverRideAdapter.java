@@ -15,6 +15,17 @@ import java.util.List;
 public class DriverRideAdapter extends RecyclerView.Adapter<DriverRideAdapter.ViewHolder> {
     private List<Ride> list;
     private Context context;
+    private OnItemClickListener listener; // Listener reference
+
+    // Interface for click events
+    public interface OnItemClickListener {
+        void onItemClick(Ride ride);
+    }
+
+    // Method to set the listener
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
 
     public DriverRideAdapter(Context context, List<Ride> list) {
         this.context = context;
@@ -45,6 +56,13 @@ public class DriverRideAdapter extends RecyclerView.Adapter<DriverRideAdapter.Vi
         } else {
             holder.tvPrice.setTextColor(Color.parseColor("#0A73D9"));
         }
+
+        // Handle Item Click
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(r);
+            }
+        });
     }
 
     @Override

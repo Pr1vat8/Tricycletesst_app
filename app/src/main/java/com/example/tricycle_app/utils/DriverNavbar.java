@@ -10,7 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.tricycle_app.activity.user.DriverDashHistoryActivity;
 import com.example.tricycle_app.activity.user.DriverDashboardActivity;
 import com.example.tricycle_app.activity.user.DriverEarningActivity;
-import com.example.tricycle_app.activity.user.DriverProfileActivity;
+import com.example.tricycle_app.activity.driver.DriverProfileActivity;
 import com.example.tricycle_app.R;
 
 public class DriverNavbar {

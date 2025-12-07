@@ -41,9 +41,8 @@ public class DriverRideRepository {
             while ((line = reader.readLine()) != null) {
                 String[] p = line.split(",");
                 if (p.length >= 7) {
-                    // Mapping: ID, Date, Time, From, To, Price, Status
-                    Ride r = new Ride(p[0], "N/A", "Self", p[3], p[4], p[1], p[2], p[6], p[5], "0", p[5]);
-                    allRides.add(r);
+                    // ID, Date, Time, From, To, Price, Status
+                    allRides.add(new Ride(p[0], "N/A", "Self", p[3], p[4], p[1], p[2], p[6], p[5], "0", p[5]));
                 }
             }
         } catch (Exception e) { e.printStackTrace(); }
@@ -57,5 +56,13 @@ public class DriverRideRepository {
             else if (tab.equalsIgnoreCase("Past") && !isUpcoming) filtered.add(r);
         }
         return filtered;
+    }
+
+    // --- NEW METHOD ---
+    public static Ride getRideById(String id) {
+        for (Ride r : allRides) {
+            if (r.getRideId().equalsIgnoreCase(id)) return r;
+        }
+        return null;
     }
 }

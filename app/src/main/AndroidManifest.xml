@@ -23,7 +23,6 @@
 
         <activity android:name=".activity.admin.AdminDashboardActivity" />
         <activity android:name=".activity.user.UserMainDashboardActivity" />
-        <activity android:name=".activity.user.DriverDashboardActivity" />
         <activity android:name=".activity.admin.AdminReportActivity" />
         <activity android:name=".activity.auth.SignupActivity" />
         <activity android:name=".activity.auth.SignDriverActivity" />
@@ -48,20 +47,22 @@
         <activity android:name=".activity.user.DriverRequestActivity" />
         <activity android:name=".activity.user.DriverDashHistoryActivity" />
         <activity android:name=".activity.user.DriverEarningActivity" />
-        <activity android:name=".activity.user.DriverProfileActivity" />
+        <activity android:name=".activity.driver.DriverProfileActivity" />
         <activity android:name=".activity.auth.PaymentMethodRegistrationActivity" />
         <activity android:name=".activity.admin.AdmindriverdetailActivity" />
         <activity android:name=".activity.admin.AdminPassengerDetailsActivity" />
         <activity android:name=".activity.auth.FakeBrowserActivity" />
         <activity android:name=".activity.auth.FakeFacebookActivity" />
         <activity android:name=".activity.auth.SignupConfirmationActivity" />
-
+        <activity android:name=".activity.user.DriverDashboardActivity" />
         <activity android:name=".activity.user.UserEditProfileActivity" />
         <activity android:name=".activity.user.UserPaymentMethodsActivity" />
         <activity android:name=".activity.user.UserSavedPlacesActivity" />
         <activity android:name=".activity.user.UserAddPlaceActivity" />
         <activity android:name=".activity.user.UserRideDetailsActivity" />
         <activity android:name=".activity.user.UserEditSavedPlaceActivity" />
+        <activity android:name=".activity.driver.DriverTripActivity" />
+        <activity android:name=".activity.user.DriverRideDetailsActivity" />
 
 
     </application>

@@ -1,5 +1,6 @@
-package com.example.tricycle_app.activity.user;
+package com.example.tricycle_app.activity.user; // Update package if needed
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +36,17 @@ public class DriverDashHistoryActivity extends AppCompatActivity {
         LinearLayout btnBack = findViewById(R.id.btnBack);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Load default list
         adapter = new DriverRideAdapter(this, DriverRideRepository.getRidesByTab("Upcoming"));
+
+        // --- ADD CLICK LISTENER ---
+        adapter.setOnItemClickListener(ride -> {
+            Intent intent = new Intent(DriverDashHistoryActivity.this, DriverRideDetailsActivity.class);
+            intent.putExtra("RIDE_ID", ride.getRideId());
+            startActivity(intent);
+        });
+
         recyclerView.setAdapter(adapter);
 
         findViewById(R.id.tabUpcoming).setOnClickListener(v -> switchTab("Upcoming"));
