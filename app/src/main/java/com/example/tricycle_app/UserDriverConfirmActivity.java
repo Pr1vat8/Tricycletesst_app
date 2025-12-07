@@ -12,29 +12,42 @@ public class UserDriverConfirmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.userdriverconfirm); // Your layout file
+        setContentView(R.layout.userdriverconfirm);
 
-        // 1. Setup Navigation
         UserNavbar.setup(this);
 
-        // 2. Find Views
-        TextView btnConfirmRide = findViewById(R.id.btnConfirmRide);
-        LinearLayout btnBack = findViewById(R.id.btnBack);
+        // --- RETRIEVE DATA ---
+        UserTripManager trip = UserTripManager.getInstance();
 
-        // 3. Confirm Ride Logic -> Go to Driver Waiting Screen
+        // Find Views (Ensure you added IDs to these TextViews in XML!)
+        TextView tvDriverName = findViewById(R.id.tvDriverName); // Add ID in XML
+        TextView tvFrom = findViewById(R.id.tvFrom);             // Add ID in XML
+        TextView tvTo = findViewById(R.id.tvTo);                 // Add ID in XML
+        TextView tvPrice = findViewById(R.id.tvPrice);           // Add ID in XML
+
+        // Set Data
+        if(tvDriverName != null) tvDriverName.setText("Driver: " + trip.getDriverName());
+        if(tvFrom != null) tvFrom.setText(trip.getFromLocation());
+        if(tvTo != null) tvTo.setText(trip.getToLocation());
+
+        // Calculate/Set Price (Mock logic or lookup)
+        String price = "15.00"; // Default
+        FareLocation loc = FareRepository.getFareByName(trip.getToLocation());
+        if(loc != null) price = loc.getBaseFare();
+
+        trip.setTripDetails(price, "2.5 km", "5 min"); // Save for later
+        if(tvPrice != null) tvPrice.setText("₱" + price);
+
+
+        TextView btnConfirmRide = findViewById(R.id.btnConfirmRide);
         if (btnConfirmRide != null) {
-            btnConfirmRide.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(UserDriverConfirmActivity.this, UserDriverWaitingActivity.class);
-                    startActivity(intent);
-                }
+            btnConfirmRide.setOnClickListener(v -> {
+                Intent intent = new Intent(UserDriverConfirmActivity.this, UserDriverWaitingActivity.class);
+                startActivity(intent);
             });
         }
 
-        // 4. Back Button Logic
-        if (btnBack != null) {
-            btnBack.setOnClickListener(v -> finish());
-        }
+        LinearLayout btnBack = findViewById(R.id.btnBack);
+        if (btnBack != null) btnBack.setOnClickListener(v -> finish());
     }
 }

@@ -1,0 +1,4 @@
+Home,123 Main St, Valencia City
+Work,456 Corporate Ave, Valencia City
+Gym,789 Fitness Blvd, Valencia City
+Cafe,101 Coffee Lane, Valencia City

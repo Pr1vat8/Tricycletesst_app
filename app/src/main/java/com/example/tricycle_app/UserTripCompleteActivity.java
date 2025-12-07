@@ -7,6 +7,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Random;
 
 public class UserTripCompleteActivity extends AppCompatActivity {
 
@@ -15,32 +19,51 @@ public class UserTripCompleteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.usertripcomplete);
 
-        // 1. Setup Navigation Bar
         UserNavbar.setup(this);
+        UserRideRepository.init(this); // Init Repo
 
-        // 2. Find Views
         TextView btnRatePay = findViewById(R.id.btnRatePay);
         LinearLayout btnBack = findViewById(R.id.btnBack);
 
-        // 3. "Rate & Pay" Button Logic -> Go to Home Dashboard
         if (btnRatePay != null) {
-            btnRatePay.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(UserTripCompleteActivity.this, "Payment Successful!", Toast.LENGTH_SHORT).show();
+            btnRatePay.setOnClickListener(v -> {
+                saveRideToHistory(); // Save Data
 
-                    Intent intent = new Intent(UserTripCompleteActivity.this, UserMainDashboardActivity.class);
-                    // Clear the back stack so the user cannot go back to this screen
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                }
+                Toast.makeText(this, "Payment Successful!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(UserTripCompleteActivity.this, UserMainDashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
             });
         }
 
-        // 4. Back Button Logic
-        if (btnBack != null) {
-            btnBack.setOnClickListener(v -> finish());
-        }
+        if (btnBack != null) btnBack.setOnClickListener(v -> finish());
+    }
+
+    private void saveRideToHistory() {
+        UserTripManager trip = UserTripManager.getInstance();
+
+        // Generate Mock Data
+        String id = String.valueOf(new Random().nextInt(90000) + 10000);
+        String date = new SimpleDateFormat("MMMM dd yyyy", Locale.US).format(new Date());
+        String time = new SimpleDateFormat("hh:mm a", Locale.US).format(new Date());
+
+        // Create Ride Object
+        Ride newRide = new Ride(
+                id,
+                "Vincent Comendador", // User Name
+                trip.getDriverName(),
+                trip.getFromLocation(),
+                trip.getToLocation(),
+                date,
+                time,
+                "Completed",
+                trip.getPrice(),
+                "0", // Distance Fare
+                trip.getPrice() // Total
+        );
+
+        // Append to file
+        UserRideRepository.addRide(this, newRide);
     }
 }

@@ -14,8 +14,9 @@ public class UserAddPlaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.useraddplace);
 
-        // 1. Setup
-        FareRepository.init(this); // Load data from fares.txt
+        // 1. Setup Data Sources
+        FareRepository.init(this);        // Source of locations (Available)
+        SavedPlaceRepository.init(this);  // Destination for saving (Saved)
 
         // 2. Views
         LinearLayout btnBack = findViewById(R.id.btnBack);
@@ -24,18 +25,20 @@ public class UserAddPlaceActivity extends AppCompatActivity {
         // 3. RecyclerView Setup
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Reuse FareAdapter because it already displays Name + Description nicely
         FareAdapter adapter = new FareAdapter(this, FareRepository.getAllFares());
 
         adapter.setOnItemClickListener(fare -> {
-            // Logic to save the place would go here.
-            // For now, we simulate success.
-            Toast.makeText(this, fare.getName() + " added to Saved Places!", Toast.LENGTH_SHORT).show();
-            finish();
+            // --- SAVE LOGIC ---
+            SavedPlace newPlace = new SavedPlace(fare.getName(), fare.getDescription());
+
+            SavedPlaceRepository.addSavedPlace(this, newPlace);
+
+            Toast.makeText(this, fare.getName() + " saved!", Toast.LENGTH_SHORT).show();
+            finish(); // Go back to the list
         });
 
         recyclerView.setAdapter(adapter);
 
-        if(btnBack != null) btnBack.setOnClickListener(v -> finish());
+        if (btnBack != null) btnBack.setOnClickListener(v -> finish());
     }
 }

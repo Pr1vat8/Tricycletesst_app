@@ -11,7 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class UserDriverSelectActivity extends AppCompatActivity {
 
-    private View selectedDriver = null;
+    private View selectedDriverView = null;
+    private String selectedDriverName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,37 +24,35 @@ public class UserDriverSelectActivity extends AppCompatActivity {
         TextView btnConfirm = findViewById(R.id.btnConfirm);
         LinearLayout btnBack = findViewById(R.id.btnBack);
 
-        // Setup Drivers
-        setupDriverSelect(findViewById(R.id.driver1));
-        setupDriverSelect(findViewById(R.id.driver2));
-        setupDriverSelect(findViewById(R.id.driver3));
+        // Pass name to helper
+        setupDriver(findViewById(R.id.driver1), "Mike");
+        setupDriver(findViewById(R.id.driver2), "Robin");
+        setupDriver(findViewById(R.id.driver3), "Loloy");
 
         if (btnConfirm != null) {
             btnConfirm.setOnClickListener(v -> {
-                if (selectedDriver == null) {
+                if (selectedDriverName.isEmpty()) {
                     Toast.makeText(this, "Please select a driver", Toast.LENGTH_SHORT).show();
                 } else {
+                    // SAVE DRIVER TO MANAGER
+                    UserTripManager.getInstance().setDriver(selectedDriverName);
+
                     Intent intent = new Intent(UserDriverSelectActivity.this, UserPaymentSelectActivity.class);
                     startActivity(intent);
                 }
             });
         }
 
-        if (btnBack != null) {
-            btnBack.setOnClickListener(v -> finish());
-        }
+        if (btnBack != null) btnBack.setOnClickListener(v -> finish());
     }
 
-    private void setupDriverSelect(View view) {
+    private void setupDriver(View view, String name) {
         if (view == null) return;
         view.setOnClickListener(v -> {
-            // Reset old selection
-            if (selectedDriver != null) {
-                selectedDriver.setBackgroundColor(Color.TRANSPARENT);
-            }
-            // Set new selection
-            selectedDriver = view;
-            selectedDriver.setBackgroundResource(R.drawable.bg_rounded_light_grey);
+            if (selectedDriverView != null) selectedDriverView.setBackgroundColor(Color.TRANSPARENT);
+            selectedDriverView = view;
+            selectedDriverView.setBackgroundResource(R.drawable.bg_rounded_light_grey);
+            selectedDriverName = name;
         });
     }
 }

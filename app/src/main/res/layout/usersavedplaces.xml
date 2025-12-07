@@ -32,43 +32,12 @@
             android:textColor="#121417"/>
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSavedPlaces"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:background="@drawable/bg_rounded_light_grey"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="12dp">
-        <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="16dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Home" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="123 Main St, Valencia" android:textSize="14sp" android:textColor="#61768A"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:background="@drawable/bg_rounded_light_grey"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="12dp">
-        <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="16dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Work" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="456 Corporate Ave, Valencia" android:textSize="14sp" android:textColor="#61768A"/>
-        </LinearLayout>
-    </LinearLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="12dp"/>
 
     <TextView
         android:id="@+id/btnAddPlace"
@@ -82,6 +51,6 @@
         android:textSize="16sp"
         android:clickable="true"
         android:focusable="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="8dp"/>
 
 </LinearLayout>
