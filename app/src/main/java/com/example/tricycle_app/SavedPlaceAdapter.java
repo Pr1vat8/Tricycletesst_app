@@ -1,6 +1,7 @@
 package com.example.tricycle_app;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,10 @@ public class SavedPlaceAdapter extends RecyclerView.Adapter<SavedPlaceAdapter.Vi
     private List<SavedPlace> list;
     private Context context;
     private OnItemClickListener listener;
+    private int selectedPosition = -1; // -1 means no selection
 
     public interface OnItemClickListener {
-        void onItemClick(SavedPlace place);
+        void onItemClick(int position, SavedPlace place);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -26,6 +28,11 @@ public class SavedPlaceAdapter extends RecyclerView.Adapter<SavedPlaceAdapter.Vi
     public SavedPlaceAdapter(Context context, List<SavedPlace> list) {
         this.context = context;
         this.list = list;
+    }
+
+    public void clearSelection() {
+        selectedPosition = -1;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -41,8 +48,17 @@ public class SavedPlaceAdapter extends RecyclerView.Adapter<SavedPlaceAdapter.Vi
         holder.tvName.setText(p.getName());
         holder.tvAddress.setText(p.getAddress());
 
+        // Highlight selected item
+        if (selectedPosition == position) {
+            holder.itemView.setBackgroundResource(R.drawable.bg_rounded_light_grey); // Highlight color
+        } else {
+            holder.itemView.setBackgroundColor(Color.WHITE); // Default
+        }
+
         holder.itemView.setOnClickListener(v -> {
-            if (listener != null) listener.onItemClick(p);
+            selectedPosition = holder.getAdapterPosition();
+            notifyDataSetChanged(); // Refresh view to show highlight
+            if (listener != null) listener.onItemClick(selectedPosition, p);
         });
     }
 

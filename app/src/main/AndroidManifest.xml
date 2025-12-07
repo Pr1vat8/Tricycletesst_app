@@ -61,6 +61,7 @@
         <activity android:name=".UserSavedPlacesActivity" />
         <activity android:name=".UserAddPlaceActivity" />
         <activity android:name=".UserRideDetailsActivity" />
+        <activity android:name=".UserEditSavedPlaceActivity" />
 
 
     </application>

@@ -43,7 +43,7 @@ public class SavedPlaceRepository {
 
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",", 2); // Split into Name and Address
+                String[] parts = line.split(",", 2);
                 if (parts.length >= 2) {
                     savedPlaces.add(new SavedPlace(parts[0].trim(), parts[1].trim()));
                 }
@@ -53,14 +53,34 @@ public class SavedPlaceRepository {
 
     public static List<SavedPlace> getAllSavedPlaces() { return savedPlaces; }
 
-    // --- SAVE FUNCTION ---
     public static void addSavedPlace(Context context, SavedPlace place) {
         savedPlaces.add(place);
-        try (FileOutputStream fos = context.openFileOutput(FILE_NAME, Context.MODE_APPEND)) {
-            String line = place.getName() + "," + place.getAddress() + "\n";
-            fos.write(line.getBytes());
-        } catch (Exception e) {
-            e.printStackTrace();
+        saveAll(context);
+    }
+
+    // --- NEW: Delete ---
+    public static void deleteSavedPlace(Context context, int index) {
+        if (index >= 0 && index < savedPlaces.size()) {
+            savedPlaces.remove(index);
+            saveAll(context);
         }
+    }
+
+    // --- NEW: Update ---
+    public static void updateSavedPlace(Context context, int index, SavedPlace newPlace) {
+        if (index >= 0 && index < savedPlaces.size()) {
+            savedPlaces.set(index, newPlace);
+            saveAll(context);
+        }
+    }
+
+    // Helper to rewrite the entire file
+    private static void saveAll(Context context) {
+        try (FileOutputStream fos = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE)) {
+            for (SavedPlace place : savedPlaces) {
+                String line = place.getName() + "," + place.getAddress() + "\n";
+                fos.write(line.getBytes());
+            }
+        } catch (Exception e) { e.printStackTrace(); }
     }
 }
