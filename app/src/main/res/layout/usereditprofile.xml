@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/arrow"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#121417"
+            android:paddingEnd="48dp"/>
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_rounded_light_grey"
+        android:hint="Full Name"
+        android:text="Vincent Comendador"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_rounded_light_grey"
+        android:hint="Phone Number"
+        android:text="09123456789"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_rounded_light_grey"
+        android:hint="Email"
+        android:text="vincent@gmail.com"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_pill_blue"
+        android:text="Save Changes"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:clickable="true"
+        android:focusable="true"/>
+
+</LinearLayout>

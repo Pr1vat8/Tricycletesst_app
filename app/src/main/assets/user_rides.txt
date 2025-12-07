@@ -1,0 +1,4 @@
+55667,Vincent Comendador,Logan,Home,Work,August 01 2024,08:30 AM,Completed,15,5,20
+99001,Vincent Comendador,Aiden,Work,Gym,August 02 2024,05:15 PM,Completed,15,0,15
+12300,Vincent Comendador,Mike,Gym,Cafe,August 03 2024,07:00 PM,Cancelled,10,0,10
+77441,Vincent Comendador,Robin,Cafe,Home,August 04 2024,09:45 PM,Completed,20,10,30

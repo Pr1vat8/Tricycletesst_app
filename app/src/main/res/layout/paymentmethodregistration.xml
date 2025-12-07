@@ -55,18 +55,24 @@
         android:layout_marginBottom="24dp">
 
         <LinearLayout
+            android:id="@+id/btnGcash"
             android:layout_width="116dp"
             android:layout_height="116dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/gcash"
-            android:gravity="center"></LinearLayout>
-
-        <LinearLayout
-            android:layout_width="118dp"
-            android:layout_height="118dp"
-            android:background="@drawable/maya"
-            android:gravity="center|fill"
-            android:orientation="vertical" />
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"/> <LinearLayout
+        android:id="@+id/btnMaya"
+        android:layout_width="118dp"
+        android:layout_height="118dp"
+        android:background="@drawable/maya"
+        android:gravity="center|fill"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="4dp"/>
 
     </LinearLayout>
 
@@ -76,6 +82,7 @@
         android:paddingBottom="16dp">
 
         <EditText
+            android:id="@+id/etPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="@drawable/bg_rounded_light_grey"
@@ -95,6 +102,7 @@
         android:paddingBottom="24dp">
 
         <EditText
+            android:id="@+id/etCode"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="56dp"
@@ -109,6 +117,7 @@
             android:layout_marginEnd="12dp"/>
 
         <TextView
+            android:id="@+id/btnResend"
             android:layout_width="103dp"
             android:layout_height="56dp"
             android:background="@drawable/bg_pill_blue"
@@ -134,6 +143,7 @@
         android:paddingBottom="40dp">
 
         <TextView
+            android:id="@+id/btnDone"
             android:layout_width="211dp"
             android:layout_height="56dp"
             android:background="@drawable/bg_pill_blue"

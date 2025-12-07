@@ -81,13 +81,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View profile"
-                        android:textSize="16sp"
-                        android:textColor="#61768A"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="Member since 2021"
                         android:textSize="16sp"
                         android:textColor="#61768A"/>
@@ -106,23 +99,23 @@
                 android:paddingBottom="8dp"/>
 
             <LinearLayout
+                android:id="@+id/btnEditProfile"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:paddingEnd="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/profile" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/profile" />
                 </LinearLayout>
 
                 <TextView
@@ -135,23 +128,23 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnPaymentMethods"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:paddingEnd="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/card" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/card" />
                 </LinearLayout>
 
                 <TextView
@@ -164,23 +157,23 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnSavedPlaces"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:paddingEnd="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/locationpin" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <TextView
@@ -193,127 +186,29 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btnRideHistory"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:paddingEnd="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/ride" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/ride" />
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ride History"
-                    android:textSize="16sp"
-                    android:textColor="#121417"
-                    android:layout_marginStart="16dp"/>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Settings"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#121417"
-                android:paddingStart="16dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="8dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
-
-                <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_rounded_light_grey"
-                    android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/bell" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Notifications"
-                    android:textSize="16sp"
-                    android:textColor="#121417"
-                    android:layout_marginStart="16dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
-
-                <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_rounded_light_grey"
-                    android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/globe" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Language"
-                    android:textSize="16sp"
-                    android:textColor="#121417"
-                    android:layout_marginStart="16dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
-
-                <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_rounded_light_grey"
-                    android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/help" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Help"
                     android:textSize="16sp"
                     android:textColor="#121417"
                     android:layout_marginStart="16dp"/>
@@ -326,12 +221,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#F0F2F5"/>
-
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F2F5"/>
     </LinearLayout>
 
     <include layout="@layout/usernavbar" />

@@ -31,23 +31,28 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ride History"
+            android:text="Select Place to Add"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#121417"
             android:paddingEnd="48dp"/>
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Available Locations"
+        android:textSize="14sp"
+        android:textColor="#61768A"
+        android:paddingStart="16dp"
+        android:paddingBottom="8dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewRides"
+        android:id="@+id/recyclerViewPlaces"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="8dp"
-        android:clipToPadding="false"/>
-
-    <include layout="@layout/usernavbar" />
+        android:paddingEnd="16dp"/>
 
 </LinearLayout>

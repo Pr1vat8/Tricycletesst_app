@@ -55,6 +55,13 @@
         <activity android:name=".FakeBrowserActivity" />
         <activity android:name=".FakeFacebookActivity" />
         <activity android:name=".SignupConfirmationActivity" />
+
+        <activity android:name=".UserEditProfileActivity" />
+        <activity android:name=".UserPaymentMethodsActivity" />
+        <activity android:name=".UserSavedPlacesActivity" />
+        <activity android:name=".UserAddPlaceActivity" />
+        <activity android:name=".UserRideDetailsActivity" />
+
     </application>
 
 </manifest>
