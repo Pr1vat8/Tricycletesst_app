@@ -1,0 +1,8 @@
+Ethan Carter,150,Pending
+Olivia Bennett,200,Pending
+Noah Thompson,180,Pending
+Ava Martinez,220,Pending
+Liam Harris,170,Pending
+Sophia Wilson,300,Paid
+James Anderson,250,Paid
+Isabella Clark,190,Paid
