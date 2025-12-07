@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Tricycle_app">
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.auth.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,46 +21,47 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AdminDashboardActivity" />
-        <activity android:name=".UserMainDashboardActivity" />
-        <activity android:name=".DriverDashboardActivity" />
-        <activity android:name=".AdminReportActivity" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".SignDriverActivity" />
-        <activity android:name=".AdminUserActivity" />
-        <activity android:name=".AdminRidesHistoryActivity" />
-        <activity android:name=".AdminFaresActivity" />
-        <activity android:name=".AdminPayoutActivity" />
-        <activity android:name=".AdminFareSetActivity" />
-        <activity android:name=".UserRideHistoryActivity" />
-        <activity android:name=".UserClientProfileActivity" />
-        <activity android:name=".UserDriverSelectActivity" />
-        <activity android:name=".UserPaymentSelectActivity" />
-        <activity android:name=".UserSetLocationActivity" />
-        <activity android:name=".UserDriverConfirmActivity" />
-        <activity android:name=".UserDriverWaitingActivity" />
-        <activity android:name=".UserArrivedActivity" />
-        <activity android:name=".UserTripProgressActivity" />
-        <activity android:name=".UserTripCompleteActivity" />
-        <activity android:name=".AdminDriverVerificationActivity" />
-        <activity android:name=".AdminPassengerActivity" />
-        <activity android:name=".AdminRideDetailsActivity" />
-        <activity android:name=".DriverRequestActivity" />
-        <activity android:name=".DriverDashHistoryActivity" />
-        <activity android:name=".DriverEarningActivity" />
-        <activity android:name=".DriverProfileActivity" />
-        <activity android:name=".PaymentMethodRegistrationActivity" />
-        <activity android:name=".AdmindriverdetailActivity" />
-        <activity android:name=".AdminPassengerDetailsActivity" />
-        <activity android:name=".FakeBrowserActivity" />
-        <activity android:name=".FakeFacebookActivity" />
-        <activity android:name=".SignupConfirmationActivity" />
+        <activity android:name=".activity.admin.AdminDashboardActivity" />
+        <activity android:name=".activity.user.UserMainDashboardActivity" />
+        <activity android:name=".activity.user.DriverDashboardActivity" />
+        <activity android:name=".activity.admin.AdminReportActivity" />
+        <activity android:name=".activity.auth.SignupActivity" />
+        <activity android:name=".activity.auth.SignDriverActivity" />
+        <activity android:name=".activity.admin.AdminUserActivity" />
+        <activity android:name=".activity.admin.AdminRidesHistoryActivity" />
+        <activity android:name=".activity.admin.AdminFaresActivity" />
+        <activity android:name=".activity.admin.AdminPayoutActivity" />
+        <activity android:name=".activity.admin.AdminFareSetActivity" />
+        <activity android:name=".activity.user.UserRideHistoryActivity" />
+        <activity android:name=".activity.user.UserClientProfileActivity" />
+        <activity android:name=".activity.user.UserDriverSelectActivity" />
+        <activity android:name=".activity.user.UserPaymentSelectActivity" />
+        <activity android:name=".activity.user.UserSetLocationActivity" />
+        <activity android:name=".activity.user.UserDriverConfirmActivity" />
+        <activity android:name=".activity.user.UserDriverWaitingActivity" />
+        <activity android:name=".activity.user.UserArrivedActivity" />
+        <activity android:name=".activity.user.UserTripProgressActivity" />
+        <activity android:name=".activity.user.UserTripCompleteActivity" />
+        <activity android:name=".activity.admin.AdminDriverVerificationActivity" />
+        <activity android:name=".activity.admin.AdminPassengerActivity" />
+        <activity android:name=".activity.admin.AdminRideDetailsActivity" />
+        <activity android:name=".activity.user.DriverRequestActivity" />
+        <activity android:name=".activity.user.DriverDashHistoryActivity" />
+        <activity android:name=".activity.user.DriverEarningActivity" />
+        <activity android:name=".activity.user.DriverProfileActivity" />
+        <activity android:name=".activity.auth.PaymentMethodRegistrationActivity" />
+        <activity android:name=".activity.admin.AdmindriverdetailActivity" />
+        <activity android:name=".activity.admin.AdminPassengerDetailsActivity" />
+        <activity android:name=".activity.auth.FakeBrowserActivity" />
+        <activity android:name=".activity.auth.FakeFacebookActivity" />
+        <activity android:name=".activity.auth.SignupConfirmationActivity" />
 
-        <activity android:name=".UserEditProfileActivity" />
-        <activity android:name=".UserPaymentMethodsActivity" />
-        <activity android:name=".UserSavedPlacesActivity" />
-        <activity android:name=".UserAddPlaceActivity" />
-        <activity android:name=".UserRideDetailsActivity" />
+        <activity android:name=".activity.user.UserEditProfileActivity" />
+        <activity android:name=".activity.user.UserPaymentMethodsActivity" />
+        <activity android:name=".activity.user.UserSavedPlacesActivity" />
+        <activity android:name=".activity.user.UserAddPlaceActivity" />
+        <activity android:name=".activity.user.UserRideDetailsActivity" />
+        <activity android:name=".activity.user.UserEditSavedPlaceActivity" />
 
 
     </application>

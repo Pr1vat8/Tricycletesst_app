@@ -53,23 +53,24 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
+                android:orientation="horizontal"
                 android:padding="16dp">
 
                 <View
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_width="126dp"
+                    android:layout_height="126dp"
                     android:background="@drawable/person" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:gravity="center_horizontal">
+                    android:layout_marginStart="16dp"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical">
 
                     <TextView
+                        android:id="@+id/tvUserName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Vincent Comendador"
@@ -79,11 +80,37 @@
                         android:layout_marginBottom="4dp"/>
 
                     <TextView
+                        android:id="@+id/tvPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0912..."
+                        android:textSize="14sp"
+                        android:textColor="#61768A"/>
+
+                    <TextView
+                        android:id="@+id/tvAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Address"
+                        android:textSize="14sp"
+                        android:textColor="#61768A"/>
+
+                    <TextView
+                        android:id="@+id/tvAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Age: 24"
+                        android:textSize="14sp"
+                        android:textColor="#61768A"/>
+
+                    <TextView
+                        android:id="@+id/tvMemberSince"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Member since 2021"
-                        android:textSize="16sp"
-                        android:textColor="#61768A"/>
+                        android:textSize="14sp"
+                        android:textColor="#61768A"
+                        android:paddingTop="4dp"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -101,7 +128,7 @@
             <LinearLayout
                 android:id="@+id/btnEditProfile"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="72dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingStart="16dp"
@@ -111,8 +138,8 @@
                 android:background="?attr/selectableItemBackground">
 
                 <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
                     <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/profile" />
@@ -123,6 +150,7 @@
                     android:layout_height="wrap_content"
                     android:text="Edit Profile"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     android:textColor="#121417"
                     android:layout_marginStart="16dp"/>
             </LinearLayout>
@@ -130,7 +158,7 @@
             <LinearLayout
                 android:id="@+id/btnPaymentMethods"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="72dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingStart="16dp"
@@ -140,8 +168,8 @@
                 android:background="?attr/selectableItemBackground">
 
                 <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
                     <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/card" />
@@ -152,6 +180,7 @@
                     android:layout_height="wrap_content"
                     android:text="Payment Methods"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     android:textColor="#121417"
                     android:layout_marginStart="16dp"/>
             </LinearLayout>
@@ -159,7 +188,7 @@
             <LinearLayout
                 android:id="@+id/btnSavedPlaces"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="72dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingStart="16dp"
@@ -169,8 +198,8 @@
                 android:background="?attr/selectableItemBackground">
 
                 <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
                     <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
@@ -181,6 +210,7 @@
                     android:layout_height="wrap_content"
                     android:text="Saved Places"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     android:textColor="#121417"
                     android:layout_marginStart="16dp"/>
             </LinearLayout>
@@ -188,7 +218,7 @@
             <LinearLayout
                 android:id="@+id/btnRideHistory"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="72dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingStart="16dp"
@@ -198,8 +228,8 @@
                 android:background="?attr/selectableItemBackground">
 
                 <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
                     <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/ride" />
@@ -210,6 +240,7 @@
                     android:layout_height="wrap_content"
                     android:text="Ride History"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     android:textColor="#121417"
                     android:layout_marginStart="16dp"/>
             </LinearLayout>

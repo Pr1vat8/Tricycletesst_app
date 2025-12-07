@@ -33,32 +33,91 @@
             android:paddingEnd="48dp"/>
     </LinearLayout>
 
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@drawable/bg_rounded_light_grey"
-        android:hint="Full Name"
-        android:text="Vincent Comendador"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@drawable/bg_rounded_light_grey"
-        android:hint="Phone Number"
-        android:text="09123456789"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@drawable/bg_rounded_light_grey"
-        android:hint="Email"
-        android:text="vincent@gmail.com"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp"/>
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_rounded_light_grey"
+                android:hint="Full Name"
+                android:padding="16dp"
+                android:textColor="#121417"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_rounded_light_grey"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:padding="16dp"
+                android:textColor="#121417"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_rounded_light_grey"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="16dp"
+                android:textColor="#121417"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_rounded_light_grey"
+                android:hint="Address"
+                android:padding="16dp"
+                android:textColor="#121417"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/etGender"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_rounded_light_grey"
+                android:hint="Gender"
+                android:padding="16dp"
+                android:textColor="#121417"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/etBirthDate"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_rounded_light_grey"
+                android:hint="Date of Birth"
+                android:padding="16dp"
+                android:textColor="#121417"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/etAge"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_rounded_light_grey"
+                android:hint="Age"
+                android:inputType="number"
+                android:padding="16dp"
+                android:textColor="#121417"
+                android:layout_marginBottom="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
 
     <TextView
         android:id="@+id/btnSave"

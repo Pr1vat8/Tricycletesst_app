@@ -35,9 +35,45 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSavedPlaces"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="12dp"/>
+        android:layout_height="554dp"
+        android:layout_marginBottom="12dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/btnEdit"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_pill_grey"
+            android:text="Edit"
+            android:textColor="#121417"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:alpha="0.5"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_pill_red"
+            android:text="Delete"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:alpha="0.5"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/btnAddPlace"
@@ -52,5 +88,10 @@
         android:clickable="true"
         android:focusable="true"
         android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:text="" />
 
 </LinearLayout>
