@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="#F7F9FD"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:layout_marginTop="8dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvDriverName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver Name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#0D141C"/>
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount: ₱0"
+            android:textSize="14sp"
+            android:textColor="#4A739C"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnAction"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:background="@drawable/bg_pill_grey"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true">
+        <TextView
+            android:id="@+id/tvAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mark as Paid"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#0D141C"/>
+    </LinearLayout>
+</LinearLayout>
