@@ -41,9 +41,9 @@ public class DriverRideRepository {
             while ((line = reader.readLine()) != null) {
                 String[] p = line.split(",");
                 if (p.length >= 7) {
-                    // ID, Date, Time, From, To, Price, Status
-                    // Mapping to Ride Model: id, passenger, driver, from, to, date, time, status, base, dist, total
-                    allRides.add(new Ride(p[0], "N/A", "Self", p[3], p[4], p[1], p[2], p[6], p[5], "0", p[5]));
+                    // Mapping: ID, Date, Time, From, To, Price, Status
+                    Ride r = new Ride(p[0], "N/A", "Self", p[3], p[4], p[1], p[2], p[6], p[5], "0", p[5]);
+                    allRides.add(r);
                 }
             }
         } catch (Exception e) { e.printStackTrace(); }

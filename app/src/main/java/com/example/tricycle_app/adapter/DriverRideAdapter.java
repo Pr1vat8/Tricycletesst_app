@@ -29,7 +29,7 @@ public class DriverRideAdapter extends RecyclerView.Adapter<DriverRideAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_ride, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_driver_ride, parent, false);
         return new ViewHolder(view);
     }
 
@@ -37,14 +37,13 @@ public class DriverRideAdapter extends RecyclerView.Adapter<DriverRideAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Ride r = list.get(position);
         holder.tvDate.setText(r.getDate() + " • " + r.getTime());
-
-        String details = r.getFromLocation() + " -> " + r.getToLocation() + "\n₱" + r.getTotalFare();
-        holder.tvDetails.setText(details);
+        holder.tvDetails.setText(r.getFromLocation() + " -> " + r.getToLocation());
+        holder.tvPrice.setText("₱" + r.getTotalFare());
 
         if(r.getStatus().equalsIgnoreCase("Cancelled")) {
-            holder.tvDetails.setTextColor(Color.RED);
+            holder.tvPrice.setTextColor(Color.RED);
         } else {
-            holder.tvDetails.setTextColor(Color.parseColor("#4A739C"));
+            holder.tvPrice.setTextColor(Color.parseColor("#0A73D9"));
         }
     }
 
@@ -52,11 +51,12 @@ public class DriverRideAdapter extends RecyclerView.Adapter<DriverRideAdapter.Vi
     public int getItemCount() { return list.size(); }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDate, tvDetails;
+        TextView tvDate, tvDetails, tvPrice;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDate = itemView.findViewById(R.id.tvDate);
             tvDetails = itemView.findViewById(R.id.tvDetails);
+            tvPrice = itemView.findViewById(R.id.tvPrice);
         }
     }
 }

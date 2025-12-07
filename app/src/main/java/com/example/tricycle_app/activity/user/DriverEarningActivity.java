@@ -23,11 +23,8 @@ public class DriverEarningActivity extends AppCompatActivity {
         setContentView(R.layout.driverearning);
 
         DriverNavbar.setup(this);
-
-        // Initialize Repository (Requires driver_earnings.txt)
         DriverEarningRepository.init(this);
 
-        // 1. Find Views
         tvTotalEarnings = findViewById(R.id.tvTotalEarnings);
         tvTotalRides = findViewById(R.id.tvTotalRides);
         tvFareTotal = findViewById(R.id.tvFareTotal);
@@ -41,26 +38,21 @@ public class DriverEarningActivity extends AppCompatActivity {
         lineWeek = findViewById(R.id.lineWeek);
         lineMonth = findViewById(R.id.lineMonth);
 
-        LinearLayout btnBack = findViewById(R.id.btnBack);
-
-        // 2. Setup Listeners
         findViewById(R.id.tabDay).setOnClickListener(v -> updateUI("Day"));
         findViewById(R.id.tabWeek).setOnClickListener(v -> updateUI("Week"));
         findViewById(R.id.tabMonth).setOnClickListener(v -> updateUI("Month"));
 
+        LinearLayout btnBack = findViewById(R.id.btnBack);
         if (btnBack != null) btnBack.setOnClickListener(v -> finish());
 
-        // 3. Initial State
         updateUI("Week");
     }
 
     private void updateUI(String filter) {
-        // Fetch Data
         List<DriverEarningRepository.Earning> list = DriverEarningRepository.getEarningsByFilter(filter);
         int total = DriverEarningRepository.getTotal(list);
-        int rideCount = list.size(); // Approximate rides based on earnings entries
+        int rideCount = list.size();
 
-        // Update Text
         if (tvTotalEarnings != null) tvTotalEarnings.setText("₱" + total);
         if (tvFareTotal != null) tvFareTotal.setText("₱" + total);
         if (tvTotalRides != null) tvTotalRides.setText(String.valueOf(rideCount));
@@ -71,7 +63,6 @@ public class DriverEarningActivity extends AppCompatActivity {
             else tvDateHeader.setText("This Month");
         }
 
-        // Update Visual Tabs
         int activeColor = Color.parseColor("#121417");
         int inactiveColor = Color.parseColor("#61768A");
 

@@ -51,7 +51,7 @@ public class DriverEarningRepository {
     }
 
     public static List<Earning> getEarningsByFilter(String filter) {
-        // Mock logic: Day=1 item, Week=5 items, Month=All items
+        // Mock logic: Day=1, Week=5, Month=All
         if(filter.equals("Day")) return allEarnings.subList(0, Math.min(allEarnings.size(), 1));
         if(filter.equals("Week")) return allEarnings.subList(0, Math.min(allEarnings.size(), 5));
         return allEarnings;

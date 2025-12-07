@@ -27,7 +27,6 @@ public class DriverDashHistoryActivity extends AppCompatActivity {
         DriverNavbar.setup(this);
         DriverRideRepository.init(this);
 
-        // Init Views
         RecyclerView recyclerView = findViewById(R.id.recyclerViewRides);
         tvUpcoming = findViewById(R.id.tvUpcoming);
         tvPast = findViewById(R.id.tvPast);
@@ -35,12 +34,10 @@ public class DriverDashHistoryActivity extends AppCompatActivity {
         linePast = findViewById(R.id.linePast);
         LinearLayout btnBack = findViewById(R.id.btnBack);
 
-        // Setup Recycler
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new DriverRideAdapter(this, DriverRideRepository.getRidesByTab("Upcoming"));
         recyclerView.setAdapter(adapter);
 
-        // Tab Logic
         findViewById(R.id.tabUpcoming).setOnClickListener(v -> switchTab("Upcoming"));
         findViewById(R.id.tabPast).setOnClickListener(v -> switchTab("Past"));
 
@@ -50,16 +47,20 @@ public class DriverDashHistoryActivity extends AppCompatActivity {
     private void switchTab(String tab) {
         adapter.updateList(DriverRideRepository.getRidesByTab(tab));
 
+        int activeColor = Color.parseColor("#121417");
+        int inactiveColor = Color.parseColor("#61768A");
+        int transparent = Color.TRANSPARENT;
+
         if (tab.equals("Upcoming")) {
-            tvUpcoming.setTextColor(Color.parseColor("#121417"));
-            lineUpcoming.setBackgroundColor(Color.parseColor("#121417"));
-            tvPast.setTextColor(Color.parseColor("#61768A"));
-            linePast.setBackgroundColor(Color.TRANSPARENT);
+            tvUpcoming.setTextColor(activeColor);
+            lineUpcoming.setBackgroundColor(activeColor);
+            tvPast.setTextColor(inactiveColor);
+            linePast.setBackgroundColor(transparent);
         } else {
-            tvPast.setTextColor(Color.parseColor("#121417"));
-            linePast.setBackgroundColor(Color.parseColor("#121417"));
-            tvUpcoming.setTextColor(Color.parseColor("#61768A"));
-            lineUpcoming.setBackgroundColor(Color.TRANSPARENT);
+            tvPast.setTextColor(activeColor);
+            linePast.setBackgroundColor(activeColor);
+            tvUpcoming.setTextColor(inactiveColor);
+            lineUpcoming.setBackgroundColor(transparent);
         }
     }
 }
