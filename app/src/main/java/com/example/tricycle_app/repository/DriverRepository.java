@@ -86,6 +86,11 @@ public class DriverRepository {
         return null;
     }
 
+    // --- ADDED MISSING METHOD ---
+    public static List<Driver> getAllDrivers() {
+        return driverList;
+    }
+
     // --- MODIFIED METHOD ---
     public static List<Driver> getDriversByStatus(String status) {
         List<Driver> filtered = new ArrayList<>();

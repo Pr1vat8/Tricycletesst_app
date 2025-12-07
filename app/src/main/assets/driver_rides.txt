@@ -1,0 +1,4 @@
+R001,June 15 2024,10:00 AM,Farmers Market,Plaza,12.50,Upcoming
+R002,June 14 2024,02:30 PM,Hagkol,Robinson,15.00,Completed
+R003,June 13 2024,09:15 AM,Ddike,Purok 4,10.75,Completed
+R004,June 12 2024,04:45 PM,Lumbo,Market,18.20,Cancelled

@@ -7,6 +7,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tricycle_app.model.SavedPlace;
+import com.example.tricycle_app.repository.SavedPlaceRepository;
+
 public class UserEditSavedPlaceActivity extends AppCompatActivity {
 
     private EditText etName, etAddress;

@@ -34,7 +34,6 @@
                     android:gravity="center"
                     android:clickable="true"
                     android:focusable="true">
-
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
@@ -66,11 +65,14 @@
                     android:background="@drawable/bg_rounded_border">
 
                     <LinearLayout
+                        android:id="@+id/tabDay"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:clickable="true">
                         <TextView
+                            android:id="@+id/tvDay"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Day"
@@ -81,17 +83,21 @@
                             android:textStyle="bold"
                             android:textColor="#61768A"/>
                         <View
+                            android:id="@+id/lineDay"
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:background="#DBE0E6"/>
+                            android:background="@android:color/transparent"/>
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/tabWeek"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:clickable="true">
                         <TextView
+                            android:id="@+id/tvWeek"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Week"
@@ -102,17 +108,21 @@
                             android:textStyle="bold"
                             android:textColor="#121417"/>
                         <View
+                            android:id="@+id/lineWeek"
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
                             android:background="#121417"/>
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/tabMonth"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:clickable="true">
                         <TextView
+                            android:id="@+id/tvMonth"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Month"
@@ -123,14 +133,16 @@
                             android:textStyle="bold"
                             android:textColor="#61768A"/>
                         <View
+                            android:id="@+id/lineMonth"
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:background="#DBE0E6"/>
+                            android:background="@android:color/transparent"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tvDateHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="This Week"
@@ -164,6 +176,7 @@
                         android:textColor="#121417"
                         android:layout_marginBottom="8dp"/>
                     <TextView
+                        android:id="@+id/tvTotalEarnings"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="₱1500"
@@ -189,6 +202,7 @@
                         android:textColor="#121417"
                         android:layout_marginBottom="8dp"/>
                     <TextView
+                        android:id="@+id/tvTotalRides"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="32"
@@ -217,107 +231,32 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Mon" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Tue" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Wed" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Thu" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Fri" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Sat" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Sun" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
                     </LinearLayout>
 
@@ -367,6 +306,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tvFareTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="₱1520"
@@ -374,98 +314,8 @@
                     android:textColor="#121417"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="72dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_rounded_border"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bonuses"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Extra earnings from promotions"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₱150.00"
-                    android:textSize="16sp"
-                    android:textColor="#121417"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="72dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_rounded_border"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Deductions"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fees and taxes"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-₱50"
-                    android:textSize="16sp"
-                    android:textColor="#121417"/>
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#F0F2F5"/>
-
-    </LinearLayout>
 
     <include layout="@layout/drivernav" />
 

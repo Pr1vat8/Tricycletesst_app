@@ -150,45 +150,6 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="40dp"
-                        android:background="@drawable/bg_pill_blue"
-                        android:gravity="center"
-                        android:layout_marginEnd="8dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Accept"
-                            android:textColor="#FFFFFF"
-                            android:textStyle="bold"
-                            android:textSize="14sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="40dp"
-                        android:background="@drawable/bg_pill_grey"
-                        android:gravity="center"
-                        android:layout_marginStart="8dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Decline"
-                            android:textColor="#121417"
-                            android:textStyle="bold"
-                            android:textSize="14sp"/>
-                    </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -207,75 +168,80 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp"
                 android:paddingTop="8dp"
+                android:paddingEnd="16dp"
                 android:paddingBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_rounded_border"
                     android:orientation="vertical"
-                    android:padding="8dp"
-                    android:layout_marginEnd="8dp">
+                    android:padding="8dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
                         android:text="Today"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
                         android:textColor="#121417"
-                        android:layout_marginBottom="8dp"/>
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="₱320"
+                        android:textColor="#121417"
                         android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_rounded_border"
                     android:orientation="vertical"
-                    android:padding="8dp"
-                    android:layout_marginEnd="8dp">
+                    android:padding="8dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
                         android:text="This Week"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
                         android:textColor="#121417"
-                        android:layout_marginBottom="8dp"/>
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="₱1,850"
+                        android:textColor="#121417"
                         android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_rounded_border"
                     android:orientation="vertical"
                     android:padding="8dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
                         android:text="This Month"
                         android:textColor="#121417"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
