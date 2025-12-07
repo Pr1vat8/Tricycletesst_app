@@ -1,0 +1,9 @@
+Centamina,123 Main St,15.00
+Bus Terminal,456 Oak Ave,15.00
+Merkado,789 Pine Ln,15.00
+Purok 1,Zone 1,15.00
+Lumbo,Zone 2,15.00
+Hangkol,Zone 3,15.00
+Plaza,Near the park,15.00
+Central School,Near the mall,15.00
+Old Terminal,Near the hospital,15.00

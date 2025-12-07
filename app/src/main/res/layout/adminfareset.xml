@@ -5,6 +5,26 @@
     android:orientation="vertical"
     android:background="#FFFFFF">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:id="@+id/tvHeaderTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom|center"
+            android:text="Fare Settings"
+            android:textColor="#0D141C"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -20,37 +40,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingTop="16dp"
-                android:paddingBottom="8dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
-
-                <LinearLayout
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:gravity="center">
-
-                    <View
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:background="@drawable/arrow" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fare Settings"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#121417"
-                    android:paddingEnd="48dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
@@ -60,7 +49,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Base Fare"
+                    android:text="Base Fare (PHP)"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#121417"
@@ -71,15 +60,26 @@
                     android:layout_height="wrap_content"
                     android:background="#DBE0E6"
                     android:padding="1dp">
+
                     <EditText
+                        android:id="@+id/etBaseFare"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:background="#FFFFFF"
                         android:paddingStart="16dp"
                         android:paddingEnd="16dp"
                         android:inputType="numberDecimal"
-                        android:textColor="#121417"/>
+                        android:textColor="#121417"
+                        android:hint="15.00"/>
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter the new base fare amount for this location."
+                    android:textSize="12sp"
+                    android:textColor="#61768A"
+                    android:paddingTop="8dp"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -94,6 +94,7 @@
         android:paddingBottom="12dp">
 
         <TextView
+            android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/bg_pill_blue"
