@@ -1,0 +1,6 @@
+drivers_online,4
+new_users,5
+todays_revenue,3500.50
+weekly_revenue,24000.00
+monthly_revenue,98000.00
+total_rides,1250

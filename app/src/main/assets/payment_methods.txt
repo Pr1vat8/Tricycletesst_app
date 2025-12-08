@@ -1,0 +1,2 @@
+default-cash-id,Cash,Default,true
+default-wallet-id,Wallet,Balance: 0.00,false

@@ -34,7 +34,6 @@
                     android:gravity="center"
                     android:clickable="true"
                     android:focusable="true">
-
                     <View
                         android:layout_width="24dp"
                         android:layout_height="24dp"
@@ -81,6 +80,7 @@
                     android:layout_marginBottom="8dp"/>
 
                 <TextView
+                    android:id="@+id/tvTotalTrips"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="12,345"
@@ -94,7 +94,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginBottom="32dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -102,7 +101,6 @@
                         android:textSize="16sp"
                         android:textColor="#61768A"
                         android:layout_marginEnd="4dp"/>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -121,7 +119,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
                     <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Jan" android:textSize="13sp" android:textColor="#61768A"/>
                     <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Feb" android:textSize="13sp" android:textColor="#61768A"/>
                     <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Mar" android:textSize="13sp" android:textColor="#61768A"/>
@@ -161,6 +158,7 @@
                     android:layout_marginBottom="8dp"/>
 
                 <TextView
+                    android:id="@+id/tvTotalEarnings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="₱50,678"
@@ -174,7 +172,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginBottom="32dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -182,7 +179,6 @@
                         android:textSize="16sp"
                         android:textColor="#61768A"
                         android:layout_marginEnd="4dp"/>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -195,63 +191,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Week 1" android:textSize="13sp" android:textColor="#61768A"/>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Week 2" android:textSize="13sp" android:textColor="#61768A"/>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Week 3" android:textSize="13sp" android:textColor="#61768A"/>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Week 4" android:textSize="13sp" android:textColor="#61768A"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -277,7 +230,6 @@
                 android:orientation="vertical"
                 android:background="@drawable/bg_rounded_border"
                 android:padding="24dp">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -285,7 +237,6 @@
                     android:textSize="16sp"
                     android:textColor="#121417"
                     android:layout_marginBottom="8dp"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -294,13 +245,11 @@
                     android:textStyle="bold"
                     android:textColor="#121417"
                     android:layout_marginBottom="8dp"/>
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginBottom="24dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -308,7 +257,6 @@
                         android:textSize="16sp"
                         android:textColor="#61768A"
                         android:layout_marginEnd="4dp"/>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -316,70 +264,17 @@
                         android:textSize="16sp"
                         android:textColor="#088738"/>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:layout_width="53dp"
-                        android:layout_height="wrap_content"
-                        android:text="Driver A"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:textColor="#61768A"
-                        android:layout_marginEnd="16dp"/>
-
-                    <View
-                        android:layout_width="96dp"
-                        android:layout_height="20dp"
-                        android:background="@drawable/bg_rounded_light_grey"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="16dp">
+                    <TextView android:layout_width="53dp" android:layout_height="wrap_content" android:text="Driver A" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A" android:layout_marginEnd="16dp"/>
+                    <View android:layout_width="96dp" android:layout_height="20dp" android:background="@drawable/bg_rounded_light_grey"/>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp">
-
-                    <TextView
-                        android:layout_width="53dp"
-                        android:layout_height="wrap_content"
-                        android:text="Driver B"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:textColor="#61768A"
-                        android:layout_marginEnd="16dp"/>
-
-                    <View
-                        android:layout_width="48dp"
-                        android:layout_height="20dp"
-                        android:background="@drawable/bg_rounded_light_grey"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="16dp">
+                    <TextView android:layout_width="53dp" android:layout_height="wrap_content" android:text="Driver B" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A" android:layout_marginEnd="16dp"/>
+                    <View android:layout_width="48dp" android:layout_height="20dp" android:background="@drawable/bg_rounded_light_grey"/>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="53dp"
-                        android:layout_height="wrap_content"
-                        android:text="Driver C"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:textColor="#61768A"
-                        android:layout_marginEnd="16dp"/>
-
-                    <View
-                        android:layout_width="48dp"
-                        android:layout_height="20dp"
-                        android:background="@drawable/bg_rounded_light_grey"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="53dp" android:layout_height="wrap_content" android:text="Driver C" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A" android:layout_marginEnd="16dp"/>
+                    <View android:layout_width="48dp" android:layout_height="20dp" android:background="@drawable/bg_rounded_light_grey"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -413,6 +308,7 @@
                     android:layout_marginBottom="8dp"/>
 
                 <TextView
+                    android:id="@+id/tvReportNewUsers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="250"
@@ -426,7 +322,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginBottom="32dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -434,7 +329,6 @@
                         android:textSize="16sp"
                         android:textColor="#61768A"
                         android:layout_marginEnd="4dp"/>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -447,60 +341,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Week 1" android:textSize="13sp" android:textColor="#61768A"/>
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Week 2" android:textSize="13sp" android:textColor="#61768A"/>
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end"
-                        android:layout_marginEnd="12dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Week 3" android:textSize="13sp" android:textColor="#61768A"/>
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="137dp"
-                            android:background="@drawable/bar" />
+                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end">
+                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Week 4" android:textSize="13sp" android:textColor="#61768A"/>
                     </LinearLayout>
                 </LinearLayout>

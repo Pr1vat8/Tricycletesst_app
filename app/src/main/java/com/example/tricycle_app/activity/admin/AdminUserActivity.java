@@ -46,7 +46,17 @@ public class AdminUserActivity extends AppCompatActivity {
         linePending = findViewById(R.id.linePending);
         EditText etSearch = findViewById(R.id.etSearchDriver);
 
-        loadData();
+        // --- CHECK INTENT FOR TARGET TAB ---
+        if (getIntent().hasExtra("TARGET_TAB")) {
+            String target = getIntent().getStringExtra("TARGET_TAB");
+            if ("Pending".equalsIgnoreCase(target)) {
+                switchTab("Pending");
+            } else {
+                loadData(); // Default load if target isn't pending
+            }
+        } else {
+            loadData(); // Normal load (defaults to Verified)
+        }
 
         findViewById(R.id.tabVerified).setOnClickListener(v -> switchTab("Verified"));
         findViewById(R.id.tabPending).setOnClickListener(v -> switchTab("Pending"));
@@ -74,6 +84,7 @@ public class AdminUserActivity extends AppCompatActivity {
             tvPending.setTextColor(Color.parseColor("#4A739C"));
             linePending.setBackgroundColor(Color.TRANSPARENT);
         } else {
+            // Pending Tab Styles
             tvPending.setTextColor(Color.parseColor("#0D141C"));
             linePending.setBackgroundColor(Color.parseColor("#0D141C"));
             tvVerified.setTextColor(Color.parseColor("#4A739C"));
@@ -86,10 +97,9 @@ public class AdminUserActivity extends AppCompatActivity {
         List<Driver> list = DriverRepository.getDriversByStatus(currentTab);
         adapter = new DriverAdapter(this, list);
 
-        // --- CRITICAL FIX: PASS ID, NOT INDEX ---
         adapter.setOnItemClickListener(driver -> {
             Intent intent = new Intent(AdminUserActivity.this, AdmindriverdetailActivity.class);
-            intent.putExtra("DRIVER_ID", driver.getId()); // Passing String ID
+            intent.putExtra("DRIVER_ID", driver.getId());
             startActivity(intent);
         });
 
@@ -98,12 +108,17 @@ public class AdminUserActivity extends AppCompatActivity {
 
     private void filterData(String query) {
         List<Driver> filtered = DriverRepository.searchDrivers(query, currentTab);
-        adapter.updateList(filtered);
+        if (adapter != null) {
+            adapter.updateList(filtered);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        loadData(); // Refresh list when coming back
+        // Only refresh if we aren't handling an intent that just set the state
+        // or ensure intent extras are cleared if you want strict state management.
+        // For simplicity, re-loading currentTab ensures the list is up to date after returning from details.
+        loadData();
     }
 }

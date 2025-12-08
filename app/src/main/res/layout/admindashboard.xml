@@ -44,7 +44,6 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:gravity="center">
-
                     <View
                         android:layout_width="24dp"
                         android:layout_height="13dp"
@@ -65,12 +64,15 @@
                     android:layout_marginBottom="16dp">
 
                     <LinearLayout
+                        android:id="@+id/cvDriversOnline"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:background="#CFDBE8"
-                        android:padding="1dp">
+                        android:padding="1dp"
+                        android:clickable="true"
+                        android:focusable="true">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -85,6 +87,7 @@
                                 android:textColor="#0D141C"
                                 android:layout_marginBottom="8dp"/>
                             <TextView
+                                android:id="@+id/tvDriversOnline"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="23"
@@ -100,7 +103,6 @@
                                 android:textColor="#088738"/>
                         </LinearLayout>
                     </LinearLayout>
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -109,12 +111,15 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/cvRevenue"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
                         android:layout_marginEnd="8dp"
                         android:background="#CFDBE8"
-                        android:padding="1dp">
+                        android:padding="1dp"
+                        android:clickable="true"
+                        android:focusable="true">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -129,6 +134,7 @@
                                 android:textColor="#0D141C"
                                 android:layout_marginBottom="8dp"/>
                             <TextView
+                                android:id="@+id/tvRevenue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="₱45,054"
@@ -146,12 +152,15 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/cvNewUsers"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
                         android:layout_marginStart="8dp"
                         android:background="#CFDBE8"
-                        android:padding="1dp">
+                        android:padding="1dp"
+                        android:clickable="true"
+                        android:focusable="true">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -166,6 +175,7 @@
                                 android:textColor="#0D141C"
                                 android:layout_marginBottom="8dp"/>
                             <TextView
+                                android:id="@+id/tvNewUsers"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="12"
@@ -189,13 +199,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
-
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="201dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/map" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -221,6 +229,7 @@
                         android:layout_marginBottom="4dp"/>
 
                     <TextView
+                        android:id="@+id/tvPendingVerifications"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="5 new applications"
