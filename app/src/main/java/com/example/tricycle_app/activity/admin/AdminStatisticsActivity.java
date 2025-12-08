@@ -5,6 +5,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.tricycle_app.R;
+import com.example.tricycle_app.utils.AdminNavbar;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,8 +17,11 @@ public class AdminStatisticsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_statistics);
+
+        AdminNavbar.setup(this);
 
         // Initialize Views
         LinearLayout btnBack = findViewById(R.id.btnBack);

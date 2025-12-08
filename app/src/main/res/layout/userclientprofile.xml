@@ -150,7 +150,6 @@
                     android:layout_height="wrap_content"
                     android:text="Edit Profile"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     android:textColor="#121417"
                     android:layout_marginStart="16dp"/>
             </LinearLayout>
@@ -180,7 +179,6 @@
                     android:layout_height="wrap_content"
                     android:text="Payment Methods"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     android:textColor="#121417"
                     android:layout_marginStart="16dp"/>
             </LinearLayout>
@@ -210,7 +208,6 @@
                     android:layout_height="wrap_content"
                     android:text="Saved Places"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     android:textColor="#121417"
                     android:layout_marginStart="16dp"/>
             </LinearLayout>
@@ -240,7 +237,6 @@
                     android:layout_height="wrap_content"
                     android:text="Ride History"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     android:textColor="#121417"
                     android:layout_marginStart="16dp"/>
             </LinearLayout>
