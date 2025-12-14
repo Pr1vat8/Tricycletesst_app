@@ -10,7 +10,12 @@ public class Driver {
     private String status; // "Verified" or "Pending"
     private boolean isSuspended;
 
-    public Driver(String id, String name, String phone, String email, String address, String plateNumber, String status, boolean isSuspended) {
+    // New Fields
+    private String licenseNumber;
+    private String licenseExpirationDate; // Format: YYYY-MM-DD
+    private String suspensionEndDate; // Format: YYYY-MM-DD
+
+    public Driver(String id, String name, String phone, String email, String address, String plateNumber, String status, boolean isSuspended, String licenseNumber, String licenseExpirationDate, String suspensionEndDate) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -19,10 +24,18 @@ public class Driver {
         this.plateNumber = plateNumber;
         this.status = status;
         this.isSuspended = isSuspended;
+        this.licenseNumber = licenseNumber;
+        this.licenseExpirationDate = licenseExpirationDate;
+        this.suspensionEndDate = suspensionEndDate;
+    }
+
+    // Constructor for backward compatibility (defaults new fields to empty/null)
+    public Driver(String id, String name, String phone, String email, String address, String plateNumber, String status, boolean isSuspended) {
+        this(id, name, phone, email, address, plateNumber, status, isSuspended, "", "", "");
     }
 
     public String toCsvString() {
-        return id + "," + name + "," + phone + "," + email + "," + address + "," + plateNumber + "," + status + "," + isSuspended;
+        return id + "," + name + "," + phone + "," + email + "," + address + "," + plateNumber + "," + status + "," + isSuspended + "," + licenseNumber + "," + licenseExpirationDate + "," + suspensionEndDate;
     }
 
     // Getters and Setters
@@ -41,4 +54,13 @@ public class Driver {
     public void setStatus(String status) { this.status = status; }
     public boolean isSuspended() { return isSuspended; }
     public void setSuspended(boolean suspended) { isSuspended = suspended; }
+
+    public String getLicenseNumber() { return licenseNumber; }
+    public void setLicenseNumber(String licenseNumber) { this.licenseNumber = licenseNumber; }
+
+    public String getLicenseExpirationDate() { return licenseExpirationDate; }
+    public void setLicenseExpirationDate(String licenseExpirationDate) { this.licenseExpirationDate = licenseExpirationDate; }
+
+    public String getSuspensionEndDate() { return suspensionEndDate; }
+    public void setSuspensionEndDate(String suspensionEndDate) { this.suspensionEndDate = suspensionEndDate; }
 }

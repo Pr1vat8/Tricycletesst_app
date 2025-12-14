@@ -125,13 +125,30 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:padding="20dp">
         <TextView
             android:id="@+id/btnPassengers"
-            android:layout_width="122dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="56dp"
             android:background="@drawable/bg_pill_blue"
             android:text="Passengers"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:id="@+id/btnAddDriver"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_pill_blue"
+            android:text="Add Driver"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:textSize="16sp"

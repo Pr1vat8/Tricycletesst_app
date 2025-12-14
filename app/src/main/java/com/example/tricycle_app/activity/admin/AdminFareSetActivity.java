@@ -30,10 +30,12 @@ public class AdminFareSetActivity extends AppCompatActivity {
         // UI Setup
         etBaseFare = findViewById(R.id.etBaseFare); // Add ID to EditText in XML
         TextView tvHeader = findViewById(R.id.tvHeaderTitle); // Add ID to Header Title
+        TextView tvDescription = findViewById(R.id.tvLocationDescription);
         TextView btnSave = findViewById(R.id.btnSave); // Add ID to Save Button
 
         if (fare != null) {
             if(tvHeader != null) tvHeader.setText(fare.getName());
+            if(tvDescription != null) tvDescription.setText(fare.getDescription());
             etBaseFare.setText(fare.getBaseFare());
         }
 

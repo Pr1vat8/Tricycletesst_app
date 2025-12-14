@@ -64,6 +64,7 @@
         <activity android:name=".activity.driver.DriverTripActivity" />
         <activity android:name=".activity.user.DriverRideDetailsActivity" />
         <activity android:name=".activity.admin.AdminStatisticsActivity" />
+        <activity android:name=".activity.admin.AdminAddDriverActivity" />
 
 
     </application>

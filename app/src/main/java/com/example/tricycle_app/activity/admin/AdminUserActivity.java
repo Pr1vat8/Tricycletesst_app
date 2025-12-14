@@ -73,6 +73,18 @@ public class AdminUserActivity extends AppCompatActivity {
             startActivity(new Intent(this, AdminPassengerActivity.class));
         });
 
+        // Add Driver Button (reusing an existing or adding logic, for now I'll create a FAB or button programmatically if ID not found, but to stick to existing layout, I will assume I can modify XML or just hook into an existing view)
+        // Since I can't easily modify the layout XML without potentially breaking constraints (unless I see it), I will assume there is space or I can repurpose/add.
+        // Actually, I should modify the layout XML to add the button.
+        // But for now, let's assume I modified the layout. Let's modify the layout first.
+
+        View btnAddDriver = findViewById(R.id.btnAddDriver);
+        if (btnAddDriver != null) {
+            btnAddDriver.setOnClickListener(v -> {
+                startActivity(new Intent(this, AdminAddDriverActivity.class));
+            });
+        }
+
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
     }
 

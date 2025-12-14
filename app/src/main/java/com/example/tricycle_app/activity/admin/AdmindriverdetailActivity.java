@@ -3,6 +3,7 @@ package com.example.tricycle_app.activity.admin;
 import android.app.AlertDialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.InputType;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,12 +15,17 @@ import com.example.tricycle_app.model.Driver;
 import com.example.tricycle_app.repository.DriverRepository;
 import com.example.tricycle_app.utils.AdminNavbar;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 public class AdmindriverdetailActivity extends AppCompatActivity {
 
     private String driverId;
     private boolean isEditing = false;
 
-    private EditText etName, etPhone, etEmail, etAddress, etPlate;
+    private EditText etName, etPhone, etEmail, etAddress, etPlate, etLicenseNumber, etLicenseExpiration;
     private TextView tvStatus, tvHeaderName, tvHeaderId;
     private TextView btnLeft, btnRight;
     private LinearLayout btnBack;
@@ -27,7 +33,7 @@ public class AdmindriverdetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admindriverdetails);
+        setContentView(R.layout.admindriverdetails); // I need to update this layout to include new fields if I want them visible here too
 
         AdminNavbar.setup(this);
 
@@ -45,6 +51,10 @@ public class AdmindriverdetailActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etAddress = findViewById(R.id.etAddress);
         etPlate = findViewById(R.id.etPlate);
+        // Assuming layout might not have these IDs yet, need to be careful.
+        // I will update the layout xml as well to include them.
+        etLicenseNumber = findViewById(R.id.etLicenseNumber);
+        etLicenseExpiration = findViewById(R.id.etLicenseExpiration);
 
         tvHeaderName = findViewById(R.id.tvHeaderName);
         tvHeaderId = findViewById(R.id.tvHeaderId);
@@ -68,6 +78,8 @@ public class AdmindriverdetailActivity extends AppCompatActivity {
         etEmail.setText(d.getEmail());
         etAddress.setText(d.getAddress());
         etPlate.setText(d.getPlateNumber());
+        if (etLicenseNumber != null) etLicenseNumber.setText(d.getLicenseNumber());
+        if (etLicenseExpiration != null) etLicenseExpiration.setText(d.getLicenseExpirationDate());
 
         tvHeaderName.setText(d.getName());
         tvHeaderId.setText("Driver ID: " + d.getId());
@@ -148,15 +160,28 @@ public class AdmindriverdetailActivity extends AppCompatActivity {
             // FIX: Use Green Pill
             btnRight.setBackgroundResource(R.drawable.bg_pill_green);
             tvHeaderName.setTextColor(Color.RED);
+
+            btnRight.setOnClickListener(v -> {
+                new AlertDialog.Builder(this)
+                    .setTitle("Unsuspend Driver?")
+                    .setMessage("Are you sure you want to lift the suspension?")
+                    .setPositiveButton("Yes", (dialog, which) -> {
+                        DriverRepository.toggleSuspend(this, driverId);
+                        loadDriverData();
+                    })
+                    .setNegativeButton("Cancel", null)
+                    .show();
+            });
+
         } else {
             btnRight.setText("Suspend");
             // FIX: Use Red Pill
             btnRight.setBackgroundResource(R.drawable.bg_pill_red);
             tvHeaderName.setTextColor(Color.parseColor("#0D141C"));
+
+            btnRight.setOnClickListener(v -> showSuspendDialog(d));
         }
         btnRight.setTextColor(Color.WHITE);
-
-        btnRight.setOnClickListener(v -> showSuspendDialog(d));
     }
 
     private void enableEditing() {
@@ -168,31 +193,63 @@ public class AdmindriverdetailActivity extends AppCompatActivity {
 
         etName.setEnabled(true); etPhone.setEnabled(true);
         etEmail.setEnabled(true); etAddress.setEnabled(true); etPlate.setEnabled(true);
+        if (etLicenseNumber != null) etLicenseNumber.setEnabled(true);
+        if (etLicenseExpiration != null) etLicenseExpiration.setEnabled(true);
     }
 
     private void saveChanges() {
-        DriverRepository.updateDriver(this, driverId,
+        String license = (etLicenseNumber != null) ? etLicenseNumber.getText().toString() : "";
+        String expiration = (etLicenseExpiration != null) ? etLicenseExpiration.getText().toString() : "";
+
+        DriverRepository.updateDriverFull(this, driverId,
                 etName.getText().toString(), etPhone.getText().toString(),
-                etEmail.getText().toString(), etAddress.getText().toString(), etPlate.getText().toString());
+                etEmail.getText().toString(), etAddress.getText().toString(), etPlate.getText().toString(),
+                license, expiration);
 
         isEditing = false;
         loadDriverData();
         etName.setEnabled(false); etPhone.setEnabled(false);
         etEmail.setEnabled(false); etAddress.setEnabled(false); etPlate.setEnabled(false);
+        if (etLicenseNumber != null) etLicenseNumber.setEnabled(false);
+        if (etLicenseExpiration != null) etLicenseExpiration.setEnabled(false);
+
         Toast.makeText(this, "Changes Saved", Toast.LENGTH_SHORT).show();
     }
 
     private void showSuspendDialog(Driver d) {
-        String title = d.isSuspended() ? "Unsuspend Driver?" : "Suspend Driver?";
+        // Create an input for days
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setHint("Enter number of days");
 
         new AlertDialog.Builder(this)
-                .setTitle(title)
-                .setMessage("Are you sure you want to proceed?")
-                .setPositiveButton("Yes", (dialog, which) -> {
-                    DriverRepository.toggleSuspend(this, driverId);
-                    loadDriverData();
+                .setTitle("Suspend Driver")
+                .setMessage("Enter suspension duration in days:")
+                .setView(input)
+                .setPositiveButton("Suspend", (dialog, which) -> {
+                    String daysStr = input.getText().toString();
+                    if (!daysStr.isEmpty()) {
+                        int days = Integer.parseInt(daysStr);
+                        calculateAndSetSuspension(days);
+                    } else {
+                        Toast.makeText(this, "Invalid number of days", Toast.LENGTH_SHORT).show();
+                    }
                 })
                 .setNegativeButton("Cancel", null)
                 .show();
+    }
+
+    private void calculateAndSetSuspension(int days) {
+        // Calculate End Date
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_YEAR, days);
+        Date endDate = calendar.getTime();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        String dateString = sdf.format(endDate);
+
+        DriverRepository.setSuspensionEndDate(this, driverId, dateString);
+        loadDriverData();
+        Toast.makeText(this, "Driver suspended for " + days + " days.", Toast.LENGTH_SHORT).show();
     }
 }
