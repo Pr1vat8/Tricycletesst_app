@@ -16,6 +16,7 @@ public class AdminFareSetActivity extends AppCompatActivity {
 
     private String locationName;
     private EditText etBaseFare;
+    private TextView tvLocationDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +28,18 @@ public class AdminFareSetActivity extends AppCompatActivity {
         locationName = getIntent().getStringExtra("LOCATION_NAME");
         FareLocation fare = FareRepository.getFareByName(locationName);
 
-        // UI Setup
-        etBaseFare = findViewById(R.id.etBaseFare); // Add ID to EditText in XML
-        TextView tvHeader = findViewById(R.id.tvHeaderTitle); // Add ID to Header Title
-        TextView btnSave = findViewById(R.id.btnSave); // Add ID to Save Button
+        etBaseFare = findViewById(R.id.etBaseFare);
+        TextView tvHeader = findViewById(R.id.tvHeaderTitle);
+        TextView btnSave = findViewById(R.id.btnSave);
+        tvLocationDisplay = findViewById(R.id.tvLocationDisplay); // New TextView ID
 
         if (fare != null) {
-            if(tvHeader != null) tvHeader.setText(fare.getName());
+            if(tvHeader != null) tvHeader.setText("Edit Fare");
+            // Set the visible location name in the body
+            if(tvLocationDisplay != null) tvLocationDisplay.setText(fare.getName());
             etBaseFare.setText(fare.getBaseFare());
         }
 
-        // Save Logic
         if (btnSave != null) {
             btnSave.setOnClickListener(v -> {
                 String newPrice = etBaseFare.getText().toString();
@@ -51,7 +53,7 @@ public class AdminFareSetActivity extends AppCompatActivity {
             });
         }
 
-        LinearLayout btnBack = findViewById(R.id.btnBack); // Assuming you add ID to back button
+        LinearLayout btnBack = findViewById(R.id.btnBack);
         if(btnBack != null) btnBack.setOnClickListener(v -> finish());
     }
 }

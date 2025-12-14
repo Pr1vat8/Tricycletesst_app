@@ -22,10 +22,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingTop="16dp"
-                android:paddingBottom="8dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:padding="16dp">
 
                 <LinearLayout
                     android:id="@+id/btnBack"
@@ -43,20 +40,81 @@
                     android:text="Statistics"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="#121417"
-                    android:paddingEnd="48dp"/>
+                    android:textColor="#121417"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp">
+
+                <LinearLayout
+                    android:id="@+id/btnDateFrom"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_rounded_white_card"
+                    android:padding="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="From"
+                        android:textSize="12sp"
+                        android:textColor="#61768A"/>
+                    <TextView
+                        android:id="@+id/tvDateFrom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Date"
+                        android:textStyle="bold"
+                        android:textColor="#0D141C"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnDateTo"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_rounded_white_card"
+                    android:padding="12dp"
+                    android:layout_marginStart="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="To"
+                        android:textSize="12sp"
+                        android:textColor="#61768A"/>
+                    <TextView
+                        android:id="@+id/tvDateTo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Date"
+                        android:textStyle="bold"
+                        android:textColor="#0D141C"
+                        android:textSize="14sp"/>
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Overview"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="#121417"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:paddingTop="20dp"
                 android:paddingBottom="12dp"/>
 
             <LinearLayout
@@ -65,7 +123,7 @@
                 android:orientation="horizontal"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="12dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -74,30 +132,27 @@
                     android:orientation="vertical"
                     android:background="@drawable/bg_rounded_border"
                     android:padding="16dp"
-                    android:layout_marginEnd="8dp">
-
+                    android:layout_marginEnd="6dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Drivers Online"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"
-                        android:layout_marginBottom="8dp"/>
+                        android:textSize="12sp"
+                        android:textColor="#61768A"/>
                     <TextView
                         android:id="@+id/tvDriversOnline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
-                        android:textSize="24sp"
+                        android:textSize="22sp"
                         android:textStyle="bold"
                         android:textColor="#121417"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Active now"
-                        android:textSize="12sp"
-                        android:textColor="#088738"
-                        android:layout_marginTop="4dp"/>
+                        android:textSize="10sp"
+                        android:textColor="#088738"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -107,200 +162,100 @@
                     android:orientation="vertical"
                     android:background="@drawable/bg_rounded_border"
                     android:padding="16dp"
-                    android:layout_marginStart="8dp">
-
+                    android:layout_marginStart="6dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="New Users"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"
-                        android:layout_marginBottom="8dp"/>
+                        android:text="Revenue"
+                        android:textSize="12sp"
+                        android:textColor="#61768A"/>
                     <TextView
-                        android:id="@+id/tvNewUsers"
+                        android:id="@+id/tvTotalRevenue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textSize="24sp"
+                        android:text="₱0.00"
+                        android:textSize="22sp"
                         android:textStyle="bold"
                         android:textColor="#121417"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Joined today"
-                        android:textSize="12sp"
-                        android:textColor="#088738"
-                        android:layout_marginTop="4dp"/>
+                        android:text="In selected range"
+                        android:textSize="10sp"
+                        android:textColor="#4A739C"/>
                 </LinearLayout>
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Financials"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="#121417"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="12dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:orientation="vertical"
-                android:background="@drawable/bg_rounded_border"
-                android:padding="24dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Total Revenue (Monthly)"
-                    android:textSize="16sp"
-                    android:textColor="#121417"
-                    android:layout_marginBottom="8dp"/>
-
-                <TextView
-                    android:id="@+id/tvRevenueMonthly"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₱0.00"
-                    android:textSize="32sp"
-                    android:textStyle="bold"
-                    android:textColor="#121417"
-                    android:layout_marginBottom="24dp"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp">
-                    <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/bg_circle_green" android:layout_marginEnd="8dp"/>
-                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Today's Earnings" android:textSize="14sp" android:textColor="#61768A"/>
-                    <TextView android:id="@+id/tvRevenueToday" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₱0.00" android:textStyle="bold" android:textColor="#121417"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="24dp">
-                    <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/bg_circle_orange" android:layout_marginEnd="8dp"/>
-                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Weekly Earnings" android:textSize="14sp" android:textColor="#61768A"/>
-                    <TextView android:id="@+id/tvRevenueWeekly" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₱0.00" android:textStyle="bold" android:textColor="#121417"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="bottom"
-                    android:layout_marginTop="8dp">
-
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical">
-                        <View android:layout_width="16dp" android:layout_height="60dp" android:background="@drawable/bar" android:alpha="0.4"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="W1"
-                            android:textSize="12sp"
-                            android:textColor="#61768A"
-                            android:layout_marginTop="4dp"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical">
-                        <View android:layout_width="16dp" android:layout_height="90dp" android:background="@drawable/bar" android:alpha="0.6"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="W2"
-                            android:textSize="12sp"
-                            android:textColor="#61768A"
-                            android:layout_marginTop="4dp"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical">
-                        <View android:layout_width="16dp" android:layout_height="75dp" android:background="@drawable/bar" android:alpha="0.5"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="W3"
-                            android:textSize="12sp"
-                            android:textColor="#61768A"
-                            android:layout_marginTop="4dp"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical">
-                        <View android:layout_width="16dp" android:layout_height="120dp" android:background="@drawable/bar"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="W4"
-                            android:textSize="12sp"
-                            android:textColor="#61768A"
-                            android:layout_marginTop="4dp"/>
-                    </LinearLayout>
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Activity"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="#121417"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="12dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
-                android:background="@drawable/bg_rounded_border"
-                android:padding="20dp"
-                android:gravity="center_vertical">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_rounded_border"
+                    android:padding="16dp"
+                    android:layout_marginEnd="6dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Users"
+                        android:textSize="12sp"
+                        android:textColor="#61768A"/>
+                    <TextView
+                        android:id="@+id/tvNewUsers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="#121417"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Joined in range"
+                        android:textSize="10sp"
+                        android:textColor="#4A739C"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_rounded_border"
+                    android:padding="16dp"
+                    android:layout_marginStart="6dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Total Rides"
-                        android:textSize="16sp"
-                        android:textColor="#121417"
-                        android:layout_marginBottom="4dp"/>
+                        android:textSize="12sp"
+                        android:textColor="#61768A"/>
+                    <TextView
+                        android:id="@+id/tvTotalRides"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="#121417"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="All time"
-                        android:textSize="12sp"
-                        android:textColor="#61768A"/>
+                        android:text="In selected range"
+                        android:textSize="10sp"
+                        android:textColor="#4A739C"/>
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tvTotalRides"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:textColor="#121417"/>
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
     <include layout="@layout/adminnavbar" />
-
 </LinearLayout>

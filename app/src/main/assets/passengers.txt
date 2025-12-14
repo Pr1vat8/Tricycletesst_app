@@ -1,5 +1,8 @@
-987654,Liam Carter,09547372322,liam@gmail.com,Zone 1 Market
-123456,Olivia Bennett,09123456789,olivia@gmail.com,Purok 4 Poblacion
-112233,Noah Thompson,09987654321,noah@gmail.com,Barangay 2 Proper
-445566,Ava Harper,09112233445,ava.harper@yahoo.com,Purok 6 Valencia
-778899,Ethan Parker,09556677889,ethan.p@gmail.com,Lumbo Valencia
+1,Juan Dela Cruz,09123456789,juan@gmail.com,Purok 1,false,September 25 2024
+2,Maria Clara,09987654321,maria@yahoo.com,Purok 2,false,October 01 2024
+3,Jose Rizal,09112233445,jose@gmail.com,Purok 3,false,October 10 2024
+4,Andres Bonifacio,09223344556,andres@gmail.com,Purok 4,true,October 15 2024
+5,Gabriela Silang,09334455667,gabriela@hotmail.com,Purok 5,false,October 25 2024
+6,Emilio Aguinaldo,09445566778,emilio@gmail.com,Purok 6,false,November 01 2024
+7,Apolinario Mabini,09556677889,apol@gmail.com,Purok 7,false,November 10 2024
+8,Melchora Aquino,09667788990,tandangsora@gmail.com,Purok 8,false,November 20 2024

@@ -23,13 +23,15 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="User Management"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#0D141C"
-            android:paddingEnd="48dp"/>
+            android:paddingStart="16dp"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -101,7 +103,6 @@
             android:background="@drawable/bg_rounded_light_grey"
             android:paddingStart="16dp">
             <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/magni" />
-
             <EditText
                 android:id="@+id/etSearchDriver"
                 android:layout_width="match_parent"
@@ -124,20 +125,37 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="114dp"
+        android:orientation="vertical"
         android:padding="20dp">
+
         <TextView
             android:id="@+id/btnPassengers"
-            android:layout_width="122dp"
-            android:layout_height="56dp"
+            android:layout_width="120dp"
+            android:layout_height="34dp"
+            android:layout_marginBottom="6dp"
             android:background="@drawable/bg_pill_blue"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
             android:text="Passengers"
             android:textColor="#FFFFFF"
-            android:textStyle="bold"
             android:textSize="16sp"
-            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnAddDriver"
+            android:layout_width="120dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_pill_blue"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="+ Add Driver"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <include layout="@layout/adminnavbar" />

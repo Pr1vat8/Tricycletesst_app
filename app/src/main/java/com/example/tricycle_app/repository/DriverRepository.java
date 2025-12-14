@@ -150,6 +150,11 @@ public class DriverRepository {
         }
     }
 
+    public static void addDriver(Context context, Driver driver) {
+        driverList.add(driver);
+        saveAll(context);
+    }
+
     public static void toggleSuspend(Context context, String id) {
         Driver d = getDriverById(id);
         if (d != null) {

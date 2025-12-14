@@ -1,9 +1,7 @@
 package com.example.tricycle_app.repository;
 
 import android.content.Context;
-
 import com.example.tricycle_app.model.Passenger;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -47,15 +45,25 @@ public class PassengerRepository {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length >= 6) {
+                // Default date if missing
+                String dateJoined = "January 01 2024";
+
+                if (parts.length >= 7) {
+                    // Format: ID, Name, Phone, Email, Address, Suspended, DateJoined
+                    dateJoined = parts[6].trim();
                     passengerList.add(new Passenger(
                             parts[0].trim(), parts[1].trim(), parts[2].trim(),
                             parts[3].trim(), parts[4].trim(),
-                            Boolean.parseBoolean(parts[5].trim())));
-                } else if (parts.length == 5) {
+                            Boolean.parseBoolean(parts[5].trim()),
+                            dateJoined));
+                } else if (parts.length >= 5) {
+                    // Handle legacy data (backward compatibility)
+                    boolean suspended = parts.length > 5 && Boolean.parseBoolean(parts[5].trim());
                     passengerList.add(new Passenger(
                             parts[0].trim(), parts[1].trim(), parts[2].trim(),
-                            parts[3].trim(), parts[4].trim(), false));
+                            parts[3].trim(), parts[4].trim(),
+                            suspended,
+                            dateJoined));
                 }
             }
         } catch (Exception e) { e.printStackTrace(); }
@@ -69,14 +77,10 @@ public class PassengerRepository {
         } catch (Exception e) { e.printStackTrace(); }
     }
 
-    public static Passenger getPassenger(int index) {
-        if (index >= 0 && index < passengerList.size()) return passengerList.get(index);
-        return null;
-    }
-
     public static List<Passenger> getAllPassengers() { return passengerList; }
 
-    // --- NEW SEARCH METHOD ---
+    // --- RESTORED METHODS BELOW ---
+
     public static List<Passenger> searchPassengers(String query) {
         List<Passenger> filteredList = new ArrayList<>();
         for (Passenger p : passengerList) {
@@ -86,6 +90,11 @@ public class PassengerRepository {
             }
         }
         return filteredList;
+    }
+
+    public static Passenger getPassenger(int index) {
+        if (index >= 0 && index < passengerList.size()) return passengerList.get(index);
+        return null;
     }
 
     public static void updatePassenger(Context context, int index, String name, String phone, String email, String address) {

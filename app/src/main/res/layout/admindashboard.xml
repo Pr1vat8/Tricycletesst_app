@@ -262,21 +262,6 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="201dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/graph" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rides in the Last 24 Hours"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#0D141C"
-                    android:layout_marginBottom="4dp"/>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -284,26 +269,18 @@
                     android:gravity="bottom">
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Track ride activity over the past day"
-                        android:textSize="16sp"
-                        android:textColor="#4A739C"
-                        android:layout_marginEnd="12dp"/>
-
-                    <TextView
                         android:id="@+id/btnViewChart"
-                        android:layout_width="100dp"
+                        android:layout_width="match_parent"
                         android:layout_height="32dp"
                         android:background="@drawable/bg_pill_blue"
-                        android:text="View Chart"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="View Financial Report"
                         android:textColor="#FFFFFF"
                         android:textSize="14sp"
-                        android:gravity="center"
-                        android:textStyle="bold"
-                        android:clickable="true"
-                        android:focusable="true"/>
+                        android:textStyle="bold" />
+
                 </LinearLayout>
             </LinearLayout>
 

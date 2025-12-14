@@ -46,16 +46,13 @@ public class AdminUserActivity extends AppCompatActivity {
         linePending = findViewById(R.id.linePending);
         EditText etSearch = findViewById(R.id.etSearchDriver);
 
-        // --- CHECK INTENT FOR TARGET TAB ---
+        // --- Tab Logic ---
         if (getIntent().hasExtra("TARGET_TAB")) {
             String target = getIntent().getStringExtra("TARGET_TAB");
-            if ("Pending".equalsIgnoreCase(target)) {
-                switchTab("Pending");
-            } else {
-                loadData(); // Default load if target isn't pending
-            }
+            if ("Pending".equalsIgnoreCase(target)) switchTab("Pending");
+            else loadData();
         } else {
-            loadData(); // Normal load (defaults to Verified)
+            loadData();
         }
 
         findViewById(R.id.tabVerified).setOnClickListener(v -> switchTab("Verified"));
@@ -63,16 +60,19 @@ public class AdminUserActivity extends AppCompatActivity {
 
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filterData(s.toString());
-            }
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) { filterData(s.toString()); }
             @Override public void afterTextChanged(Editable s) {}
         });
 
-        findViewById(R.id.btnPassengers).setOnClickListener(v -> {
-            startActivity(new Intent(this, AdminPassengerActivity.class));
-        });
+        // --- NEW: Add Driver Button Logic ---
+        View btnAddDriver = findViewById(R.id.btnAddDriver);
+        if (btnAddDriver != null) {
+            btnAddDriver.setOnClickListener(v -> {
+                startActivity(new Intent(AdminUserActivity.this, AdminAddDriverActivity.class));
+            });
+        }
 
+        findViewById(R.id.btnPassengers).setOnClickListener(v -> startActivity(new Intent(this, AdminPassengerActivity.class)));
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
     }
 
@@ -84,7 +84,6 @@ public class AdminUserActivity extends AppCompatActivity {
             tvPending.setTextColor(Color.parseColor("#4A739C"));
             linePending.setBackgroundColor(Color.TRANSPARENT);
         } else {
-            // Pending Tab Styles
             tvPending.setTextColor(Color.parseColor("#0D141C"));
             linePending.setBackgroundColor(Color.parseColor("#0D141C"));
             tvVerified.setTextColor(Color.parseColor("#4A739C"));
@@ -96,29 +95,22 @@ public class AdminUserActivity extends AppCompatActivity {
     private void loadData() {
         List<Driver> list = DriverRepository.getDriversByStatus(currentTab);
         adapter = new DriverAdapter(this, list);
-
         adapter.setOnItemClickListener(driver -> {
             Intent intent = new Intent(AdminUserActivity.this, AdmindriverdetailActivity.class);
             intent.putExtra("DRIVER_ID", driver.getId());
             startActivity(intent);
         });
-
         recyclerView.setAdapter(adapter);
     }
 
     private void filterData(String query) {
         List<Driver> filtered = DriverRepository.searchDrivers(query, currentTab);
-        if (adapter != null) {
-            adapter.updateList(filtered);
-        }
+        if (adapter != null) adapter.updateList(filtered);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        // Only refresh if we aren't handling an intent that just set the state
-        // or ensure intent extras are cleared if you want strict state management.
-        // For simplicity, re-loading currentTab ensures the list is up to date after returning from details.
         loadData();
     }
 }
