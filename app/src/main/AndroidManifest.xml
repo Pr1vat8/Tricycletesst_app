@@ -65,6 +65,8 @@
         <activity android:name=".activity.user.DriverRideDetailsActivity" />
         <activity android:name=".activity.admin.AdminStatisticsActivity" />
         <activity android:name=".activity.admin.AdminAddDriverActivity" />
+        <activity android:name=".activity.admin.AdminPayoutDetailsActivity" />
+
 
     </application>
 
