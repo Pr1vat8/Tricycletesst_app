@@ -1,14 +1,14 @@
 package com.example.tricycle_app.repository;
 
 import android.content.Context;
-
 import com.example.tricycle_app.model.FareLocation;
-
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,26 +20,20 @@ public class FareRepository {
     public static void init(Context context) {
         File file = new File(context.getFilesDir(), FILE_NAME);
         if (!file.exists()) {
-            createDefaultData(context);
-        } else {
-            loadAll(context);
+            copyFileFromAssets(context);
         }
+        loadAll(context);
     }
 
-    private static void createDefaultData(Context context) {
-        fareList.clear();
-        // Default Data with 15.00 Base Fare
-        fareList.add(new FareLocation("Centamina", "123 Main St", "15.00"));
-        fareList.add(new FareLocation("Bus Terminal", "456 Oak Ave", "15.00"));
-        fareList.add(new FareLocation("Merkado", "789 Pine Ln", "15.00"));
-        fareList.add(new FareLocation("Purok 1", "Zone 1", "15.00"));
-        fareList.add(new FareLocation("Lumbo", "Zone 2", "15.00"));
-        fareList.add(new FareLocation("Hangkol", "Zone 3", "15.00"));
-        fareList.add(new FareLocation("Plaza", "Near the park", "15.00"));
-        fareList.add(new FareLocation("Central School", "Near the mall", "15.00"));
-        fareList.add(new FareLocation("Old Terminal", "Near the hospital", "15.00"));
-
-        saveAll(context);
+    private static void copyFileFromAssets(Context context) {
+        try {
+            InputStream in = context.getAssets().open(FILE_NAME);
+            FileOutputStream out = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
+            byte[] buffer = new byte[1024];
+            int read;
+            while ((read = in.read(buffer)) != -1) out.write(buffer, 0, read);
+            in.close(); out.flush(); out.close();
+        } catch (IOException e) { e.printStackTrace(); }
     }
 
     public static void loadAll(Context context) {
@@ -50,9 +44,22 @@ public class FareRepository {
 
             String line;
             while ((line = reader.readLine()) != null) {
+                // Split by comma: "Centamina,123 Main St,15.00"
                 String[] parts = line.split(",");
-                if (parts.length >= 3) {
-                    fareList.add(new FareLocation(parts[0].trim(), parts[1].trim(), parts[2].trim()));
+
+                // Ensure we have all 3 parts: Name, Description, Price
+                if (parts.length == 3) {
+                    String name = parts[0].trim();
+                    String description = parts[1].trim();
+
+                    double price = 0.0;
+                    try {
+                        price = Double.parseDouble(parts[2].trim());
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+
+                    fareList.add(new FareLocation(name, description, price));
                 }
             }
         } catch (Exception e) { e.printStackTrace(); }
@@ -61,12 +68,16 @@ public class FareRepository {
     public static void saveAll(Context context) {
         try (FileOutputStream fos = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE)) {
             for (FareLocation f : fareList) {
-                fos.write((f.toCsvString() + "\n").getBytes());
+                // Save format: Name,Description,Price
+                String line = f.getName() + "," + f.getDescription() + "," + f.getBaseFare() + "\n";
+                fos.write(line.getBytes());
             }
         } catch (Exception e) { e.printStackTrace(); }
     }
 
-    public static List<FareLocation> getAllFares() { return fareList; }
+    public static List<FareLocation> getAllFares() {
+        return fareList;
+    }
 
     public static FareLocation getFareByName(String name) {
         for (FareLocation f : fareList) {
@@ -75,11 +86,40 @@ public class FareRepository {
         return null;
     }
 
-    public static void updateFare(Context context, String name, String newFare) {
-        FareLocation f = getFareByName(name);
-        if (f != null) {
-            f.setBaseFare(newFare);
+    // --- ADD FUNCTIONALITY ---
+    // Updated to accept Description and Price as double
+    public static void addFare(Context context, String name, String description, double price) {
+        fareList.add(new FareLocation(name, description, price));
+        saveAll(context);
+    }
+
+    // Overload for when adding from Text Inputs (String price)
+    public static void addFare(Context context, String name, String description, String priceString) {
+        double price = 0.0;
+        try {
+            price = Double.parseDouble(priceString);
+        } catch (NumberFormatException e) { e.printStackTrace(); }
+        addFare(context, name, description, price);
+    }
+
+    // Updated to handle double price
+    public static void updateFare(Context context, String name, double newPrice) {
+        FareLocation fare = getFareByName(name);
+        if (fare != null) {
+            fare.setBaseFare(newPrice);
             saveAll(context);
         }
+    }
+
+    // Overload for String price input
+    public static void updateFare(Context context, String name, String newPriceString) {
+        try {
+            double newPrice = Double.parseDouble(newPriceString);
+            updateFare(context, name, newPrice);
+        } catch (NumberFormatException e) { e.printStackTrace(); }
+    }
+
+    public static boolean checkFareExists(String name) {
+        return getFareByName(name) != null;
     }
 }

@@ -1,9 +1,7 @@
 package com.example.tricycle_app.repository;
 
 import android.content.Context;
-
 import com.example.tricycle_app.model.Driver;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,15 +31,9 @@ public class DriverRepository {
             FileOutputStream out = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
             byte[] buffer = new byte[1024];
             int read;
-            while ((read = in.read(buffer)) != -1) {
-                out.write(buffer, 0, read);
-            }
-            in.close();
-            out.flush();
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            while ((read = in.read(buffer)) != -1) out.write(buffer, 0, read);
+            in.close(); out.flush(); out.close();
+        } catch (IOException e) { e.printStackTrace(); }
     }
 
     public static void loadAll(Context context) {
@@ -54,36 +46,27 @@ public class DriverRepository {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length >= 8) {
+                    // Handle new date fields if they exist
+                    String startDate = (parts.length > 8) ? parts[8].trim() : "";
+                    String endDate = (parts.length > 9) ? parts[9].trim() : "";
+
                     driverList.add(new Driver(
                             parts[0].trim(), parts[1].trim(), parts[2].trim(),
                             parts[3].trim(), parts[4].trim(), parts[5].trim(),
-                            parts[6].trim(), Boolean.parseBoolean(parts[7].trim())
+                            parts[6].trim(), Boolean.parseBoolean(parts[7].trim()),
+                            startDate, endDate
                     ));
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) { e.printStackTrace(); }
     }
 
     public static void saveAll(Context context) {
         try (FileOutputStream fos = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE)) {
             for (Driver d : driverList) {
-                String line = d.toCsvString() + "\n";
-                fos.write(line.getBytes());
+                fos.write((d.toCsvString() + "\n").getBytes());
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static Driver getDriverById(String id) {
-        for (Driver d : driverList) {
-            if (d.getId().equals(id)) {
-                return d;
-            }
-        }
-        return null;
+        } catch (Exception e) { e.printStackTrace(); }
     }
 
     // --- ADDED MISSING METHOD ---
@@ -91,63 +74,64 @@ public class DriverRepository {
         return driverList;
     }
 
-    // --- MODIFIED METHOD ---
-    public static List<Driver> getDriversByStatus(String status) {
-        List<Driver> filtered = new ArrayList<>();
+    public static Driver getDriverById(String id) {
         for (Driver d : driverList) {
-            if (status.equalsIgnoreCase("Pending")) {
-                // If asking for Pending, show both PENDING and REJECTED
-                if (d.getStatus().equalsIgnoreCase("Pending") || d.getStatus().equalsIgnoreCase("Rejected")) {
-                    filtered.add(d);
-                }
-            } else {
-                // Otherwise (Verified), strict matching
-                if (d.getStatus().equalsIgnoreCase(status)) {
-                    filtered.add(d);
-                }
-            }
+            if (d.getId().equals(id)) return d;
         }
-        return filtered;
+        return null;
     }
 
-    public static List<Driver> searchDrivers(String query, String currentTabStatus) {
-        List<Driver> result = new ArrayList<>();
-        // Get the filtered list for the current tab first
-        List<Driver> tabDrivers = getDriversByStatus(currentTabStatus);
-
-        for (Driver d : tabDrivers) {
-            if (d.getName().toLowerCase().contains(query.toLowerCase()) || d.getId().contains(query)) {
-                result.add(d);
-            }
+    // --- SUSPENSION LOGIC ---
+    public static void suspendDriver(Context context, String driverId, String startDate, String endDate) {
+        Driver d = getDriverById(driverId);
+        if (d != null) {
+            d.setSuspended(true);
+            d.setSuspendStartDate(startDate);
+            d.setSuspendEndDate(endDate);
+            saveAll(context);
         }
-        return result;
     }
 
-    // --- Actions ---
+    public static void unsuspendDriver(Context context, String driverId) {
+        Driver d = getDriverById(driverId);
+        if (d != null) {
+            d.setSuspended(false);
+            d.setSuspendStartDate("");
+            d.setSuspendEndDate("");
+            saveAll(context);
+        }
+    }
+
+    // --- OTHER ACTIONS ---
+    public static void approveDriver(Context context, String driverId) {
+        Driver d = getDriverById(driverId);
+        if (d != null) { d.setStatus("Verified"); saveAll(context); }
+    }
+
+    public static void rejectDriver(Context context, String driverId) {
+        Driver d = getDriverById(driverId);
+        if (d != null) { d.setStatus("Rejected"); saveAll(context); }
+    }
 
     public static void updateDriver(Context context, String id, String name, String phone, String email, String address, String plate) {
         Driver d = getDriverById(id);
         if (d != null) {
-            d.setName(name); d.setPhone(phone); d.setEmail(email); d.setAddress(address); d.setPlateNumber(plate);
+            d.setName(name); d.setPhone(phone); d.setEmail(email);
+            d.setAddress(address); d.setPlateNumber(plate);
             saveAll(context);
         }
     }
 
-    public static void approveDriver(Context context, String id) {
-        Driver d = getDriverById(id);
-        if (d != null) {
-            d.setStatus("Verified");
-            d.setSuspended(false);
-            saveAll(context);
+    public static List<Driver> getDriversByStatus(String status) {
+        List<Driver> filtered = new ArrayList<>();
+        for (Driver d : driverList) {
+            if (status.equalsIgnoreCase("Pending")) {
+                if (d.getStatus().equalsIgnoreCase("Pending") || d.getStatus().equalsIgnoreCase("Rejected")) filtered.add(d);
+            } else if (d.getStatus().equalsIgnoreCase(status)) {
+                filtered.add(d);
+            }
         }
-    }
-
-    public static void rejectDriver(Context context, String id) {
-        Driver d = getDriverById(id);
-        if (d != null) {
-            d.setStatus("Rejected"); // Stays in list but marked Rejected
-            saveAll(context);
-        }
+        return filtered;
     }
 
     public static void addDriver(Context context, Driver driver) {
@@ -155,11 +139,15 @@ public class DriverRepository {
         saveAll(context);
     }
 
-    public static void toggleSuspend(Context context, String id) {
-        Driver d = getDriverById(id);
-        if (d != null) {
-            d.setSuspended(!d.isSuspended());
-            saveAll(context);
+    public static List<Driver> searchDrivers(String query, String status) {
+        List<Driver> filtered = new ArrayList<>();
+        for (Driver d : driverList) {
+            // Simplified search logic
+            if ((d.getStatus().equalsIgnoreCase(status) || (status.equals("Pending") && d.getStatus().equals("Rejected"))) &&
+                    (d.getName().toLowerCase().contains(query.toLowerCase()) || d.getPlateNumber().toLowerCase().contains(query.toLowerCase()))) {
+                filtered.add(d);
+            }
         }
+        return filtered;
     }
 }

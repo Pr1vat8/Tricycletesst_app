@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suspend Driver"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#0D141C"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select suspension duration:"
+        android:textColor="#61768A"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From Date"
+        android:textStyle="bold"
+        android:textColor="#0D141C"/>
+
+    <LinearLayout
+        android:id="@+id/btnFromDate"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_rounded_light_grey"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true">
+        <TextView
+            android:id="@+id/tvFromDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:textColor="#423F3F"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To Date"
+        android:textStyle="bold"
+        android:textColor="#0D141C"/>
+
+    <LinearLayout
+        android:id="@+id/btnToDate"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_rounded_light_grey"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true">
+        <TextView
+            android:id="@+id/tvToDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:textColor="#423F3F"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <TextView
+            android:id="@+id/btnCancelSuspend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textColor="#61768A"
+            android:textStyle="bold"
+            android:padding="12dp"
+            android:layout_marginEnd="8dp"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/btnConfirmSuspend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm Suspend"
+            android:textColor="#D32F2F"
+            android:textStyle="bold"
+            android:padding="12dp"
+            android:clickable="true"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -38,7 +38,8 @@ public class UserDriverConfirmActivity extends AppCompatActivity {
         // Calculate/Set Price (Mock logic or lookup)
         String price = "15.00"; // Default
         FareLocation loc = FareRepository.getFareByName(trip.getToLocation());
-        if(loc != null) price = loc.getBaseFare();
+        // Convert the double to a String with 2 decimal places
+        if(loc != null) price = String.format("%.2f", loc.getBaseFare());
 
         trip.setTripDetails(price, "2.5 km", "5 min"); // Save for later
         if(tvPrice != null) tvPrice.setText("₱" + price);

@@ -44,9 +44,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Location / Zone"
+                android:text="Location Name"
                 android:textSize="14sp"
-                android:textColor="#61768A"/>
+                android:textColor="#61768A"
+                android:layout_marginBottom="8dp"/>
+
             <TextView
                 android:id="@+id/tvLocationDisplay"
                 android:layout_width="match_parent"
@@ -55,7 +57,59 @@
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:textColor="#0D141C"
-                android:paddingBottom="24dp"/>
+                android:paddingBottom="24dp"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/layoutLocationInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_rounded_light_grey"
+                    android:padding="4dp"
+                    android:layout_marginBottom="16dp">
+                    <EditText
+                        android:id="@+id/etLocationName"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@null"
+                        android:paddingStart="12dp"
+                        android:hint="Enter location name"
+                        android:textColor="#121417"
+                        android:inputType="textCapWords"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description / Address"
+                    android:textSize="14sp"
+                    android:textColor="#61768A"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_rounded_light_grey"
+                    android:padding="4dp">
+                    <EditText
+                        android:id="@+id/etDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@null"
+                        android:paddingStart="12dp"
+                        android:hint="e.g. 123 Main St"
+                        android:textColor="#121417"
+                        android:inputType="textPostalAddress"/>
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -64,27 +118,25 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="#121417"
-                android:paddingBottom="8dp"/>
-
-            <LinearLayout
+                android:layout_marginBottom="8dp"/> <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded_light_grey"
+            android:padding="4dp">
+            <EditText
+                android:id="@+id/etBaseFare"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_rounded_light_grey"
-                android:padding="4dp">
-                <EditText
-                    android:id="@+id/etBaseFare"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:background="@null"
-                    android:paddingStart="12dp"
-                    android:inputType="numberDecimal"
-                    android:textColor="#121417"/>
-            </LinearLayout>
+                android:layout_height="48dp"
+                android:background="@null"
+                android:paddingStart="12dp"
+                android:inputType="numberDecimal"
+                android:textColor="#121417"/>
+        </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter the new base fare amount for this location."
+                android:text="Enter the base fare amount for this location."
                 android:textSize="12sp"
                 android:textColor="#61768A"
                 android:paddingTop="8dp"/>

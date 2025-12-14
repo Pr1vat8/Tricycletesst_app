@@ -1,24 +1,51 @@
 package com.example.tricycle_app.model;
 
-public class FareLocation {
-    private String name;
-    private String description; // e.g., "123 Main St"
-    private String baseFare;    // e.g., "15.00"
+import java.io.Serializable;
 
-    public FareLocation(String name, String description, String baseFare) {
+public class FareLocation implements Serializable {
+    private String name;
+    private String description;
+    private double baseFare; // Changed to double for math/calculations
+
+    public FareLocation(String name, String description, double baseFare) {
         this.name = name;
         this.description = description;
         this.baseFare = baseFare;
     }
 
+    // Update CSV generation to handle the double type
     public String toCsvString() {
         return name + "," + description + "," + baseFare;
     }
 
-    // Getters and Setters
-    public String getName() { return name; }
-    public String getDescription() { return description; }
-    public String getBaseFare() { return baseFare; }
+    // Getters
+    public String getName() {
+        return name;
+    }
 
-    public void setBaseFare(String baseFare) { this.baseFare = baseFare; }
+    public String getDescription() {
+        return description;
+    }
+
+    public double getBaseFare() {
+        return baseFare;
+    }
+
+    // UI Helper: Returns the price as a String with 2 decimals (e.g., "15.00")
+    public String getFormattedFare() {
+        return String.format("%.2f", baseFare);
+    }
+
+    // Setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setBaseFare(double baseFare) {
+        this.baseFare = baseFare;
+    }
 }

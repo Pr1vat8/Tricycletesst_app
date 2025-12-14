@@ -51,12 +51,17 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
         holder.tvPhone.setText(d.getPhone());
 
         // --- COLOR LOGIC ---
-        if (d.getStatus().equalsIgnoreCase("Verified")) {
+        // Priority 1: Check if Suspended (Red)
+        if (d.isSuspended()) {
+            holder.viewStatus.setBackgroundResource(R.drawable.bg_circle_red);
+        }
+        // Priority 2: Check Status Text
+        else if (d.getStatus().equalsIgnoreCase("Verified")) {
             holder.viewStatus.setBackgroundResource(R.drawable.bg_circle_green);
         } else if (d.getStatus().equalsIgnoreCase("Rejected")) {
             holder.viewStatus.setBackgroundResource(R.drawable.bg_circle_red);
         } else {
-            // Default to Pending
+            // Default to Pending (Orange)
             holder.viewStatus.setBackgroundResource(R.drawable.bg_circle_orange);
         }
 

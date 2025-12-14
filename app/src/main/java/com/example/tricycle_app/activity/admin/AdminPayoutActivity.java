@@ -1,12 +1,11 @@
 package com.example.tricycle_app.activity.admin;
 
-import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,9 +22,8 @@ public class AdminPayoutActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private PayoutAdapter adapter;
-    private String currentTab = "Pending"; // Default Tab
+    private String currentTab = "Pending";
 
-    // UI for Tabs
     private TextView tvPending, tvHistory;
     private View linePending, lineHistory;
 
@@ -35,9 +33,8 @@ public class AdminPayoutActivity extends AppCompatActivity {
         setContentView(R.layout.adminpayouts);
 
         AdminNavbar.setup(this);
-        PayoutRepository.init(this); // Load Data
+        PayoutRepository.init(this);
 
-        // Setup Views
         recyclerView = findViewById(R.id.recyclerViewPayouts);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -46,20 +43,21 @@ public class AdminPayoutActivity extends AppCompatActivity {
         linePending = findViewById(R.id.linePending);
         lineHistory = findViewById(R.id.lineHistory);
 
-        // Tab Logic
         findViewById(R.id.tabPending).setOnClickListener(v -> switchTab("Pending"));
         findViewById(R.id.tabHistory).setOnClickListener(v -> switchTab("Paid"));
 
         LinearLayout btnBack = findViewById(R.id.btnBack);
         if (btnBack != null) btnBack.setOnClickListener(v -> finish());
+    }
 
-        // Initial Load
-        loadData();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadData(); // Refresh list when returning from Details activity
     }
 
     private void switchTab(String tab) {
         currentTab = tab;
-
         if (tab.equals("Pending")) {
             tvPending.setTextColor(Color.parseColor("#0D141C"));
             linePending.setBackgroundColor(Color.parseColor("#0D141C"));
@@ -71,7 +69,6 @@ public class AdminPayoutActivity extends AppCompatActivity {
             tvPending.setTextColor(Color.parseColor("#4A739C"));
             linePending.setBackgroundColor(Color.TRANSPARENT);
         }
-
         loadData();
     }
 
@@ -80,17 +77,12 @@ public class AdminPayoutActivity extends AppCompatActivity {
         adapter = new PayoutAdapter(this, list);
 
         adapter.setOnItemClickListener(payout -> {
-            // Confirm Action
-            new AlertDialog.Builder(this)
-                    .setTitle("Confirm Payout")
-                    .setMessage("Mark payout of ₱" + payout.getAmount() + " to " + payout.getDriverName() + " as PAID?")
-                    .setPositiveButton("Yes", (dialog, which) -> {
-                        PayoutRepository.markAsPaid(this, payout);
-                        Toast.makeText(this, "Marked as Paid", Toast.LENGTH_SHORT).show();
-                        loadData(); // Refresh list
-                    })
-                    .setNegativeButton("Cancel", null)
-                    .show();
+            Intent intent = new Intent(AdminPayoutActivity.this, AdminPayoutDetailsActivity.class);
+            intent.putExtra("DRIVER_NAME", payout.getDriverName());
+            intent.putExtra("AMOUNT", payout.getAmount());
+            intent.putExtra("METHOD", payout.getPaymentMethod());
+            intent.putExtra("STATUS", payout.getStatus());
+            startActivity(intent);
         });
 
         recyclerView.setAdapter(adapter);

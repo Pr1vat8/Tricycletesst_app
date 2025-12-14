@@ -24,13 +24,28 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Fare/Locations"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#121417"
-            android:paddingEnd="48dp"/>
+            android:paddingStart="16dp"/>
+
+        <TextView
+            android:id="@+id/btnAddLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_pill_blue"
+            android:text="+ Add"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -38,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:paddingTop="16dp"/>
+        android:padding="16dp"/>
 
     <include layout="@layout/adminnavbar" />
 

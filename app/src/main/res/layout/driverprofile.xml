@@ -97,7 +97,17 @@
                         android:layout_height="wrap_content"
                         android:text="Driver ID: 123456"
                         android:textSize="16sp"
-                        android:textColor="#61768A"/>
+                        android:textColor="#61768A"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView
+                        android:id="@+id/tvStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status: Verified"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#088738"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -111,6 +121,43 @@
                 android:paddingStart="16dp"
                 android:paddingTop="16dp"
                 android:paddingBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_rounded_light_grey"
+                    android:gravity="center">
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/profile" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Name" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <EditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="LoLoy gwapo"
+                        android:textSize="14sp"
+                        android:textColor="#121417"
+                        android:background="@android:color/transparent"
+                        android:enabled="false"
+                        android:inputType="textPersonName"/>
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -142,7 +189,7 @@
                         android:layout_height="wrap_content"
                         android:text="0996767883"
                         android:textSize="14sp"
-                        android:textColor="#61768A"
+                        android:textColor="#121417"
                         android:background="@android:color/transparent"
                         android:enabled="false"
                         android:inputType="phone"/>
@@ -179,7 +226,7 @@
                         android:layout_height="wrap_content"
                         android:text="Loloskie@email.com"
                         android:textSize="14sp"
-                        android:textColor="#61768A"
+                        android:textColor="#121417"
                         android:background="@android:color/transparent"
                         android:enabled="false"
                         android:inputType="textEmailAddress"/>
@@ -200,7 +247,7 @@
                     android:layout_height="48dp"
                     android:background="@drawable/bg_rounded_light_grey"
                     android:gravity="center">
-                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/profile" />
+                    <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/locationpin" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -209,17 +256,17 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Name" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Address" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
                     <EditText
-                        android:id="@+id/etName"
+                        android:id="@+id/etAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="LoLoy gwapo"
+                        android:text="Address Here"
                         android:textSize="14sp"
-                        android:textColor="#61768A"
+                        android:textColor="#121417"
                         android:background="@android:color/transparent"
                         android:enabled="false"
-                        android:inputType="textPersonName"/>
+                        android:inputType="textPostalAddress"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -258,7 +305,7 @@
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Vehicle Type" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tricycle" android:textSize="14sp" android:textColor="#61768A"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tricycle" android:textSize="14sp" android:textColor="#121417"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -292,7 +339,7 @@
                         android:layout_height="wrap_content"
                         android:text="XYZ 123"
                         android:textSize="14sp"
-                        android:textColor="#61768A"
+                        android:textColor="#121417"
                         android:background="@android:color/transparent"
                         android:enabled="false"
                         android:inputType="textCapCharacters"/>
@@ -336,34 +383,11 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="8dp">
 
-                        <View
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:layout_marginEnd="2dp"
-                            android:background="@drawable/bstar" />
-
-                        <View
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:layout_marginEnd="2dp"
-                            android:background="@drawable/bstar" />
-
-                        <View
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:layout_marginEnd="2dp"
-                            android:background="@drawable/bstar" />
-
-                        <View
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:layout_marginEnd="2dp"
-                            android:background="@drawable/bstar" />
-
-                        <View
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:background="@drawable/wstar" />
+                        <View android:layout_width="18dp" android:layout_height="18dp" android:layout_marginEnd="2dp" android:background="@drawable/bstar" />
+                        <View android:layout_width="18dp" android:layout_height="18dp" android:layout_marginEnd="2dp" android:background="@drawable/bstar" />
+                        <View android:layout_width="18dp" android:layout_height="18dp" android:layout_marginEnd="2dp" android:background="@drawable/bstar" />
+                        <View android:layout_width="18dp" android:layout_height="18dp" android:layout_marginEnd="2dp" android:background="@drawable/bstar" />
+                        <View android:layout_width="18dp" android:layout_height="18dp" android:background="@drawable/wstar" />
                     </LinearLayout>
 
                     <TextView
@@ -388,12 +412,7 @@
                         android:gravity="center_vertical"
                         android:layout_marginBottom="8dp">
                         <TextView android:layout_width="20dp" android:layout_height="wrap_content" android:text="5" android:textSize="14sp" android:textColor="#121417"/>
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="8dp"
-                            android:background="#DBE0E6"
-                            android:gravity="start">
+                        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="8dp" android:background="#DBE0E6" android:gravity="start">
                             <View android:layout_width="118dp" android:layout_height="match_parent" android:background="#121417"/>
                         </LinearLayout>
                         <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="70%" android:textSize="14sp" android:textColor="#61768A" android:gravity="end"/>
@@ -406,12 +425,7 @@
                         android:gravity="center_vertical"
                         android:layout_marginBottom="8dp">
                         <TextView android:layout_width="20dp" android:layout_height="wrap_content" android:text="4" android:textSize="14sp" android:textColor="#121417"/>
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="8dp"
-                            android:background="#DBE0E6"
-                            android:gravity="start">
+                        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="8dp" android:background="#DBE0E6" android:gravity="start">
                             <View android:layout_width="34dp" android:layout_height="match_parent" android:background="#121417"/>
                         </LinearLayout>
                         <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="20%" android:textSize="14sp" android:textColor="#61768A" android:gravity="end"/>
@@ -424,12 +438,7 @@
                         android:gravity="center_vertical"
                         android:layout_marginBottom="8dp">
                         <TextView android:layout_width="20dp" android:layout_height="wrap_content" android:text="3" android:textSize="14sp" android:textColor="#121417"/>
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="8dp"
-                            android:background="#DBE0E6"
-                            android:gravity="start">
+                        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="8dp" android:background="#DBE0E6" android:gravity="start">
                             <View android:layout_width="8dp" android:layout_height="match_parent" android:background="#121417"/>
                         </LinearLayout>
                         <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:text="5%" android:textSize="14sp" android:textColor="#61768A" android:gravity="end"/>
