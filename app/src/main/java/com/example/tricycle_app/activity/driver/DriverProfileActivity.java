@@ -1,5 +1,6 @@
 package com.example.tricycle_app.activity.driver;
 
+import android.app.DatePickerDialog; // Import added
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -13,10 +14,13 @@ import com.example.tricycle_app.model.Driver;
 import com.example.tricycle_app.repository.DriverRepository;
 import com.example.tricycle_app.utils.DriverNavbar;
 
+import java.util.Calendar; // Import added
+
 public class DriverProfileActivity extends AppCompatActivity {
 
     private boolean isEditing = false;
-    private EditText etName, etPhone, etEmail, etPlate;
+    // Added etAddress and etLicenseExpiration
+    private EditText etName, etPhone, etEmail, etPlate, etAddress, etLicenseExpiration;
     private TextView tvHeaderName, tvDriverId, tvStatus, btnAction;
     private Driver currentDriver;
 
@@ -28,12 +32,10 @@ public class DriverProfileActivity extends AppCompatActivity {
         DriverNavbar.setup(this);
         DriverRepository.init(this);
 
-        // Check if ID was passed (e.g. from Login when suspended)
         String passedId = getIntent().getStringExtra("DRIVER_ID");
         if (passedId != null) {
             currentDriver = DriverRepository.getDriverById(passedId);
         } else {
-            // Default fallback
             currentDriver = DriverRepository.getDriverById("101");
         }
 
@@ -49,10 +51,37 @@ public class DriverProfileActivity extends AppCompatActivity {
         etPhone = findViewById(R.id.etPhone);
         etEmail = findViewById(R.id.etEmail);
         etPlate = findViewById(R.id.etPlate);
+
+        // NEW: Initialize Address and Expiration fields
+        etAddress = findViewById(R.id.etAddress);
+        etLicenseExpiration = findViewById(R.id.etLicenseExpiration);
+
         tvHeaderName = findViewById(R.id.tvHeaderName);
         tvDriverId = findViewById(R.id.tvDriverId);
-        tvStatus = findViewById(R.id.tvStatus); // Ensure this ID exists in XML
+        tvStatus = findViewById(R.id.tvStatus);
         btnAction = findViewById(R.id.btnAction);
+
+        // NEW: Setup Date Picker for Expiration
+        etLicenseExpiration.setOnClickListener(v -> {
+            if (isEditing) {
+                showDatePicker();
+            }
+        });
+    }
+
+    private void showDatePicker() {
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                (view, year1, monthOfYear, dayOfMonth) -> {
+                    // Format: YYYY-MM-DD
+                    String selectedDate = year1 + "-" + (monthOfYear + 1) + "-" + dayOfMonth;
+                    etLicenseExpiration.setText(selectedDate);
+                }, year, month, day);
+        datePickerDialog.show();
     }
 
     private void loadDriverData() {
@@ -64,7 +93,11 @@ public class DriverProfileActivity extends AppCompatActivity {
             etEmail.setText(currentDriver.getEmail());
             etPlate.setText(currentDriver.getPlateNumber());
 
-            // SUSPENSION CHECK
+            // NEW: Load Address and Expiration
+            etAddress.setText(currentDriver.getAddress());
+            // Assuming your Driver model has a getLicenseExpirationDate() method
+            // etLicenseExpiration.setText(currentDriver.getLicenseExpirationDate());
+
             if (currentDriver.isSuspended()) {
                 String suspendMsg = "Status: Suspended";
                 if(currentDriver.getSuspendStartDate() != null && !currentDriver.getSuspendStartDate().isEmpty()) {
@@ -73,7 +106,6 @@ public class DriverProfileActivity extends AppCompatActivity {
                 tvStatus.setText(suspendMsg);
                 tvStatus.setTextColor(Color.RED);
 
-                // Disable editing if suspended
                 if (btnAction != null) {
                     btnAction.setVisibility(View.GONE);
                 }
@@ -111,15 +143,23 @@ public class DriverProfileActivity extends AppCompatActivity {
         String newEmail = etEmail.getText().toString().trim();
         String newPlate = etPlate.getText().toString().trim();
 
+        // NEW: Get Address and Expiration data
+        String newAddress = etAddress.getText().toString().trim();
+        String newExpiration = etLicenseExpiration.getText().toString().trim();
+
+        // NOTE: You must update your DriverRepository.updateDriver method signature
+        // to accept newExpiration!
         DriverRepository.updateDriver(
                 this,
                 currentDriver.getId(),
                 newName,
                 newPhone,
                 newEmail,
-                currentDriver.getAddress(),
+                newAddress, // Passed the new Address
                 newPlate
+                // newExpiration  <-- Add this to your repository call
         );
+
         tvHeaderName.setText(newName);
 
         isEditing = false;
@@ -134,8 +174,20 @@ public class DriverProfileActivity extends AppCompatActivity {
         etEmail.setEnabled(enabled);
         etPlate.setEnabled(enabled);
 
+        // NEW: Enable/Disable Address
+        etAddress.setEnabled(enabled);
+
+        // For Date Picker, we usually keep clickable true but enabled false for text input
+        // Or simply toggle clickable for the listener
+        etLicenseExpiration.setEnabled(enabled);
+        etLicenseExpiration.setClickable(enabled);
+
         int color = enabled ? Color.BLACK : Color.parseColor("#61768A");
-        etName.setTextColor(color); etPhone.setTextColor(color);
-        etEmail.setTextColor(color); etPlate.setTextColor(color);
+        etName.setTextColor(color);
+        etPhone.setTextColor(color);
+        etEmail.setTextColor(color);
+        etPlate.setTextColor(color);
+        etAddress.setTextColor(color);
+        etLicenseExpiration.setTextColor(color);
     }
 }

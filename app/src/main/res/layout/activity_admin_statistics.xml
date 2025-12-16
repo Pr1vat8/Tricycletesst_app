@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:background="#F7F9FD">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="40dp">
+            android:paddingBottom="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -30,7 +30,8 @@
                     android:layout_height="48dp"
                     android:gravity="center"
                     android:clickable="true"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
                     <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/arrow" />
                 </LinearLayout>
 
@@ -38,9 +39,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Statistics"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="#121417"/>
+                    android:textColor="#121417"
+                    android:layout_marginStart="8dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -49,7 +51,7 @@
                 android:orientation="horizontal"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:paddingBottom="16dp">
+                android:paddingBottom="20dp">
 
                 <LinearLayout
                     android:id="@+id/btnDateFrom"
@@ -59,7 +61,8 @@
                     android:orientation="vertical"
                     android:background="@drawable/bg_rounded_white_card"
                     android:padding="12dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="6dp"
+                    android:elevation="2dp"
                     android:clickable="true"
                     android:focusable="true">
                     <TextView
@@ -68,14 +71,22 @@
                         android:text="From"
                         android:textSize="12sp"
                         android:textColor="#61768A"/>
-                    <TextView
-                        android:id="@+id/tvDateFrom"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Select Date"
-                        android:textStyle="bold"
-                        android:textColor="#0D141C"
-                        android:textSize="14sp"/>
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingTop="4dp">
+                        <View android:layout_width="16dp" android:layout_height="16dp" android:background="@drawable/clock" android:layout_marginEnd="8dp"/>
+                        <TextView
+                            android:id="@+id/tvDateFrom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Oct 01, 2024"
+                            android:textStyle="bold"
+                            android:textColor="#0D141C"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -86,7 +97,8 @@
                     android:orientation="vertical"
                     android:background="@drawable/bg_rounded_white_card"
                     android:padding="12dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="6dp"
+                    android:elevation="2dp"
                     android:clickable="true"
                     android:focusable="true">
                     <TextView
@@ -95,14 +107,22 @@
                         android:text="To"
                         android:textSize="12sp"
                         android:textColor="#61768A"/>
-                    <TextView
-                        android:id="@+id/tvDateTo"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Select Date"
-                        android:textStyle="bold"
-                        android:textColor="#0D141C"
-                        android:textSize="14sp"/>
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingTop="4dp">
+                        <View android:layout_width="16dp" android:layout_height="16dp" android:background="@drawable/clock" android:layout_marginEnd="8dp"/>
+                        <TextView
+                            android:id="@+id/tvDateTo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Oct 31, 2024"
+                            android:textStyle="bold"
+                            android:textColor="#0D141C"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -110,7 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Overview"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#121417"
                 android:paddingStart="16dp"
@@ -120,142 +140,180 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:layout_marginBottom="12dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/bg_rounded_border"
-                    android:padding="16dp"
-                    android:layout_marginEnd="6dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Drivers Online"
-                        android:textSize="12sp"
-                        android:textColor="#61768A"/>
-                    <TextView
-                        android:id="@+id/tvDriversOnline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Active now"
-                        android:textSize="10sp"
-                        android:textColor="#088738"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/bg_rounded_border"
-                    android:padding="16dp"
-                    android:layout_marginStart="6dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Revenue"
-                        android:textSize="12sp"
-                        android:textColor="#61768A"/>
-                    <TextView
-                        android:id="@+id/tvTotalRevenue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₱0.00"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="In selected range"
-                        android:textSize="10sp"
-                        android:textColor="#4A739C"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/bg_rounded_border"
-                    android:padding="16dp"
-                    android:layout_marginEnd="6dp">
-                    <TextView
-                        android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="New Users"
-                        android:textSize="12sp"
-                        android:textColor="#61768A"/>
-                    <TextView
-                        android:id="@+id/tvNewUsers"
-                        android:layout_width="wrap_content"
+                        android:background="@drawable/bg_rounded_white_card"
+                        android:padding="16dp"
+                        android:layout_marginEnd="6dp"
+                        android:elevation="2dp"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical|end"
+                            android:layout_marginBottom="8dp">
+                            <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/whitecar"/>
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/tvDriversOnline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="#121417"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Drivers Online"
+                            android:textSize="12sp"
+                            android:textColor="#61768A"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Joined in range"
-                        android:textSize="10sp"
-                        android:textColor="#4A739C"/>
+                        android:background="@drawable/bg_rounded_white_card"
+                        android:padding="16dp"
+                        android:layout_marginStart="6dp"
+                        android:elevation="2dp"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical|end"
+                            android:layout_marginBottom="8dp">
+                            <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/money"/>
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/tvTotalRevenue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₱0.00"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="#088738"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Revenue"
+                            android:textSize="12sp"
+                            android:textColor="#61768A"/>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/bg_rounded_border"
-                    android:padding="16dp"
-                    android:layout_marginStart="6dp">
-                    <TextView
-                        android:layout_width="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Total Rides"
-                        android:textSize="12sp"
-                        android:textColor="#61768A"/>
-                    <TextView
-                        android:id="@+id/tvTotalRides"
-                        android:layout_width="wrap_content"
+                        android:background="@drawable/bg_rounded_white_card"
+                        android:padding="16dp"
+                        android:layout_marginEnd="6dp"
+                        android:elevation="2dp"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical|end"
+                            android:layout_marginBottom="8dp">
+                            <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/person"/>
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/tvNewUsers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="#121417"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="New Users"
+                            android:textSize="12sp"
+                            android:textColor="#61768A"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="In selected range"
-                        android:textSize="10sp"
-                        android:textColor="#4A739C"/>
+                        android:background="@drawable/bg_rounded_white_card"
+                        android:padding="16dp"
+                        android:layout_marginStart="6dp"
+                        android:elevation="2dp"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical|end"
+                            android:layout_marginBottom="8dp">
+                            <View android:layout_width="24dp" android:layout_height="24dp" android:background="@drawable/ride"/>
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/tvTotalRides"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="#121417"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Rides"
+                            android:textSize="12sp"
+                            android:textColor="#61768A"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recent Activity"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#121417"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="12dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewStatistics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
+
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <include layout="@layout/adminnavbar" />
 </LinearLayout>

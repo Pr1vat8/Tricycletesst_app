@@ -361,6 +361,44 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_rounded_light_grey"
+                    android:gravity="center">
+                    <View android:layout_width="24dp" android:layout_height="22dp" android:background="@drawable/plate" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="License Expiration" android:textSize="16sp" android:textStyle="bold" android:textColor="#121417"/>
+                    <EditText
+                        android:id="@+id/etLicenseExpiration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2025-12-31"
+                        android:textSize="14sp"
+                        android:textColor="#121417"
+                        android:background="@android:color/transparent"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:inputType="date"/>
+                </LinearLayout>
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

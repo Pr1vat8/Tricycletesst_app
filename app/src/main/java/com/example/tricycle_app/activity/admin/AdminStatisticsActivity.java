@@ -6,8 +6,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tricycle_app.R;
+import com.example.tricycle_app.adapter.StatRideAdapter;
 import com.example.tricycle_app.model.Passenger;
 import com.example.tricycle_app.model.Ride;
 import com.example.tricycle_app.repository.PassengerRepository;
@@ -17,6 +20,7 @@ import com.example.tricycle_app.utils.AdminNavbar;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -24,48 +28,68 @@ import java.util.Locale;
 
 public class AdminStatisticsActivity extends AppCompatActivity {
 
+    // UI Components
     private TextView tvDriversOnline, tvNewUsers, tvTotalRevenue, tvTotalRides;
     private TextView tvDateFrom, tvDateTo;
 
+    // Recycler Components
+    private RecyclerView recyclerView;
+    private StatRideAdapter adapter;
+
+    // Logic Components
     private Calendar calendarFrom, calendarTo;
-    private SimpleDateFormat dateFormat;
+    private SimpleDateFormat displayDateFormat; // Format for UI labels
+    private SimpleDateFormat isoDateFormat;     // Format for data parsing (yyyy-MM-dd)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_statistics);
 
+        // 1. Initialize Helpers & Repositories
         AdminNavbar.setup(this);
         RideRepository.init(this);
         PassengerRepository.init(this);
 
-        // UI Initialization
+        // 2. Bind Views
         tvDriversOnline = findViewById(R.id.tvDriversOnline);
         tvNewUsers = findViewById(R.id.tvNewUsers);
         tvTotalRevenue = findViewById(R.id.tvTotalRevenue);
         tvTotalRides = findViewById(R.id.tvTotalRides);
         tvDateFrom = findViewById(R.id.tvDateFrom);
         tvDateTo = findViewById(R.id.tvDateTo);
+
         LinearLayout btnFrom = findViewById(R.id.btnDateFrom);
         LinearLayout btnTo = findViewById(R.id.btnDateTo);
         LinearLayout btnBack = findViewById(R.id.btnBack);
 
+        // 3. Setup RecyclerView
+        recyclerView = findViewById(R.id.recyclerViewStatistics);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setNestedScrollingEnabled(false);
+
+        // 4. Back Button
         if (btnBack != null) btnBack.setOnClickListener(v -> finish());
 
-        // Date Format matches data: "MMMM dd yyyy" (e.g., October 01 2024)
-        dateFormat = new SimpleDateFormat("MMMM dd yyyy", Locale.US);
+        // 5. Date Logic Setup
+        displayDateFormat = new SimpleDateFormat("MMMM dd yyyy", Locale.US);
+        isoDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+
         calendarFrom = Calendar.getInstance();
         calendarTo = Calendar.getInstance();
 
-        // --- SET DEFAULT DATE TO OCTOBER 2024 (MATCHING YOUR DATA) ---
-        calendarFrom.set(2024, Calendar.OCTOBER, 1);
-        calendarTo.set(2024, Calendar.OCTOBER, 31);
+        // --- FIX: SET DEFAULT RANGE TO COVER 2023 DATA ---
+        // From: January 01, 2023
+        calendarFrom.set(2023, Calendar.JANUARY, 1);
+        // To: Current Date (or Dec 31, 2024)
+        calendarTo.set(2024, Calendar.DECEMBER, 31);
 
+        // 6. Load Initial Data
         updateDateLabels();
-        loadDriversOnlineFromFile(); // Reads static "drivers_online" from txt
-        calculateDynamicData();      // Calculates Revenue/Rides from txt based on date
+        loadDriversOnlineFromFile();
+        calculateDynamicData();
 
-        // Date Pickers
+        // 7. Date Picker Listeners
         if (btnFrom != null) btnFrom.setOnClickListener(v -> showDatePicker(calendarFrom));
         if (btnTo != null) btnTo.setOnClickListener(v -> showDatePicker(calendarTo));
     }
@@ -76,10 +100,9 @@ public class AdminStatisticsActivity extends AppCompatActivity {
             targetCalendar.set(Calendar.MONTH, month);
             targetCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-            // Validation: From cannot be after To
+            // Validation: Start date cannot be after End date
             if (calendarFrom.after(calendarTo)) {
                 Toast.makeText(this, "Start date cannot be after End date", Toast.LENGTH_SHORT).show();
-                // Reset to valid state (copy To date)
                 calendarFrom.setTime(calendarTo.getTime());
             }
 
@@ -89,56 +112,88 @@ public class AdminStatisticsActivity extends AppCompatActivity {
     }
 
     private void updateDateLabels() {
-        if (tvDateFrom != null) tvDateFrom.setText(dateFormat.format(calendarFrom.getTime()));
-        if (tvDateTo != null) tvDateTo.setText(dateFormat.format(calendarTo.getTime()));
+        if (tvDateFrom != null) tvDateFrom.setText(displayDateFormat.format(calendarFrom.getTime()));
+        if (tvDateTo != null) tvDateTo.setText(displayDateFormat.format(calendarTo.getTime()));
     }
 
     private void calculateDynamicData() {
-        List<Ride> rides = RideRepository.getAllRides();
+        List<Ride> allRides = RideRepository.getAllRides();
         List<Passenger> passengers = PassengerRepository.getAllPassengers();
+        List<Ride> filteredRides = new ArrayList<>();
 
         double revenue = 0;
         int rideCount = 0;
         int newUsersCount = 0;
 
+        // Use truncateTime to ignore hours/minutes for accurate day comparison
         Date from = truncateTime(calendarFrom.getTime());
         Date to = truncateTime(calendarTo.getTime());
 
-        // 1. Calculate Rides & Revenue
-        for (Ride r : rides) {
+        // A. Filter Rides & Calculate Revenue/Count
+        for (Ride r : allRides) {
             try {
-                if (r.getDate() != null) {
-                    Date rideDate = dateFormat.parse(r.getDate());
-                    // Check if date is within range (Inclusive)
+                if (r.getDate() != null && !r.getDate().isEmpty()) {
+                    // Rides usually use "MMMM dd yyyy" format based on your adapter
+                    Date rideDate = displayDateFormat.parse(r.getDate());
+
                     if (rideDate != null && !rideDate.before(from) && !rideDate.after(to)) {
+                        filteredRides.add(r);
                         rideCount++;
                         if ("Completed".equalsIgnoreCase(r.getStatus())) {
-                            revenue += Double.parseDouble(r.getTotalFare());
+                            try {
+                                revenue += Double.parseDouble(r.getTotalFare());
+                            } catch (NumberFormatException e) {
+                                // Ignore invalid fare strings
+                            }
                         }
                     }
                 }
             } catch (Exception e) { e.printStackTrace(); }
         }
 
-        // 2. Calculate New Users
+        // B. Calculate New Users (Joined in Range)
         for (Passenger p : passengers) {
             try {
-                if (p.getDateJoined() != null) {
-                    Date joinDate = dateFormat.parse(p.getDateJoined());
-                    if (joinDate != null && !joinDate.before(from) && !joinDate.after(to)) {
-                        newUsersCount++;
+                if (p.getDateJoined() != null && !p.getDateJoined().isEmpty()) {
+                    Date joinDate = null;
+                    String rawDate = p.getDateJoined().trim();
+
+                    // 1. Try ISO Format (yyyy-MM-dd) - Common in CSV
+                    try {
+                        joinDate = isoDateFormat.parse(rawDate);
+                    } catch (Exception e) {
+                        // 2. Fallback to Display Format (MMMM dd yyyy)
+                        try {
+                            joinDate = displayDateFormat.parse(rawDate);
+                        } catch (Exception ex) {
+                            // Date format unknown, skip
+                        }
+                    }
+
+                    if (joinDate != null) {
+                        // Check range (inclusive)
+                        if (!joinDate.before(from) && !joinDate.after(to)) {
+                            newUsersCount++;
+                        }
                     }
                 }
             } catch (Exception e) { e.printStackTrace(); }
         }
 
-        // Update UI
+        // C. Update UI
         if (tvTotalRides != null) tvTotalRides.setText(String.valueOf(rideCount));
         if (tvNewUsers != null) tvNewUsers.setText(String.valueOf(newUsersCount));
         if (tvTotalRevenue != null) tvTotalRevenue.setText("₱" + String.format("%.2f", revenue));
+
+        // D. Update RecyclerView
+        if (adapter == null) {
+            adapter = new StatRideAdapter(this, filteredRides);
+            recyclerView.setAdapter(adapter);
+        } else {
+            adapter.updateList(filteredRides);
+        }
     }
 
-    // Helper to ignore time part of date for strict day comparison
     private Date truncateTime(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -151,12 +206,11 @@ public class AdminStatisticsActivity extends AppCompatActivity {
 
     private void loadDriversOnlineFromFile() {
         try {
-            // Only reading "drivers_online" because other stats are now dynamic
             BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("statistics.txt")));
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 2 && "drivers_online".equals(parts[0].trim())) {
+                if (parts.length >= 2 && "drivers_online".equals(parts[0].trim())) {
                     if (tvDriversOnline != null) tvDriversOnline.setText(parts[1].trim());
                     break;
                 }
