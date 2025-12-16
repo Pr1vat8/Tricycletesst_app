@@ -45,25 +45,24 @@ public class PassengerRepository {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                // Default date if missing
-                String dateJoined = "January 01 2024";
-
-                if (parts.length >= 7) {
-                    // Format: ID, Name, Phone, Email, Address, Suspended, DateJoined
-                    dateJoined = parts[6].trim();
+                if (parts.length >= 14) {
+                    // New Format with Gender, DOB, Age
                     passengerList.add(new Passenger(
-                            parts[0].trim(), parts[1].trim(), parts[2].trim(),
-                            parts[3].trim(), parts[4].trim(),
-                            Boolean.parseBoolean(parts[5].trim()),
-                            dateJoined));
-                } else if (parts.length >= 5) {
-                    // Handle legacy data (backward compatibility)
-                    boolean suspended = parts.length > 5 && Boolean.parseBoolean(parts[5].trim());
-                    passengerList.add(new Passenger(
-                            parts[0].trim(), parts[1].trim(), parts[2].trim(),
-                            parts[3].trim(), parts[4].trim(),
-                            suspended,
-                            dateJoined));
+                            parts[0].trim(), // ID
+                            parts[1].trim(), // Name
+                            parts[2].trim(), // Phone
+                            parts[3].trim(), // Email
+                            parts[4].trim(), // Address
+                            parts[5].trim(), // Gender
+                            parts[6].trim(), // BirthDate
+                            parts[7].trim(), // Age
+                            Boolean.parseBoolean(parts[8].trim()), // Suspended
+                            parts[9].trim(), // DateJoined
+                            parts[10].trim(), // Start
+                            parts[11].trim(), // End
+                            parts[12].trim(), // User
+                            parts[13].trim()  // Pass
+                    ));
                 }
             }
         } catch (Exception e) { e.printStackTrace(); }
@@ -77,9 +76,16 @@ public class PassengerRepository {
         } catch (Exception e) { e.printStackTrace(); }
     }
 
-    public static List<Passenger> getAllPassengers() { return passengerList; }
+    public static Passenger login(String username, String password) {
+        for (Passenger p : passengerList) {
+            if (p.getUsername().equals(username) && p.getPassword().equals(password)) {
+                return p;
+            }
+        }
+        return null;
+    }
 
-    // --- RESTORED METHODS BELOW ---
+    public static List<Passenger> getAllPassengers() { return passengerList; }
 
     public static List<Passenger> searchPassengers(String query) {
         List<Passenger> filteredList = new ArrayList<>();
@@ -105,10 +111,22 @@ public class PassengerRepository {
         }
     }
 
-    public static void toggleSuspend(Context context, int index) {
+    public static void suspendPassenger(Context context, int index, String startDate, String endDate) {
         if (index >= 0 && index < passengerList.size()) {
             Passenger p = passengerList.get(index);
-            p.setSuspended(!p.isSuspended());
+            p.setSuspended(true);
+            p.setSuspendStartDate(startDate);
+            p.setSuspendEndDate(endDate);
+            saveAll(context);
+        }
+    }
+
+    public static void unsuspendPassenger(Context context, int index) {
+        if (index >= 0 && index < passengerList.size()) {
+            Passenger p = passengerList.get(index);
+            p.setSuspended(false);
+            p.setSuspendStartDate("");
+            p.setSuspendEndDate("");
             saveAll(context);
         }
     }

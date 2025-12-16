@@ -15,6 +15,8 @@ import com.example.tricycle_app.activity.auth.PaymentMethodRegistrationActivity;
 import com.example.tricycle_app.adapter.PaymentMethodAdapter;
 import com.example.tricycle_app.model.PaymentMethod;
 import com.example.tricycle_app.repository.PaymentMethodRepository;
+import com.example.tricycle_app.utils.AdminNavbar;
+import com.example.tricycle_app.utils.UserNavbar;
 
 import java.util.List;
 
@@ -28,6 +30,8 @@ public class UserPaymentMethodsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userpaymentmethods);
+
+        UserNavbar.setup(this);
 
         repository = new PaymentMethodRepository(this);
 

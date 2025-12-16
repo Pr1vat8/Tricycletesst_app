@@ -1,9 +1,7 @@
 package com.example.tricycle_app.activity.user;
 
 import android.content.Context;
-
 import com.example.tricycle_app.model.User;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -44,21 +42,23 @@ public class UserRepository {
             String line = reader.readLine();
             if (line != null) {
                 String[] parts = line.split(",");
-                // Check for 8 columns now
-                if (parts.length >= 8) {
+                if (parts.length >= 11) {
+                    // Load with suspension details
                     currentUser = new User(
-                            parts[0].trim(), // Name
-                            parts[1].trim(), // Phone
-                            parts[2].trim(), // Email
-                            parts[3].trim(), // Address
-                            parts[4].trim(), // Gender
-                            parts[5].trim(), // BirthDate
-                            parts[6].trim(), // Age
-                            parts[7].trim()  // MemberSince
+                            parts[0].trim(), parts[1].trim(), parts[2].trim(),
+                            parts[3].trim(), parts[4].trim(), parts[5].trim(),
+                            parts[6].trim(), parts[7].trim(),
+                            Boolean.parseBoolean(parts[8].trim()), // isSuspended
+                            parts[9].trim(), // Start
+                            parts[10].trim() // End
                     );
-                } else {
-                    // Fallback for older formats
-                    currentUser = new User("Guest", "0000", "email", "Address", "Gender", "BirthDate", "0", "2024");
+                } else if (parts.length >= 8) {
+                    // Legacy load (older versions of the file)
+                    currentUser = new User(
+                            parts[0].trim(), parts[1].trim(), parts[2].trim(),
+                            parts[3].trim(), parts[4].trim(), parts[5].trim(),
+                            parts[6].trim(), parts[7].trim()
+                    );
                 }
             }
         } catch (Exception e) { e.printStackTrace(); }
@@ -74,6 +74,12 @@ public class UserRepository {
             String line = currentUser.toCsvString();
             fos.write(line.getBytes());
         } catch (Exception e) { e.printStackTrace(); }
+    }
+
+    // --- THIS IS THE METHOD YOU WERE MISSING ---
+    public static void setCurrentUser(Context context, User user) {
+        currentUser = user;
+        saveUser(context);
     }
 
     public static User getUser() { return currentUser; }

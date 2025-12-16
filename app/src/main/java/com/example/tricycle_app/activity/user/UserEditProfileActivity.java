@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tricycle_app.R;
 import com.example.tricycle_app.model.User;
+import com.example.tricycle_app.utils.AdminNavbar;
+import com.example.tricycle_app.utils.UserNavbar;
 
 public class UserEditProfileActivity extends AppCompatActivity {
 
@@ -20,6 +22,8 @@ public class UserEditProfileActivity extends AppCompatActivity {
         setContentView(R.layout.usereditprofile);
 
         UserRepository.init(this);
+
+        UserNavbar.setup(this);
 
         LinearLayout btnBack = findViewById(R.id.btnBack);
         TextView btnSave = findViewById(R.id.btnSave);

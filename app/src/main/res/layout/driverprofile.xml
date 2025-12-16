@@ -62,6 +62,21 @@
                     android:focusable="true"/>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tvStatusBadge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⚠ ACCOUNT SUSPENDED ⚠"
+                android:gravity="center"
+                android:background="#FFEBEE"
+                android:textColor="#D32F2F"
+                android:textStyle="bold"
+                android:padding="12dp"
+                android:visibility="gone"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

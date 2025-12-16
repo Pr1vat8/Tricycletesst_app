@@ -1,6 +1,6 @@
-101,Ethan Parker,09123456789,d1@gmail.com,Loc1,ABC-123,Verified,false,L12345,2025-12-30,N/A
-102,Driver Two,09123456788,d2@gmail.com,Loc2,XYZ-789,Pending,false,L67890,2024-01-01,N/A
-103,Driver Three,09123456777,d3@gmail.com,Loc3,DEF-456,Verified,true,L11223,2026-05-20,2024-10-10
-104,Driver Four,09123456666,d4@gmail.com,Loc4,GHI-000,Pending,false,L44556,2025-08-15,N/A
-105,Active Driver,09999999991,active@demo.com,123 Main St,ACT-001,Verified,false,D001-LIC,2026-01-01,N/A
-106,Suspended Driver,09999999992,suspend@demo.com,456 Bad St,SUS-002,Verified,true,D002-LIC,2025-12-31,2025-12-16
+101,Ethan Parker,09123456789,d1@gmail.com,Loc1,ABC-123,Verified,false,,,ethan,pass123
+102,Driver Two,09123456788,d2@gmail.com,Loc2,XYZ-789,Pending,false,,,driver2,pass123
+103,Driver Three,09123456777,d3@gmail.com,Loc3,DEF-456,Verified,true,Jan 01 2024,Jan 08 2024,driver3,pass123
+104,Driver Four,09123456666,d4@gmail.com,Loc4,GHI-000,Pending,false,,,driver4,pass123
+105,Active Driver,09999999991,active@demo.com,123 Main St,ACT-001,Verified,false,,,active,123
+106,Suspended Driver,09999999992,suspend@demo.com,456 Bad St,SUS-002,Verified,true,Oct 25 2023,Oct 30 2023,suspended,123

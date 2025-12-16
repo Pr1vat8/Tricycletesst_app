@@ -1,8 +1,3 @@
-1,Juan Dela Cruz,09123456789,juan@gmail.com,Purok 1,false,September 25 2024
-2,Maria Clara,09987654321,maria@yahoo.com,Purok 2,false,October 01 2024
-3,Jose Rizal,09112233445,jose@gmail.com,Purok 3,false,October 10 2024
-4,Andres Bonifacio,09223344556,andres@gmail.com,Purok 4,true,October 15 2024
-5,Gabriela Silang,09334455667,gabriela@hotmail.com,Purok 5,false,October 25 2024
-6,Emilio Aguinaldo,09445566778,emilio@gmail.com,Purok 6,false,November 01 2024
-7,Apolinario Mabini,09556677889,apol@gmail.com,Purok 7,false,November 10 2024
-8,Melchora Aquino,09667788990,tandangsora@gmail.com,Purok 8,false,November 20 2024
+201,Juan Dela Cruz,09123456789,juan@gmail.com,Manila,Male,1990-01-01,34,false,2023-01-15,,,juan,123
+202,Maria Clara,09987654321,maria@yahoo.com,Quezon City,Female,1995-05-05,29,true,2023-02-20,Oct 25 2023,Oct 30 2023,maria,123
+203,Jose Rizal,09111111111,jose@email.com,Laguna,Male,1980-06-19,44,false,2023-03-10,,,jose,123

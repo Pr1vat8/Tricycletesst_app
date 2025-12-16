@@ -36,11 +36,11 @@ public class AdminAddDriverActivity extends AppCompatActivity {
     }
 
     private void saveDriver() {
-        String name = etName.getText().toString();
-        String phone = etPhone.getText().toString();
-        String email = etEmail.getText().toString();
-        String address = etAddress.getText().toString();
-        String plate = etPlate.getText().toString();
+        String name = etName.getText().toString().trim();
+        String phone = etPhone.getText().toString().trim();
+        String email = etEmail.getText().toString().trim();
+        String address = etAddress.getText().toString().trim();
+        String plate = etPlate.getText().toString().trim();
 
         if (name.isEmpty() || phone.isEmpty() || plate.isEmpty()) {
             Toast.makeText(this, "Please fill in required fields", Toast.LENGTH_SHORT).show();
@@ -48,10 +48,30 @@ public class AdminAddDriverActivity extends AppCompatActivity {
         }
 
         String id = UUID.randomUUID().toString().substring(0, 8);
-        Driver newDriver = new Driver(id, name, phone, email, address, plate, "Verified", false);
 
-        DriverRepository.addDriver(this, newDriver); // Needs addDriver method in repo
-        Toast.makeText(this, "Driver Added Successfully", Toast.LENGTH_SHORT).show();
+        // Generate Default Credentials
+        // Username: first name lowercased (or whole name without spaces)
+        String username = name.split(" ")[0].toLowerCase();
+        String password = "123"; // Default password
+
+        // Updated Constructor: includes empty strings for suspension dates + username/password
+        Driver newDriver = new Driver(
+                id,
+                name,
+                phone,
+                email,
+                address,
+                plate,
+                "Verified",
+                false,
+                "",     // suspendStartDate
+                "",     // suspendEndDate
+                username,
+                password
+        );
+
+        DriverRepository.addDriver(this, newDriver);
+        Toast.makeText(this, "Driver Added! User: " + username + " Pass: " + password, Toast.LENGTH_LONG).show();
         finish();
     }
 }

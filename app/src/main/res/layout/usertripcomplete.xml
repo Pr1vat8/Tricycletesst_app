@@ -132,13 +132,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/bg_pill_blue"
-                android:text="Rate Driver &amp; Pay"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="16sp"
                 android:clickable="true"
-                android:focusable="true"/>
+                android:focusable="true"
+                android:gravity="center"
+                android:text="Pay Driver"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>
