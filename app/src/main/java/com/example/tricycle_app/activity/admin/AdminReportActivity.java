@@ -43,7 +43,6 @@ public class AdminReportActivity extends AppCompatActivity {
         tvTotalTrips = findViewById(R.id.tvTotalTrips);
         tvTotalEarnings = findViewById(R.id.tvTotalEarnings);
         tvCommission = findViewById(R.id.tvCommission);
-        tvReportNewUsers = findViewById(R.id.tvReportNewUsers);
         layoutDriverBreakdown = findViewById(R.id.layoutDriverBreakdown);
 
         LinearLayout btnBack = findViewById(R.id.btnBack);
