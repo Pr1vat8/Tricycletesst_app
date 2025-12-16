@@ -6,5 +6,5 @@ R005,Gabriela Silang,Lucas Scott,Mall,Home,October 20 2024,04:45 PM,Completed,15
 R006,Juan Dela Cruz,Ethan Parker,Plaza,Market,October 25 2024,07:00 AM,Completed,15.00,5.00,20.00
 R007,Emilio Aguinaldo,Mason Evans,Terminal,School,November 02 2024,08:30 AM,Completed,15.00,10.00,25.00
 R008,Apolinario Mabini,Lucas Scott,Home,Church,November 15 2024,06:00 AM,Completed,15.00,10.00,25.00
-R009,Melchora Aquino,Ethan Parker,Purok 2,Purok 4,November 20 2024,02:15 PM,Pending,15.00,0.00,15.00
+R009,Melchora Aquino,Ethan Parker,Purok 2,Purok 4,November 20 2024,02:15 PM,Completed,15.00,0.00,15.00
 R010,Maria Clara,Mason Evans,School,Mall,November 30 2024,05:00 PM,Completed,15.00,35.00,50.00

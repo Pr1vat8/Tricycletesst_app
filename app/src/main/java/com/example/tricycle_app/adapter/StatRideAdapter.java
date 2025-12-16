@@ -32,7 +32,8 @@ public class StatRideAdapter extends RecyclerView.Adapter<StatRideAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_stat_ride, parent, false);
+        // CHANGED: Now inflates 'item_admin_stat_ride' to show Driver info
+        View view = LayoutInflater.from(context).inflate(R.layout.item_admin_stat_ride, parent, false);
         return new ViewHolder(view);
     }
 
@@ -42,22 +43,23 @@ public class StatRideAdapter extends RecyclerView.Adapter<StatRideAdapter.ViewHo
 
         holder.tvDate.setText(r.getDate() + " • " + r.getTime());
         holder.tvPassenger.setText(r.getPassenger());
+
+        // NEW: Bind Driver Name
+        holder.tvDriver.setText(r.getDriver());
+
         holder.tvFare.setText("₱" + r.getTotalFare());
         holder.tvStatus.setText(r.getStatus());
 
-        // --- FIXED COLOR LOGIC ---
+        // Color Logic for Status Pill
         if ("Completed".equalsIgnoreCase(r.getStatus())) {
-            // Solid Green Pill -> White Text
             holder.tvStatus.setBackgroundResource(R.drawable.bg_pill_green);
             holder.tvStatus.setTextColor(Color.WHITE);
         }
         else if ("Cancelled".equalsIgnoreCase(r.getStatus())) {
-            // Solid Red Pill -> White Text
             holder.tvStatus.setBackgroundResource(R.drawable.bg_pill_red);
             holder.tvStatus.setTextColor(Color.WHITE);
         }
         else {
-            // Pending/Other -> Grey Pill -> Dark Text
             holder.tvStatus.setBackgroundResource(R.drawable.bg_pill_grey);
             holder.tvStatus.setTextColor(Color.parseColor("#61768A"));
         }
@@ -67,12 +69,14 @@ public class StatRideAdapter extends RecyclerView.Adapter<StatRideAdapter.ViewHo
     public int getItemCount() { return rideList.size(); }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDate, tvPassenger, tvFare, tvStatus;
+        // Added tvDriver
+        TextView tvDate, tvPassenger, tvDriver, tvFare, tvStatus;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDate = itemView.findViewById(R.id.tvDate);
             tvPassenger = itemView.findViewById(R.id.tvPassenger);
+            tvDriver = itemView.findViewById(R.id.tvDriver); // NEW
             tvFare = itemView.findViewById(R.id.tvFare);
             tvStatus = itemView.findViewById(R.id.tvStatus);
         }

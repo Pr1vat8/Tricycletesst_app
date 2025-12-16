@@ -1,13 +1,10 @@
 package com.example.tricycle_app.activity.auth;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tricycle_app.R;
@@ -18,108 +15,109 @@ import java.util.UUID;
 
 public class PaymentMethodRegistrationActivity extends AppCompatActivity {
 
-    private View selectedProvider = null;
-    private String selectedProviderName = "";
+    private FrameLayout btnGcash, btnMaya;
     private EditText etPhoneNumber, etCode;
-    private PaymentMethodRepository repository;
-    private String mode = "ADD";
-    private String editId = null;
+    // Added TextView for the resend button
+    private TextView btnResend;
+
+    private String selectedProvider = ""; // "GCash" or "Maya"
+
+    // Variables for Edit Mode
+    private boolean isEditMode = false;
+    private String methodId = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paymentmethodregistration);
 
-        repository = new PaymentMethodRepository(this);
+        initViews();
+        handleIntentData();
 
-        LinearLayout btnBack = findViewById(R.id.btnBack);
-        LinearLayout btnGcash = findViewById(R.id.btnGcash);
-        LinearLayout btnMaya = findViewById(R.id.btnMaya);
+        findViewById(R.id.btnBack).setOnClickListener(v -> finish());
 
+        // --- SELECTION LOGIC ---
+        btnGcash.setOnClickListener(v -> selectProvider("GCash"));
+        btnMaya.setOnClickListener(v -> selectProvider("Maya"));
+
+        // --- NEW: Resend Button Logic ---
+        btnResend.setOnClickListener(v -> {
+            String phone = etPhoneNumber.getText().toString().trim();
+            if(phone.isEmpty()) {
+                Toast.makeText(this, "Enter phone number first", Toast.LENGTH_SHORT).show();
+            } else {
+                // Show the indicator (Toast)
+                Toast.makeText(this, "Verification code resent!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        findViewById(R.id.btnDone).setOnClickListener(v -> savePaymentMethod());
+    }
+
+    private void initViews() {
+        btnGcash = findViewById(R.id.btnGcash);
+        btnMaya = findViewById(R.id.btnMaya);
         etPhoneNumber = findViewById(R.id.etPhoneNumber);
         etCode = findViewById(R.id.etCode);
+        // Initialize the resend button
+        btnResend = findViewById(R.id.btnResend);
+    }
 
-        TextView btnResend = findViewById(R.id.btnResend);
-        TextView btnDone = findViewById(R.id.btnDone);
+    private void handleIntentData() {
+        String mode = getIntent().getStringExtra("MODE");
+        if ("EDIT".equals(mode)) {
+            isEditMode = true;
+            methodId = getIntent().getStringExtra("ID");
+            String provider = getIntent().getStringExtra("PROVIDER");
+            String phone = getIntent().getStringExtra("PHONE");
 
-        // Handle Edit Mode Data Loading
-        if (getIntent().hasExtra("MODE")) {
-            mode = getIntent().getStringExtra("MODE");
-            if ("EDIT".equals(mode)) {
-                editId = getIntent().getStringExtra("ID");
-                String provider = getIntent().getStringExtra("PROVIDER");
-                String phone = getIntent().getStringExtra("PHONE");
-
-                etPhoneNumber.setText(phone);
-
-                // Visual selection for edit
-                if ("GCash".equalsIgnoreCase(provider) && btnGcash != null) {
-                    selectProvider(btnGcash, "GCash");
-                } else if ("PayMaya".equalsIgnoreCase(provider) && btnMaya != null) {
-                    selectProvider(btnMaya, "PayMaya");
-                }
-            }
-        }
-
-        if(btnBack != null) btnBack.setOnClickListener(v -> finish());
-
-        if(btnGcash != null) btnGcash.setOnClickListener(v -> selectProvider(v, "GCash"));
-        if(btnMaya != null) btnMaya.setOnClickListener(v -> selectProvider(v, "PayMaya"));
-
-        if(btnResend != null) {
-            btnResend.setOnClickListener(v -> {
-                if(etPhoneNumber.getText().toString().isEmpty()){
-                    Toast.makeText(this, "Enter number first", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "OTP Code sent to " + etPhoneNumber.getText().toString(), Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-
-        if(btnDone != null) {
-            btnDone.setOnClickListener(v -> {
-                if(selectedProviderName.isEmpty()) {
-                    Toast.makeText(this, "Please choose a provider", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(etPhoneNumber.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "Please enter number", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(etCode.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "Please enter the OTP Code", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                // 1. Save Data
-                String id = (editId != null) ? editId : UUID.randomUUID().toString();
-                PaymentMethod method = new PaymentMethod(id, selectedProviderName, etPhoneNumber.getText().toString(), false);
-                repository.addOrUpdatePaymentMethod(method);
-
-                // 2. Show Success Pop-out (AlertDialog)
-                // This uses the system's default design, no extra XML needed.
-                new AlertDialog.Builder(this)
-                        .setTitle("Success")
-                        .setMessage("Payment method has been successfully saved.")
-                        .setCancelable(false) // User must click OK
-                        .setPositiveButton("OK", (dialog, which) -> {
-                            finish(); // Close activity only after clicking OK
-                        })
-                        .show();
-            });
+            etPhoneNumber.setText(phone);
+            selectProvider(provider); // Pre-select the existing provider
         }
     }
 
-    private void selectProvider(View v, String name) {
-        if (selectedProvider != null) {
-            selectedProvider.setAlpha(1.0f);
-            selectedProvider.setBackgroundResource(0);
-            if(selectedProvider.getId() == R.id.btnGcash) selectedProvider.setBackgroundResource(R.drawable.gcash);
-            if(selectedProvider.getId() == R.id.btnMaya) selectedProvider.setBackgroundResource(R.drawable.maya);
+    private void selectProvider(String provider) {
+        selectedProvider = provider;
+
+        // Apply Border to Selected, Remove from Unselected
+        if ("GCash".equalsIgnoreCase(provider)) {
+            btnGcash.setBackgroundResource(R.drawable.bg_border_black);
+            btnMaya.setBackgroundResource(0); // 0 removes background (Transparent)
+        } else if ("Maya".equalsIgnoreCase(provider)) {
+            btnMaya.setBackgroundResource(R.drawable.bg_border_black);
+            btnGcash.setBackgroundResource(0);
         }
-        selectedProvider = v;
-        selectedProviderName = name;
-        v.setAlpha(0.6f);
-        v.setBackgroundResource(R.drawable.bg_rounded_border);
+    }
+
+    private void savePaymentMethod() {
+        String phone = etPhoneNumber.getText().toString().trim();
+
+        if (selectedProvider.isEmpty()) {
+            Toast.makeText(this, "Please select a payment method", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (phone.isEmpty()) {
+            Toast.makeText(this, "Please enter phone number", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        PaymentMethodRepository repo = new PaymentMethodRepository(this);
+
+        String finalId;
+        if (isEditMode && methodId != null) {
+            finalId = methodId;
+        } else {
+            finalId = UUID.randomUUID().toString();
+        }
+
+        // 'false' indicates this is not the default payment method initially
+        PaymentMethod method = new PaymentMethod(finalId, selectedProvider, phone, false);
+
+        repo.addOrUpdatePaymentMethod(method);
+
+        String msg = isEditMode ? "Payment Method Updated" : "Payment Method Added";
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+
+        finish();
     }
 }

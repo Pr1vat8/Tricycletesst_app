@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:background="#FFFFFF">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -53,105 +53,68 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:paddingBottom="12dp">
+                android:paddingBottom="12dp"
+                android:gravity="center_vertical">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:id="@+id/btnDateFrom"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@drawable/bg_rounded_border">
-
-                    <LinearLayout
-                        android:id="@+id/tabDay"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_rounded_light_grey"
+                    android:padding="12dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:clickable="true">
-                        <TextView
-                            android:id="@+id/tvDay"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Day"
-                            android:gravity="center"
-                            android:paddingTop="16dp"
-                            android:paddingBottom="13dp"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:textColor="#61768A"/>
-                        <View
-                            android:id="@+id/lineDay"
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="@android:color/transparent"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/tabWeek"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:text="From"
+                        android:textSize="12sp"
+                        android:textColor="#61768A"/>
+                    <TextView
+                        android:id="@+id/tvDateFrom"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:clickable="true">
-                        <TextView
-                            android:id="@+id/tvWeek"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Week"
-                            android:gravity="center"
-                            android:paddingTop="16dp"
-                            android:paddingBottom="13dp"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:textColor="#121417"/>
-                        <View
-                            android:id="@+id/lineWeek"
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="#121417"/>
-                    </LinearLayout>
+                        android:text="Select Date"
+                        android:textStyle="bold"
+                        android:textColor="#121417"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/tabMonth"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                <LinearLayout
+                    android:id="@+id/btnDateTo"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_rounded_light_grey"
+                    android:padding="12dp"
+                    android:layout_marginStart="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:clickable="true">
-                        <TextView
-                            android:id="@+id/tvMonth"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Month"
-                            android:gravity="center"
-                            android:paddingTop="16dp"
-                            android:paddingBottom="13dp"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:textColor="#61768A"/>
-                        <View
-                            android:id="@+id/lineMonth"
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="@android:color/transparent"/>
-                    </LinearLayout>
+                        android:text="To"
+                        android:textSize="12sp"
+                        android:textColor="#61768A"/>
+                    <TextView
+                        android:id="@+id/tvDateTo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Date"
+                        android:textStyle="bold"
+                        android:textColor="#121417"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp"/>
                 </LinearLayout>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/tvDateHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="This Week"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="#121417"
-                android:paddingStart="16dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="12dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -179,7 +142,7 @@
                         android:id="@+id/tvTotalEarnings"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="₱1500"
+                        android:text="₱0"
                         android:textSize="24sp"
                         android:textStyle="bold"
                         android:textColor="#121417"/>
@@ -205,68 +168,17 @@
                         android:id="@+id/tvTotalRides"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="32"
+                        android:text="0"
                         android:textSize="24sp"
                         android:textStyle="bold"
                         android:textColor="#121417"/>
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Weekly Earnings"
-                    android:textSize="16sp"
-                    android:textColor="#121417"
-                    android:layout_marginBottom="8dp"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
-                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Mon" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
-                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Tue" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
-                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Wed" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
-                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Thu" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
-                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Fri" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end" android:layout_marginEnd="12dp">
-                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Sat" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end">
-                        <View android:layout_width="match_parent" android:layout_height="137dp" android:background="@drawable/bar" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="20dp" android:text="Sun" android:textSize="13sp" android:textStyle="bold" android:textColor="#61768A"/>
-                    </LinearLayout>
-
-                </LinearLayout>
-            </LinearLayout>
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Earnings Breakdown"
+                android:text="Ride History"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:textColor="#121417"
@@ -274,48 +186,17 @@
                 android:paddingTop="20dp"
                 android:paddingBottom="12dp"/>
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRideHistory"
                 android:layout_width="match_parent"
-                android:layout_height="72dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_rounded_border"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total Fares"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#121417"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fares from rides"
-                        android:textSize="14sp"
-                        android:textColor="#61768A"/>
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tvFareTotal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₱1520"
-                    android:textSize="16sp"
-                    android:textColor="#121417"/>
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp"/>
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <include layout="@layout/drivernav" />
 

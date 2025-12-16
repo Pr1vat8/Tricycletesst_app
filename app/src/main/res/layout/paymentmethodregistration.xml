@@ -54,25 +54,34 @@
         android:gravity="center_horizontal"
         android:layout_marginBottom="24dp">
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/btnGcash"
-            android:layout_width="116dp"
-            android:layout_height="116dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/gcash"
-            android:gravity="center"
             android:clickable="true"
             android:focusable="true"
-            android:padding="4dp"/> <LinearLayout
-        android:id="@+id/btnMaya"
-        android:layout_width="118dp"
-        android:layout_height="118dp"
-        android:background="@drawable/maya"
-        android:gravity="center|fill"
-        android:orientation="vertical"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="4dp"/>
+            android:padding="6dp"
+            android:background="@android:color/transparent"> <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gcash"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnMaya"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="6dp"
+            android:background="@android:color/transparent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/maya"/>
+        </FrameLayout>
 
     </LinearLayout>
 
@@ -128,7 +137,6 @@
             android:textSize="16sp"
             android:clickable="true"
             android:focusable="true"/>
-
     </LinearLayout>
 
     <View

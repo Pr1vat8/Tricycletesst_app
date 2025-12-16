@@ -23,7 +23,6 @@ public class UserTripProgressActivity extends AppCompatActivity {
         // 2. Find Views
         // Note: In your XML, the "Arrived?" button has ID `btnShareTrip`
         LinearLayout btnArrived = findViewById(R.id.btnShareTrip);
-        LinearLayout btnContactSupport = findViewById(R.id.btnContactSupport);
         LinearLayout btnBack = findViewById(R.id.btnBack);
 
         // 3. Arrived Button Logic -> Go to Trip Complete Screen
@@ -38,12 +37,6 @@ public class UserTripProgressActivity extends AppCompatActivity {
             });
         }
 
-        // 4. Contact Support Logic (Optional Placeholder)
-        if (btnContactSupport != null) {
-            btnContactSupport.setOnClickListener(v -> {
-                Toast.makeText(this, "Contacting Support...", Toast.LENGTH_SHORT).show();
-            });
-        }
 
         // 5. Back Button Logic
         if (btnBack != null) {

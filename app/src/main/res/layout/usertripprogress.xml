@@ -282,24 +282,6 @@
                     android:textSize="14sp"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/btnContactSupport"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_pill_grey"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginStart="6dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Contact support"
-                    android:textStyle="bold"
-                    android:textColor="#121417"
-                    android:textSize="14sp"/>
-            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
