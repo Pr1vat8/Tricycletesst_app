@@ -92,11 +92,13 @@
         android:id="@+id/etCardNumber"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/bg_rounded_light_grey"
         android:hint="0000 0000 0000 0000"
-        android:padding="16dp"
         android:inputType="number"
-        android:layout_marginBottom="16dp"/>
+        android:padding="16dp"
+        android:textColor="#121212"
+        android:textColorHint="#B1AFAF" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -117,14 +119,17 @@
                 android:textSize="14sp"
                 android:textColor="#61768A"
                 android:layout_marginBottom="8dp"/>
+
             <EditText
                 android:id="@+id/etExpiry"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:background="@drawable/bg_rounded_light_grey"
                 android:hint="MM/YY"
+                android:inputType="date"
                 android:padding="16dp"
-                android:inputType="date"/>
+                android:textColor="#121212"
+                android:textColorHint="#B1AFAF" />
         </LinearLayout>
 
         <LinearLayout
@@ -139,15 +144,18 @@
                 android:textSize="14sp"
                 android:textColor="#61768A"
                 android:layout_marginBottom="8dp"/>
+
             <EditText
                 android:id="@+id/etCvv"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:background="@drawable/bg_rounded_light_grey"
                 android:hint="123"
-                android:padding="16dp"
                 android:inputType="numberPassword"
-                android:maxLength="3"/>
+                android:maxLength="3"
+                android:padding="16dp"
+                android:textColor="#121212"
+                android:textColorHint="#B1AFAF" />
         </LinearLayout>
     </LinearLayout>
 
