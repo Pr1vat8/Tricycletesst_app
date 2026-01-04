@@ -26,7 +26,7 @@ public class AdmindriverdetailActivity extends AppCompatActivity {
     private String driverId;
     private boolean isEditing = false;
 
-    private EditText etName, etPhone, etEmail, etAddress, etPlate;
+    private EditText etName, etPhone, etEmail, etAddress, etRoute, etPlate; // Added etRoute
     private TextView tvStatus, tvHeaderName, tvHeaderId;
     private TextView btnLeft, btnRight;
     private LinearLayout btnBack;
@@ -51,6 +51,7 @@ public class AdmindriverdetailActivity extends AppCompatActivity {
         etPhone = findViewById(R.id.etPhone);
         etEmail = findViewById(R.id.etEmail);
         etAddress = findViewById(R.id.etAddress);
+        etRoute = findViewById(R.id.etRoute); // NEW: Bind Route
         etPlate = findViewById(R.id.etPlate);
 
         tvHeaderName = findViewById(R.id.tvHeaderName);
@@ -74,6 +75,7 @@ public class AdmindriverdetailActivity extends AppCompatActivity {
         etPhone.setText(d.getPhone());
         etEmail.setText(d.getEmail());
         etAddress.setText(d.getAddress());
+        etRoute.setText(d.getRoute()); // Set Route
         etPlate.setText(d.getPlateNumber());
 
         tvHeaderName.setText(d.getName());
@@ -238,17 +240,27 @@ public class AdmindriverdetailActivity extends AppCompatActivity {
         btnLeft.setBackgroundResource(R.drawable.bg_pill_blue);
         btnLeft.setTextColor(Color.WHITE);
         etName.setEnabled(true); etPhone.setEnabled(true);
-        etEmail.setEnabled(true); etAddress.setEnabled(true); etPlate.setEnabled(true);
+        etEmail.setEnabled(true); etAddress.setEnabled(true);
+        etRoute.setEnabled(true); // Enable Route
+        etPlate.setEnabled(true);
     }
 
     private void saveChanges() {
+        // Fixed Update Call: Added 'etRoute.getText().toString()'
         DriverRepository.updateDriver(this, driverId,
-                etName.getText().toString(), etPhone.getText().toString(),
-                etEmail.getText().toString(), etAddress.getText().toString(), etPlate.getText().toString());
+                etName.getText().toString(),
+                etPhone.getText().toString(),
+                etEmail.getText().toString(),
+                etAddress.getText().toString(),
+                etPlate.getText().toString(),
+                etRoute.getText().toString()); // Pass Route
+
         isEditing = false;
         loadDriverData();
         etName.setEnabled(false); etPhone.setEnabled(false);
-        etEmail.setEnabled(false); etAddress.setEnabled(false); etPlate.setEnabled(false);
+        etEmail.setEnabled(false); etAddress.setEnabled(false);
+        etRoute.setEnabled(false); // Disable Route
+        etPlate.setEnabled(false);
         Toast.makeText(this, "Changes Saved", Toast.LENGTH_SHORT).show();
     }
 }

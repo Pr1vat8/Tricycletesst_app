@@ -50,18 +50,17 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
         holder.tvName.setText(d.getName());
         holder.tvPhone.setText(d.getPhone());
 
+        // NEW: Bind Route
+        holder.tvRoute.setText("Route: " + (d.getRoute() != null ? d.getRoute() : "N/A"));
+
         // --- COLOR LOGIC ---
-        // Priority 1: Check if Suspended (Red)
         if (d.isSuspended()) {
             holder.viewStatus.setBackgroundResource(R.drawable.bg_circle_red);
-        }
-        // Priority 2: Check Status Text
-        else if (d.getStatus().equalsIgnoreCase("Verified")) {
+        } else if (d.getStatus().equalsIgnoreCase("Verified")) {
             holder.viewStatus.setBackgroundResource(R.drawable.bg_circle_green);
         } else if (d.getStatus().equalsIgnoreCase("Rejected")) {
             holder.viewStatus.setBackgroundResource(R.drawable.bg_circle_red);
         } else {
-            // Default to Pending (Orange)
             holder.viewStatus.setBackgroundResource(R.drawable.bg_circle_orange);
         }
 
@@ -74,13 +73,14 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
     public int getItemCount() { return driverList.size(); }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName, tvPhone;
+        TextView tvName, tvPhone, tvRoute; // Added tvRoute
         View viewStatus;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
             tvPhone = itemView.findViewById(R.id.tvPhone);
+            tvRoute = itemView.findViewById(R.id.tvRoute); // Find ID
             viewStatus = itemView.findViewById(R.id.viewStatus);
         }
     }

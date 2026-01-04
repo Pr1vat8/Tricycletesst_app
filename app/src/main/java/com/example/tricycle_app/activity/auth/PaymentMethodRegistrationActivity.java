@@ -1,5 +1,6 @@
 package com.example.tricycle_app.activity.auth;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -17,10 +18,9 @@ public class PaymentMethodRegistrationActivity extends AppCompatActivity {
 
     private FrameLayout btnGcash, btnMaya;
     private EditText etPhoneNumber, etCode;
-    // Added TextView for the resend button
-    private TextView btnResend;
+    private TextView btnResend, btnDone, btnGoToCard;
 
-    private String selectedProvider = ""; // "GCash" or "Maya"
+    private String selectedProvider = "GCash"; // Default
 
     // Variables for Edit Mode
     private boolean isEditMode = false;
@@ -40,18 +40,27 @@ public class PaymentMethodRegistrationActivity extends AppCompatActivity {
         btnGcash.setOnClickListener(v -> selectProvider("GCash"));
         btnMaya.setOnClickListener(v -> selectProvider("Maya"));
 
-        // --- NEW: Resend Button Logic ---
+        // --- Resend Button ---
         btnResend.setOnClickListener(v -> {
             String phone = etPhoneNumber.getText().toString().trim();
             if(phone.isEmpty()) {
                 Toast.makeText(this, "Enter phone number first", Toast.LENGTH_SHORT).show();
             } else {
-                // Show the indicator (Toast)
                 Toast.makeText(this, "Verification code resent!", Toast.LENGTH_SHORT).show();
             }
         });
 
-        findViewById(R.id.btnDone).setOnClickListener(v -> savePaymentMethod());
+        // --- Switch to Card Activity ---
+        btnGoToCard.setOnClickListener(v -> {
+            Intent intent = new Intent(this, CardRegistrationActivity.class);
+            startActivity(intent);
+            finish(); // Close this to prevent back-stack confusion
+        });
+
+        btnDone.setOnClickListener(v -> savePaymentMethod());
+
+        // Initial Selection UI
+        selectProvider(selectedProvider);
     }
 
     private void initViews() {
@@ -59,8 +68,9 @@ public class PaymentMethodRegistrationActivity extends AppCompatActivity {
         btnMaya = findViewById(R.id.btnMaya);
         etPhoneNumber = findViewById(R.id.etPhoneNumber);
         etCode = findViewById(R.id.etCode);
-        // Initialize the resend button
         btnResend = findViewById(R.id.btnResend);
+        btnDone = findViewById(R.id.btnDone);
+        btnGoToCard = findViewById(R.id.btnGoToCard);
     }
 
     private void handleIntentData() {
@@ -71,8 +81,10 @@ public class PaymentMethodRegistrationActivity extends AppCompatActivity {
             String provider = getIntent().getStringExtra("PROVIDER");
             String phone = getIntent().getStringExtra("PHONE");
 
-            etPhoneNumber.setText(phone);
-            selectProvider(provider); // Pre-select the existing provider
+            if ("GCash".equals(provider) || "Maya".equals(provider)) {
+                etPhoneNumber.setText(phone);
+                selectProvider(provider);
+            }
         }
     }
 
@@ -82,7 +94,7 @@ public class PaymentMethodRegistrationActivity extends AppCompatActivity {
         // Apply Border to Selected, Remove from Unselected
         if ("GCash".equalsIgnoreCase(provider)) {
             btnGcash.setBackgroundResource(R.drawable.bg_border_black);
-            btnMaya.setBackgroundResource(0); // 0 removes background (Transparent)
+            btnMaya.setBackgroundResource(0);
         } else if ("Maya".equalsIgnoreCase(provider)) {
             btnMaya.setBackgroundResource(R.drawable.bg_border_black);
             btnGcash.setBackgroundResource(0);
@@ -91,6 +103,7 @@ public class PaymentMethodRegistrationActivity extends AppCompatActivity {
 
     private void savePaymentMethod() {
         String phone = etPhoneNumber.getText().toString().trim();
+        String code = etCode.getText().toString().trim();
 
         if (selectedProvider.isEmpty()) {
             Toast.makeText(this, "Please select a payment method", Toast.LENGTH_SHORT).show();
@@ -100,18 +113,18 @@ public class PaymentMethodRegistrationActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter phone number", Toast.LENGTH_SHORT).show();
             return;
         }
+        // STRICT REQUIREMENT: Code is required for E-wallets
+        if (code.isEmpty()) {
+            Toast.makeText(this, "Please enter verification code", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         PaymentMethodRepository repo = new PaymentMethodRepository(this);
 
-        String finalId;
-        if (isEditMode && methodId != null) {
-            finalId = methodId;
-        } else {
-            finalId = UUID.randomUUID().toString();
-        }
+        String finalId = (isEditMode && methodId != null) ? methodId : UUID.randomUUID().toString();
 
         // 'false' indicates this is not the default payment method initially
-        PaymentMethod method = new PaymentMethod(finalId, selectedProvider, phone, false);
+        PaymentMethod method = new PaymentMethod(finalId, selectedProvider, phone, "N/A", false);
 
         repo.addOrUpdatePaymentMethod(method);
 

@@ -23,16 +23,14 @@ import java.util.UUID;
 
 public class AdminAddDriverActivity extends AppCompatActivity {
 
-    private EditText etName, etPhone, etEmail, etAddress, etPlate, etModel, etAccountNumber;
+    private EditText etName, etPhone, etEmail, etAddress, etRoute, etPlate, etModel, etAccountNumber;
     private TextView btnUploadLicense, btnUploadRegistration;
-    private TextView activeUploadButton; // Tracks which button triggered the upload
+    private TextView activeUploadButton;
 
-    // Setup the Gallery Result Launcher
     private final ActivityResultLauncher<Intent> galleryLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                    Uri selectedImageUri = result.getData().getData();
                     if (activeUploadButton != null) {
                         activeUploadButton.setText("Done");
                         activeUploadButton.setTextColor(Color.parseColor("#088738"));
@@ -61,14 +59,14 @@ public class AdminAddDriverActivity extends AppCompatActivity {
         etPhone = findViewById(R.id.etPhone);
         etEmail = findViewById(R.id.etEmail);
         etAddress = findViewById(R.id.etAddress);
-        etModel = findViewById(R.id.etModel); // New field
+        etRoute = findViewById(R.id.etRoute); // NEW: Route Field
+        etModel = findViewById(R.id.etModel);
         etPlate = findViewById(R.id.etPlate);
-        etAccountNumber = findViewById(R.id.etAccountNumber); // New field
+        etAccountNumber = findViewById(R.id.etAccountNumber);
 
         btnUploadLicense = findViewById(R.id.btnUploadLicense);
         btnUploadRegistration = findViewById(R.id.btnUploadRegistration);
 
-        // Upload Logic
         btnUploadLicense.setOnClickListener(v -> {
             activeUploadButton = btnUploadLicense;
             openGallery();
@@ -90,12 +88,13 @@ public class AdminAddDriverActivity extends AppCompatActivity {
         String phone = etPhone.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
         String address = etAddress.getText().toString().trim();
+        String route = etRoute.getText().toString().trim(); // Get Route
         String model = etModel.getText().toString().trim();
         String plate = etPlate.getText().toString().trim();
         String accountNum = etAccountNumber.getText().toString().trim();
 
-        if (name.isEmpty() || phone.isEmpty() || plate.isEmpty()) {
-            Toast.makeText(this, "Please fill in required fields", Toast.LENGTH_SHORT).show();
+        if (name.isEmpty() || phone.isEmpty() || plate.isEmpty() || route.isEmpty()) {
+            Toast.makeText(this, "Please fill in required fields (including Route)", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -103,8 +102,7 @@ public class AdminAddDriverActivity extends AppCompatActivity {
         String username = name.split(" ")[0].toLowerCase();
         String password = "123";
 
-        // Note: Driver constructor does not currently accept 'model' or 'accountNum'.
-        // You must update the Driver model if you wish to store these.
+        // Fixed Constructor Call: Added 'route' parameter
         Driver newDriver = new Driver(
                 id,
                 name,
@@ -112,6 +110,7 @@ public class AdminAddDriverActivity extends AppCompatActivity {
                 email,
                 address,
                 plate,
+                route, // <--- Added this to fix the error
                 "Verified",
                 false,
                 "",

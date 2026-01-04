@@ -1,2 +1,2 @@
-default-cash-id,Cash,Default,true
-default-wallet-id,Wallet,Balance: 0.00,false
+pm-default-01,GCash,09123456789,N/A,true
+pm-default-02,Maya,09987654321,N/A,false

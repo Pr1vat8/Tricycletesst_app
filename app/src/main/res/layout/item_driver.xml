@@ -27,11 +27,21 @@
             android:textColor="#0D141C"/>
 
         <TextView
+            android:id="@+id/tvRoute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Route: Poblacion - Market"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#0A73D9"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
             android:id="@+id/tvPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="09123456789"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textColor="#4A739C"/>
     </LinearLayout>
 

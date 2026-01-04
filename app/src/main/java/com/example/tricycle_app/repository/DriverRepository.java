@@ -45,18 +45,27 @@ public class DriverRepository {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length >= 8) {
-                    // Safe parsing for optional fields
-                    String sDate = (parts.length > 8) ? parts[8].trim() : "";
-                    String eDate = (parts.length > 9) ? parts[9].trim() : "";
-                    String user = (parts.length > 10) ? parts[10].trim() : "";
-                    String pass = (parts.length > 11) ? parts[11].trim() : "";
+                // Adjusted check for new field (approx 13 fields now)
+                if (parts.length >= 7) {
+                    String id = parts[0].trim();
+                    String name = parts[1].trim();
+                    String phone = parts[2].trim();
+                    String email = parts[3].trim();
+                    String address = parts[4].trim();
+                    String plate = parts[5].trim();
+                    String route = parts[6].trim(); // NEW FIELD
+
+                    // Optional fields handling
+                    String status = (parts.length > 7) ? parts[7].trim() : "Pending";
+                    boolean isSuspended = (parts.length > 8) && Boolean.parseBoolean(parts[8].trim());
+                    String sDate = (parts.length > 9) ? parts[9].trim() : "";
+                    String eDate = (parts.length > 10) ? parts[10].trim() : "";
+                    String user = (parts.length > 11) ? parts[11].trim() : "";
+                    String pass = (parts.length > 12) ? parts[12].trim() : "";
 
                     driverList.add(new Driver(
-                            parts[0].trim(), parts[1].trim(), parts[2].trim(),
-                            parts[3].trim(), parts[4].trim(), parts[5].trim(),
-                            parts[6].trim(), Boolean.parseBoolean(parts[7].trim()),
-                            sDate, eDate, user, pass
+                            id, name, phone, email, address, plate, route,
+                            status, isSuspended, sDate, eDate, user, pass
                     ));
                 }
             }
@@ -83,12 +92,10 @@ public class DriverRepository {
         return null;
     }
 
-    // --- FILTER METHODS (Fixes your error) ---
     public static List<Driver> getDriversByStatus(String status) {
         List<Driver> filtered = new ArrayList<>();
         for (Driver d : driverList) {
             if (status.equalsIgnoreCase("Pending")) {
-                // Show both Pending and Rejected in the "Pending" tab
                 if (d.getStatus().equalsIgnoreCase("Pending") || d.getStatus().equalsIgnoreCase("Rejected")) {
                     filtered.add(d);
                 }
@@ -124,11 +131,13 @@ public class DriverRepository {
         saveAll(context);
     }
 
-    public static void updateDriver(Context context, String id, String name, String phone, String email, String address, String plate) {
+    // Updated to include ROUTE
+    public static void updateDriver(Context context, String id, String name, String phone, String email, String address, String plate, String route) {
         Driver d = getDriverById(id);
         if (d != null) {
             d.setName(name); d.setPhone(phone); d.setEmail(email);
             d.setAddress(address); d.setPlateNumber(plate);
+            d.setRoute(route);
             saveAll(context);
         }
     }
@@ -143,7 +152,6 @@ public class DriverRepository {
         if (d != null) { d.setStatus("Rejected"); saveAll(context); }
     }
 
-    // --- LOGIN & SUSPENSION ---
     public static Driver login(String username, String password) {
         for (Driver d : driverList) {
             if (d.getUsername() != null && d.getUsername().equals(username) &&

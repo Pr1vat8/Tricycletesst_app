@@ -62,10 +62,11 @@
             android:clickable="true"
             android:focusable="true"
             android:padding="6dp"
-            android:background="@android:color/transparent"> <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/gcash"/>
+            android:background="@android:color/transparent">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gcash"/>
         </FrameLayout>
 
         <FrameLayout
@@ -138,6 +139,19 @@
             android:clickable="true"
             android:focusable="true"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/btnGoToCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pay with Credit/Debit Card instead?"
+        android:gravity="center"
+        android:textColor="#0A73D9"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true"/>
 
     <View
         android:layout_width="match_parent"

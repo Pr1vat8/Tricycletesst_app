@@ -7,6 +7,7 @@ public class Driver {
     private String email;
     private String address;
     private String plateNumber;
+    private String route; // NEW: Driver Route
     private String status; // "Verified" or "Pending"
     private boolean isSuspended;
 
@@ -18,7 +19,7 @@ public class Driver {
     private String username;
     private String password;
 
-    public Driver(String id, String name, String phone, String email, String address, String plateNumber,
+    public Driver(String id, String name, String phone, String email, String address, String plateNumber, String route,
                   String status, boolean isSuspended, String suspendStartDate, String suspendEndDate,
                   String username, String password) {
         this.id = id;
@@ -27,6 +28,7 @@ public class Driver {
         this.email = email;
         this.address = address;
         this.plateNumber = plateNumber;
+        this.route = route;
         this.status = status;
         this.isSuspended = isSuspended;
         this.suspendStartDate = suspendStartDate;
@@ -35,10 +37,10 @@ public class Driver {
         this.password = password;
     }
 
-    // CSV Format: ID,Name,Phone,Email,Address,Plate,Status,IsSuspended,Start,End,User,Pass
+    // CSV Format: ID,Name,Phone,Email,Address,Plate,Route,Status,IsSuspended,Start,End,User,Pass
     public String toCsvString() {
         return id + "," + name + "," + phone + "," + email + "," + address + "," + plateNumber + "," +
-                status + "," + isSuspended + "," + suspendStartDate + "," + suspendEndDate + "," +
+                route + "," + status + "," + isSuspended + "," + suspendStartDate + "," + suspendEndDate + "," +
                 username + "," + password;
     }
 
@@ -54,6 +56,8 @@ public class Driver {
     public void setAddress(String address) { this.address = address; }
     public String getPlateNumber() { return plateNumber; }
     public void setPlateNumber(String plateNumber) { this.plateNumber = plateNumber; }
+    public String getRoute() { return route; }
+    public void setRoute(String route) { this.route = route; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
 
